@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Admin columns functionality class for Simple Events Calendar
+ * Admin columns functionality class for Simply Events Calendar
  *
  * @package Simple_Events_Calendar
  * @since 3.0.0
@@ -47,14 +47,14 @@ class Simple_Events_Admin_Columns {
     public function register_columns($columns) {
         return array(
             'cb' => isset($columns['cb']) ? $columns['cb'] : '<input type="checkbox" />',
-            'title' => __('Event Title', PLUGIN_TEXT_DOMAIN),
-            'event_thumbnail' => __('Image', PLUGIN_TEXT_DOMAIN),
-            'event_date' => __('Event Date', PLUGIN_TEXT_DOMAIN),
-            'event_time' => __('Time', PLUGIN_TEXT_DOMAIN),
-            'event_location' => __('Location', PLUGIN_TEXT_DOMAIN),
-            'taxonomy-simple-events-cat' => __('Categories', PLUGIN_TEXT_DOMAIN),
-            'event_series' => __('Series', PLUGIN_TEXT_DOMAIN),
-            'date' => isset($columns['date']) ? $columns['date'] : __('Published', PLUGIN_TEXT_DOMAIN)
+            'title' => __('Event Title', 'simply-events-calendar'),
+            'event_thumbnail' => _x('Image', 'admin list table column heading', 'simply-events-calendar'),
+            'event_date' => __('Event Date', 'simply-events-calendar'),
+            'event_time' => _x('Time', 'admin list table column heading', 'simply-events-calendar'),
+            'event_location' => _x('Location', 'admin list table column heading', 'simply-events-calendar'),
+            'taxonomy-simple-events-cat' => _x('Categories', 'admin list table column heading', 'simply-events-calendar'),
+            'event_series' => __('Series', 'simply-events-calendar'),
+            'date' => isset($columns['date']) ? $columns['date'] : __('Published', 'simply-events-calendar')
         );
     }
 
@@ -119,11 +119,11 @@ class Simple_Events_Admin_Columns {
             echo '<span class="simple-events-series simple-events-series-child">';
             printf(
                 /* translators: %d is the occurrence number within the series */
-                esc_html__('Occurrence #%d', PLUGIN_TEXT_DOMAIN),
+                esc_html__('Occurrence #%d', 'simply-events-calendar'),
                 $index
             );
             if ($parent_url) {
-                echo ' (<a href="' . esc_url($parent_url) . '">' . esc_html__('parent', PLUGIN_TEXT_DOMAIN) . '</a>)';
+                echo ' (<a href="' . esc_url($parent_url) . '">' . esc_html__('parent', 'simply-events-calendar') . '</a>)';
             }
             echo '</span>';
             return;
@@ -141,17 +141,17 @@ class Simple_Events_Admin_Columns {
         $children_count = (int) get_post_meta($post_id, Simple_Events_Recurrence::META_CHILD_COUNT, true);
 
         $labels = array(
-            'daily'   => __('Daily', PLUGIN_TEXT_DOMAIN),
-            'weekly'  => __('Weekly', PLUGIN_TEXT_DOMAIN),
-            'monthly' => __('Monthly', PLUGIN_TEXT_DOMAIN),
-            'yearly'  => __('Yearly', PLUGIN_TEXT_DOMAIN),
+            'daily'   => __('Daily', 'simply-events-calendar'),
+            'weekly'  => __('Weekly', 'simply-events-calendar'),
+            'monthly' => __('Monthly', 'simply-events-calendar'),
+            'yearly'  => __('Yearly', 'simply-events-calendar'),
         );
         $label = isset($labels[$freq]) ? $labels[$freq] : ucfirst($freq);
 
         echo '<span class="simple-events-series simple-events-series-parent">';
         printf(
             /* translators: 1: frequency label (Daily/Weekly/etc), 2: number of child occurrences */
-            esc_html__('%1$s series (+%2$d)', PLUGIN_TEXT_DOMAIN),
+            esc_html__('%1$s series (+%2$d)', 'simply-events-calendar'),
             esc_html($label),
             (int) $children_count
         );
@@ -221,11 +221,11 @@ class Simple_Events_Admin_Columns {
         $today = date('Y-m-d');
 
         if ($iso_date < $today) {
-            return '<span class="simple-events-status simple-events-past">(' . __('Past', PLUGIN_TEXT_DOMAIN) . ')</span>';
+            return '<span class="simple-events-status simple-events-past">(' . __('Past', 'simply-events-calendar') . ')</span>';
         } elseif ($iso_date === $today) {
-            return '<span class="simple-events-status simple-events-today">(' . __('Today', PLUGIN_TEXT_DOMAIN) . ')</span>';
+            return '<span class="simple-events-status simple-events-today">(' . __('Today', 'simply-events-calendar') . ')</span>';
         } else {
-            return '<span class="simple-events-status simple-events-upcoming">(' . __('Upcoming', PLUGIN_TEXT_DOMAIN) . ')</span>';
+            return '<span class="simple-events-status simple-events-upcoming">(' . __('Upcoming', 'simply-events-calendar') . ')</span>';
         }
     }
 
@@ -360,7 +360,7 @@ class Simple_Events_Admin_Columns {
                 '<select name="%1$s" id="%1$s" class="postform">',
                 esc_attr($taxonomy)
             );
-            echo '<option value="">' . esc_html__('All Categories', PLUGIN_TEXT_DOMAIN) . '</option>';
+            echo '<option value="">' . esc_html__('All Categories', 'simply-events-calendar') . '</option>';
 
             foreach ($terms as $term) {
                 printf(
@@ -385,10 +385,10 @@ class Simple_Events_Admin_Columns {
             : '';
 
         $options = array(
-            ''         => __('All Events', PLUGIN_TEXT_DOMAIN),
-            'upcoming' => __('Upcoming Events', PLUGIN_TEXT_DOMAIN),
-            'today'    => __('Today\'s Events', PLUGIN_TEXT_DOMAIN),
-            'past'     => __('Past Events', PLUGIN_TEXT_DOMAIN),
+            ''         => __('All Events', 'simply-events-calendar'),
+            'upcoming' => __('Upcoming Events', 'simply-events-calendar'),
+            'today'    => __('Today\'s Events', 'simply-events-calendar'),
+            'past'     => __('Past Events', 'simply-events-calendar'),
         );
 
         echo '<select name="event_status" id="event_status" class="postform">';
@@ -583,7 +583,7 @@ class Simple_Events_Admin_Columns {
                 <fieldset class="inline-edit-col-left">
                     <div class="inline-edit-col">
                         <label>
-                            <span class="title"><?php _e('Event Date', PLUGIN_TEXT_DOMAIN); ?></span>
+                            <span class="title"><?php _e('Event Date', 'simply-events-calendar'); ?></span>
                             <input type="date" name="event_date" value="" />
                         </label>
                     </div>
@@ -601,22 +601,22 @@ class Simple_Events_Admin_Columns {
     public static function get_column_config() {
         return array(
             'event_thumbnail' => array(
-                'label' => __('Image', PLUGIN_TEXT_DOMAIN),
+                'label' => _x('Image', 'admin list table column heading', 'simply-events-calendar'),
                 'width' => '80px',
                 'sortable' => false
             ),
             'event_date' => array(
-                'label' => __('Event Date', PLUGIN_TEXT_DOMAIN),
+                'label' => __('Event Date', 'simply-events-calendar'),
                 'width' => '140px',
                 'sortable' => true
             ),
             'event_time' => array(
-                'label' => __('Time', PLUGIN_TEXT_DOMAIN),
+                'label' => _x('Time', 'admin list table column heading', 'simply-events-calendar'),
                 'width' => '120px',
                 'sortable' => true
             ),
             'event_location' => array(
-                'label' => __('Location', PLUGIN_TEXT_DOMAIN),
+                'label' => _x('Location', 'admin list table column heading', 'simply-events-calendar'),
                 'width' => '150px',
                 'sortable' => true
             )

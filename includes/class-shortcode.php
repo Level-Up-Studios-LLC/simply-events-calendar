@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Shortcode functionality class for Simple Events Calendar
+ * Shortcode functionality class for Simply Events Calendar
  *
  * @package Simple_Events_Calendar
  * @since 3.0.0
@@ -67,7 +67,7 @@ class Simple_Events_Shortcode
         // Include plugin version + login state so cache is naturally invalidated
         // on upgrade, and admin-visible variations don't leak into anon output.
         $cache_key = 'simple_events_shortcode_' . md5(
-            serialize($sanitized_atts) . '|' . PLUGIN_VERSION . '|' . (is_user_logged_in() ? '1' : '0')
+            serialize($sanitized_atts) . '|' . SIMPLE_EVENTS_VERSION . '|' . (is_user_logged_in() ? '1' : '0')
         );
         $cached_result = get_transient($cache_key);
 
@@ -236,7 +236,7 @@ class Simple_Events_Shortcode
             return;
         }
 
-        $template_path = PLUGIN_DIR . '/template-parts/content-event-card.php';
+        $template_path = SIMPLE_EVENTS_DIR . '/template-parts/content-event-card.php';
         if (file_exists($template_path)) {
             include $template_path;
         } else {
@@ -262,7 +262,7 @@ class Simple_Events_Shortcode
      */
     private function render_no_events_message($atts)
     {
-        $heading = __('No Events Found', 'simple_events');
+        $heading = __('No Events Found', 'simply-events-calendar');
 
         echo '<div class="simple-events-calendar simple-events-no-events">';
         echo '<div class="simple-events-empty-state">';
@@ -270,16 +270,16 @@ class Simple_Events_Shortcode
 
         if (!empty($atts['category'])) {
             /* translators: %s: category slug */
-            echo '<p>' . sprintf(esc_html__('No events found in the "%s" category.', 'simple_events'), esc_html($atts['category'])) . '</p>';
+            echo '<p>' . sprintf(esc_html__('No events found in the "%s" category.', 'simply-events-calendar'), esc_html($atts['category'])) . '</p>';
         } elseif (!$atts['show_past']) {
-            echo '<p>' . esc_html__('No upcoming events scheduled. Check back soon!', 'simple_events') . '</p>';
+            echo '<p>' . esc_html__('No upcoming events scheduled. Check back soon!', 'simply-events-calendar') . '</p>';
         } else {
-            echo '<p>' . esc_html__('No events have been created yet.', 'simple_events') . '</p>';
+            echo '<p>' . esc_html__('No events have been created yet.', 'simply-events-calendar') . '</p>';
         }
 
         if (current_user_can('edit_posts')) {
             $admin_url = admin_url('post-new.php?post_type=simple-events');
-            echo '<p><a href="' . esc_url($admin_url) . '" class="button">' . esc_html__('Add New Event', 'simple_events') . '</a></p>';
+            echo '<p><a href="' . esc_url($admin_url) . '" class="button">' . esc_html__('Add New Event', 'simply-events-calendar') . '</a></p>';
         }
 
         echo '</div>';
@@ -336,7 +336,7 @@ class Simple_Events_Shortcode
         $post_id = absint($atts['id']);
         if (!$post_id) {
             if (current_user_can('edit_posts')) {
-                return '<p class="simple-events-notice">' . esc_html__('[sec_event] requires an "id" attribute, e.g. [sec_event id="123"].', 'simple_events') . '</p>';
+                return '<p class="simple-events-notice">' . esc_html__('[sec_event] requires an "id" attribute, e.g. [sec_event id="123"].', 'simply-events-calendar') . '</p>';
             }
             return '';
         }
@@ -354,7 +354,7 @@ class Simple_Events_Shortcode
             if (current_user_can('edit_posts')) {
                 return '<p class="simple-events-notice">' . sprintf(
                     /* translators: %d: event ID */
-                    esc_html__('No published event found for ID %d. Check the "id" attribute — the event may be unpublished or deleted.', 'simple_events'),
+                    esc_html__('No published event found for ID %d. Check the "id" attribute — the event may be unpublished or deleted.', 'simply-events-calendar'),
                     $post_id
                 ) . '</p>';
             }
@@ -378,9 +378,9 @@ class Simple_Events_Shortcode
             wp_enqueue_style('simple-events-style');
             wp_enqueue_script(
                 'simple-events-shortcode',
-                PLUGIN_ASSETS . '/js/simple-events-shortcode.js',
+                SIMPLE_EVENTS_ASSETS . '/js/simple-events-shortcode.js',
                 array('jquery'),
-                PLUGIN_VERSION,
+                SIMPLE_EVENTS_VERSION,
                 true
             );
 
@@ -390,9 +390,9 @@ class Simple_Events_Shortcode
                 array(
                     'ajaxurl' => admin_url('admin-ajax.php'),
                     'nonce'   => wp_create_nonce(SIMPLE_EVENTS_NONCE_ACTION),
-                    'loading_text' => __('Loading more events...', PLUGIN_TEXT_DOMAIN),
-                    'error_text'   => __('Error loading events. Please try again.', PLUGIN_TEXT_DOMAIN),
-                    'no_more_text' => __('No more events to load.', PLUGIN_TEXT_DOMAIN)
+                    'loading_text' => __('Loading more events...', 'simply-events-calendar'),
+                    'error_text'   => __('Error loading events. Please try again.', 'simply-events-calendar'),
+                    'no_more_text' => __('No more events to load.', 'simply-events-calendar')
                 )
             );
         }

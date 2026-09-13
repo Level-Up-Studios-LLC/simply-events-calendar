@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Settings page for Simple Events Calendar
+ * Settings page for Simply Events Calendar
  *
  * Registers a single option array (simple_events_settings) via the WordPress
  * Settings API and renders an admin page under the Events menu. Also wires the
@@ -52,8 +52,8 @@ class Simple_Events_Settings {
     public function add_menu() {
         add_submenu_page(
             'edit.php?post_type=simple-events',
-            __('Events Settings', 'simple_events'),
-            __('Settings', 'simple_events'),
+            __('Events Settings', 'simply-events-calendar'),
+            __('Settings', 'simply-events-calendar'),
             'manage_options',
             self::PAGE,
             array($this, 'render_page')
@@ -171,7 +171,7 @@ class Simple_Events_Settings {
      */
     public function handle_clear_cache() {
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('You do not have permission to do that.', 'simple_events'));
+            wp_die(esc_html__('You do not have permission to do that.', 'simply-events-calendar'));
         }
 
         check_admin_referer('simple_events_clear_cache');
@@ -200,9 +200,9 @@ class Simple_Events_Settings {
 
         wp_enqueue_script(
             'simple-events-settings',
-            PLUGIN_ASSETS . '/js/simple-events-settings.js',
+            SIMPLE_EVENTS_ASSETS . '/js/simple-events-settings.js',
             array(),
-            PLUGIN_VERSION,
+            SIMPLE_EVENTS_VERSION,
             true
         );
     }
@@ -218,36 +218,36 @@ class Simple_Events_Settings {
         $settings = simple_events_get_settings();
         ?>
         <div class="wrap">
-            <h1><?php echo esc_html__('Events Settings', 'simple_events'); ?></h1>
+            <h1><?php echo esc_html__('Events Settings', 'simply-events-calendar'); ?></h1>
 
             <?php Simple_Events_Pro_Upsell::banner(); ?>
 
             <?php if (isset($_GET['sec_cache_cleared'])) : ?>
                 <div class="notice notice-success is-dismissible">
-                    <p><?php echo esc_html__('Event cache cleared.', 'simple_events'); ?></p>
+                    <p><?php echo esc_html__('Event cache cleared.', 'simply-events-calendar'); ?></p>
                 </div>
             <?php endif; ?>
 
             <form method="post" action="options.php">
                 <?php settings_fields(self::PAGE); ?>
 
-                <h2><?php echo esc_html__('Display formatting', 'simple_events'); ?></h2>
+                <h2><?php echo esc_html__('Display formatting', 'simply-events-calendar'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php echo esc_html__('Date format', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('Date format', 'simply-events-calendar'); ?></th>
                         <td>
                             <?php
                             $presets = array(
-                                'l, F j, Y' => __('Weekday, Month Day, Year', 'simple_events'),
-                                'F j, Y'    => __('Month Day, Year', 'simple_events'),
-                                'm/d/Y'     => __('MM/DD/YYYY', 'simple_events'),
-                                'M j, Y'    => __('Abbreviated Month Day, Year', 'simple_events'),
+                                'l, F j, Y' => __('Weekday, Month Day, Year', 'simply-events-calendar'),
+                                'F j, Y'    => __('Month Day, Year', 'simply-events-calendar'),
+                                'm/d/Y'     => __('MM/DD/YYYY', 'simply-events-calendar'),
+                                'M j, Y'    => __('Abbreviated Month Day, Year', 'simply-events-calendar'),
                             );
                             $current   = (string) $settings['date_format'];
                             $is_preset = array_key_exists($current, $presets);
                             ?>
                             <fieldset id="sec-date-format" class="sec-date-format">
-                                <legend class="screen-reader-text"><?php echo esc_html__('Date format', 'simple_events'); ?></legend>
+                                <legend class="screen-reader-text"><?php echo esc_html__('Date format', 'simply-events-calendar'); ?></legend>
                                 <?php foreach ($presets as $fmt => $label) : ?>
                                     <label>
                                         <input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[date_format_preset]" value="<?php echo esc_attr($fmt); ?>" <?php checked($is_preset && $current === $fmt); ?> />
@@ -257,99 +257,99 @@ class Simple_Events_Settings {
                                 <?php endforeach; ?>
                                 <label>
                                     <input type="radio" id="sec-date-format-custom-radio" name="<?php echo esc_attr(self::OPTION); ?>[date_format_preset]" value="custom" <?php checked(!$is_preset); ?> />
-                                    <span class="date-time-text"><?php echo esc_html__('Custom:', 'simple_events'); ?></span>
+                                    <span class="date-time-text"><?php echo esc_html__('Custom:', 'simply-events-calendar'); ?></span>
                                 </label>
-                                <input type="text" id="sec-date-format-custom" class="regular-text" name="<?php echo esc_attr(self::OPTION); ?>[date_format_custom]" value="<?php echo esc_attr(!$is_preset ? $current : ''); ?>" placeholder="l, F j, Y" aria-label="<?php esc_attr_e('Custom date format', 'simple_events'); ?>" />
+                                <input type="text" id="sec-date-format-custom" class="regular-text" name="<?php echo esc_attr(self::OPTION); ?>[date_format_custom]" value="<?php echo esc_attr(!$is_preset ? $current : ''); ?>" placeholder="l, F j, Y" aria-label="<?php esc_attr_e('Custom date format', 'simply-events-calendar'); ?>" />
                                 <p class="description">
-                                    <?php echo esc_html__('Choose a preset, or pick "Custom" to enter a PHP date format.', 'simple_events'); ?>
-                                    <a href="https://wordpress.org/documentation/article/customize-date-and-time-format/" target="_blank" rel="noopener noreferrer"><?php echo esc_html__('Format reference', 'simple_events'); ?></a>
+                                    <?php echo esc_html__('Choose a preset, or pick "Custom" to enter a PHP date format.', 'simply-events-calendar'); ?>
+                                    <a href="https://wordpress.org/documentation/article/customize-date-and-time-format/" target="_blank" rel="noopener noreferrer"><?php echo esc_html__('Format reference', 'simply-events-calendar'); ?></a>
                                 </p>
                             </fieldset>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php echo esc_html__('Time format', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('Time format', 'simply-events-calendar'); ?></th>
                         <td>
-                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[time_format]" value="12" <?php checked($settings['time_format'], '12'); ?> /> <?php echo esc_html__('12-hour (2:30 pm)', 'simple_events'); ?></label><br />
-                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[time_format]" value="24" <?php checked($settings['time_format'], '24'); ?> /> <?php echo esc_html__('24-hour (14:30)', 'simple_events'); ?></label>
+                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[time_format]" value="12" <?php checked($settings['time_format'], '12'); ?> /> <?php echo esc_html__('12-hour (2:30 pm)', 'simply-events-calendar'); ?></label><br />
+                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[time_format]" value="24" <?php checked($settings['time_format'], '24'); ?> /> <?php echo esc_html__('24-hour (14:30)', 'simply-events-calendar'); ?></label>
                         </td>
                     </tr>
                 </table>
 
-                <h2><?php echo esc_html__('Display defaults', 'simple_events'); ?></h2>
-                <p class="description"><?php echo esc_html__('Defaults for the [sec_events] shortcode and the event archives; shortcode attributes override them per instance. On archive pages the page size uses the "Load more" batch size below (so infinite-scroll offsets line up), not "Events per page".', 'simple_events'); ?></p>
+                <h2><?php echo esc_html__('Display defaults', 'simply-events-calendar'); ?></h2>
+                <p class="description"><?php echo esc_html__('Defaults for the [sec_events] shortcode and the event archives; shortcode attributes override them per instance. On archive pages the page size uses the "Load more" batch size below (so infinite-scroll offsets line up), not "Events per page".', 'simply-events-calendar'); ?></p>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php echo esc_html__('Events per page', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('Events per page', 'simply-events-calendar'); ?></th>
                         <td><input type="number" min="1" max="50" name="<?php echo esc_attr(self::OPTION); ?>[posts_per_page]" value="<?php echo esc_attr($settings['posts_per_page']); ?>" /></td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php echo esc_html__('Default sort order', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('Default sort order', 'simply-events-calendar'); ?></th>
                         <td>
-                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[order]" value="ASC" <?php checked($settings['order'], 'ASC'); ?> /> <?php echo esc_html__('Ascending (soonest first)', 'simple_events'); ?></label><br />
-                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[order]" value="DESC" <?php checked($settings['order'], 'DESC'); ?> /> <?php echo esc_html__('Descending (latest first)', 'simple_events'); ?></label>
+                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[order]" value="ASC" <?php checked($settings['order'], 'ASC'); ?> /> <?php echo esc_html__('Ascending (soonest first)', 'simply-events-calendar'); ?></label><br />
+                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[order]" value="DESC" <?php checked($settings['order'], 'DESC'); ?> /> <?php echo esc_html__('Descending (latest first)', 'simply-events-calendar'); ?></label>
                         </td>
                     </tr>
                     <?php
                     $toggles = array(
-                        'show_past'     => __('Show past events by default', 'simple_events'),
-                        'show_time'     => __('Show event time', 'simple_events'),
-                        'show_excerpt'  => __('Show excerpt', 'simple_events'),
-                        'show_location' => __('Show location', 'simple_events'),
-                        'show_footer'   => __('Show card footer / read-more', 'simple_events'),
+                        'show_past'     => __('Show past events by default', 'simply-events-calendar'),
+                        'show_time'     => __('Show event time', 'simply-events-calendar'),
+                        'show_excerpt'  => __('Show excerpt', 'simply-events-calendar'),
+                        'show_location' => __('Show location', 'simply-events-calendar'),
+                        'show_footer'   => __('Show card footer / read-more', 'simply-events-calendar'),
                     );
                     foreach ($toggles as $key => $label) :
                         ?>
                         <tr>
                             <th scope="row"><?php echo esc_html($label); ?></th>
-                            <td><label><input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[<?php echo esc_attr($key); ?>]" value="yes" <?php checked($settings[$key], 'yes'); ?> /> <?php echo esc_html__('Enabled', 'simple_events'); ?></label></td>
+                            <td><label><input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[<?php echo esc_attr($key); ?>]" value="yes" <?php checked($settings[$key], 'yes'); ?> /> <?php echo esc_html__('Enabled', 'simply-events-calendar'); ?></label></td>
                         </tr>
                     <?php endforeach; ?>
                     <tr>
-                        <th scope="row"><?php echo esc_html__('"Load more" batch size', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('"Load more" batch size', 'simply-events-calendar'); ?></th>
                         <td>
                             <input type="number" min="1" max="50" name="<?php echo esc_attr(self::OPTION); ?>[load_increment]" value="<?php echo esc_attr($settings['load_increment']); ?>" />
-                            <p class="description"><?php echo esc_html__('How many events to load per "load more" / infinite-scroll request.', 'simple_events'); ?></p>
+                            <p class="description"><?php echo esc_html__('How many events to load per "load more" / infinite-scroll request.', 'simply-events-calendar'); ?></p>
                         </td>
                     </tr>
                 </table>
 
-                <h2><?php echo esc_html__('SEO', 'simple_events'); ?></h2>
+                <h2><?php echo esc_html__('SEO', 'simply-events-calendar'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php echo esc_html__('schema.org JSON-LD', 'simple_events'); ?></th>
-                        <td><label><input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[enable_schema]" value="yes" <?php checked($settings['enable_schema'], 'yes'); ?> /> <?php echo esc_html__('Output Event structured data on cards and single event pages', 'simple_events'); ?></label></td>
+                        <th scope="row"><?php echo esc_html__('schema.org JSON-LD', 'simply-events-calendar'); ?></th>
+                        <td><label><input type="checkbox" name="<?php echo esc_attr(self::OPTION); ?>[enable_schema]" value="yes" <?php checked($settings['enable_schema'], 'yes'); ?> /> <?php echo esc_html__('Output Event structured data on cards and single event pages', 'simply-events-calendar'); ?></label></td>
                     </tr>
                 </table>
 
-                <h2><?php echo esc_html__('Recurrence limits', 'simple_events'); ?></h2>
+                <h2><?php echo esc_html__('Recurrence limits', 'simply-events-calendar'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php echo esc_html__('Max occurrences per series', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('Max occurrences per series', 'simply-events-calendar'); ?></th>
                         <td><input type="number" min="1" name="<?php echo esc_attr(self::OPTION); ?>[recur_max_occurrences]" value="<?php echo esc_attr($settings['recur_max_occurrences']); ?>" /></td>
                     </tr>
                     <tr>
-                        <th scope="row"><?php echo esc_html__('Max horizon (months) for "never" series', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('Max horizon (months) for "never" series', 'simply-events-calendar'); ?></th>
                         <td><input type="number" min="1" name="<?php echo esc_attr(self::OPTION); ?>[recur_max_horizon_months]" value="<?php echo esc_attr($settings['recur_max_horizon_months']); ?>" /></td>
                     </tr>
                 </table>
 
-                <h2><?php echo esc_html__('Cache', 'simple_events'); ?></h2>
+                <h2><?php echo esc_html__('Cache', 'simply-events-calendar'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php echo esc_html__('Cache lifetime (minutes)', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('Cache lifetime (minutes)', 'simply-events-calendar'); ?></th>
                         <td><input type="number" min="1" max="1440" name="<?php echo esc_attr(self::OPTION); ?>[cache_ttl]" value="<?php echo esc_attr($settings['cache_ttl']); ?>" /></td>
                     </tr>
                 </table>
 
-                <h2><?php echo esc_html__('Data', 'simple_events'); ?></h2>
+                <h2><?php echo esc_html__('Data', 'simply-events-calendar'); ?></h2>
                 <table class="form-table" role="presentation">
                     <tr>
-                        <th scope="row"><?php echo esc_html__('When the plugin is deleted', 'simple_events'); ?></th>
+                        <th scope="row"><?php echo esc_html__('When the plugin is deleted', 'simply-events-calendar'); ?></th>
                         <td>
-                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[delete_data_on_uninstall]" value="no" <?php checked($settings['delete_data_on_uninstall'], 'no'); ?> /> <?php echo esc_html__('Keep all events and settings (recommended)', 'simple_events'); ?></label><br />
-                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[delete_data_on_uninstall]" value="yes" <?php checked($settings['delete_data_on_uninstall'], 'yes'); ?> /> <?php echo esc_html__('Permanently delete all events, categories, and settings', 'simple_events'); ?></label>
-                            <p class="description"><?php echo esc_html__('Deletion only happens when you delete the plugin from the Plugins screen — never on deactivation. Leave this set to "Keep all events and settings" if you may reinstall later.', 'simple_events'); ?></p>
+                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[delete_data_on_uninstall]" value="no" <?php checked($settings['delete_data_on_uninstall'], 'no'); ?> /> <?php echo esc_html__('Keep all events and settings (recommended)', 'simply-events-calendar'); ?></label><br />
+                            <label><input type="radio" name="<?php echo esc_attr(self::OPTION); ?>[delete_data_on_uninstall]" value="yes" <?php checked($settings['delete_data_on_uninstall'], 'yes'); ?> /> <?php echo esc_html__('Permanently delete all events, categories, and settings', 'simply-events-calendar'); ?></label>
+                            <p class="description"><?php echo esc_html__('Deletion only happens when you delete the plugin from the Plugins screen — never on deactivation. Leave this set to "Keep all events and settings" if you may reinstall later.', 'simply-events-calendar'); ?></p>
                         </td>
                     </tr>
                 </table>
@@ -373,12 +373,12 @@ class Simple_Events_Settings {
             <?php Simple_Events_Pro_Upsell::locked_section(); ?>
 
             <hr />
-            <h2><?php echo esc_html__('Maintenance', 'simple_events'); ?></h2>
+            <h2><?php echo esc_html__('Maintenance', 'simply-events-calendar'); ?></h2>
             <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <input type="hidden" name="action" value="simple_events_clear_cache" />
                 <?php wp_nonce_field('simple_events_clear_cache'); ?>
-                <?php submit_button(__('Clear cache now', 'simple_events'), 'secondary', 'submit', false); ?>
-                <p class="description"><?php echo esc_html__('Clears all cached event listings immediately.', 'simple_events'); ?></p>
+                <?php submit_button(__('Clear cache now', 'simply-events-calendar'), 'secondary', 'submit', false); ?>
+                <p class="description"><?php echo esc_html__('Clears all cached event listings immediately.', 'simply-events-calendar'); ?></p>
             </form>
         </div>
         <?php

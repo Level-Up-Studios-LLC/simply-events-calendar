@@ -1,6 +1,6 @@
 {
-  "name": "simple-events-calendar",
-  "version": "5.3.0",
+  "name": "simply-events-calendar",
+  "version": "6.0.0",
   "description": "A simple, responsive events calendar for WordPress. Easily create one-time or recurring events and display them anywhere with shortcodes, Elementor widgets, and one-click Add to Calendar.",
   "main": "assets/js/simple-events.js",
   "scripts": {
@@ -11,18 +11,20 @@
     "lint:js": "echo 'JS Linting: Run manually with a code editor'",
     "lint:css": "stylelint \"src/css/**/*.scss\"",
     "lint": "npm run lint:js && npm run lint:css",
+    "i18n:pot": "wp i18n make-pot . languages/simply-events-calendar.pot --slug=simply-events-calendar --exclude=node_modules,dist,src,docs,freemius",
+    "i18n:mo": "wp i18n make-mo languages languages",
     "watch": "chokidar \"src/css/**/*.scss\" -c \"npm run build:css:dev\"",
     "watch:css": "sass src/css:assets/css --style=expanded --source-map --watch",
     "dev": "npm run build:css:dev",
-    "dist": "rm -rf dist && mkdir dist && robocopy . dist /E /XD node_modules src .git dist /XF .gitignore package.json package-lock.json .npmrc phpcs.xml *.md /NFL /NDL /NJH /NJS || echo 'Distribution created'",
-    "zip": "npm run dist && cd dist && python -c \"import zipfile, os; z = zipfile.ZipFile('../simple-events-calendar.zip', 'w'); [z.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), '.')) for root, dirs, files in os.walk('.') for file in files]; z.close()\""
+    "dist": "bin\\dist.cmd",
+    "zip": "npm run dist && cd dist && python -c \"import zipfile, os; z = zipfile.ZipFile('../simply-events-calendar.zip', 'w'); [z.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), '.')) for root, dirs, files in os.walk('.') for file in files]; z.close()\"",
+    "verify:free": "bash bin/verify-free.sh"
   },
   "keywords": [
     "wordpress",
     "plugin",
     "events",
-    "calendar",
-    "acf"
+    "calendar"
   ],
   "author": "Level Up Studios, LLC",
   "license": "GPL-2.0-or-later",

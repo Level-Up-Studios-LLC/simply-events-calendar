@@ -1,7 +1,7 @@
 <?php
 
 /**
- * One-time data migrations for Simple Events Calendar.
+ * One-time data migrations for Simply Events Calendar.
  *
  * Runs guarded, idempotent upgrade routines keyed off a stored DB-version
  * option, so each migration runs at most once regardless of how the plugin was

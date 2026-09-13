@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Recurrence engine for Simple Events Calendar.
+ * Recurrence engine for Simply Events Calendar.
  *
  * @package Simple_Events_Calendar
  * @since 4.4.0
@@ -37,7 +37,7 @@ class Simple_Events_Recurrence
     /**
      * Snapshots of OLD post/meta values captured at post_updated time,
      * keyed by post_id. Used to compute the change diff on child saves
-     * after ACF has overwritten the meta at save_post priority 10.
+     * after the meta box has rewritten the meta at save_post priority 10.
      *
      * @var array
      */
@@ -60,9 +60,10 @@ class Simple_Events_Recurrence
     private function init_hooks()
     {
         add_action('post_updated', array($this, 'snapshot_pre_save'), 10, 3);
-        // save_post_{type} fires before save_post, but ACF hooks save_post at
-        // priority 10 — so we hook the general save_post action at 30 to read
-        // meta values that ACF has already persisted, then filter on post_type.
+        // save_post_{type} fires before save_post, and the meta box persists
+        // field meta on save_post_simple-events at priority 10 — so we hook the
+        // general save_post action at 30 to read meta values it has already
+        // written, then filter on post_type.
         add_action('save_post', array($this, 'handle_save_post'), 30, 3);
         add_action('before_delete_post', array($this, 'handle_before_delete'));
         add_action('deleted_post', array($this, 'handle_deleted_post'));
@@ -486,10 +487,28 @@ class Simple_Events_Recurrence
         $this->enqueue_admin_notice(
             $parent_id,
             sprintf(
-                /* translators: 1: future unmodified occurrences deleted, 2: past / modified / trashed occurrences kept as standalone events */
-                __('Recurrence disabled. %1$d future unmodified occurrence(s) deleted; %2$d occurrence(s) (past, edited, or trashed) kept as standalone events.', PLUGIN_TEXT_DOMAIN),
-                $deleted,
-                $detached
+                /* translators: 1: sentence about deleted occurrences, 2: sentence about kept occurrences */
+                __('Recurrence disabled. %1$s %2$s', 'simply-events-calendar'),
+                sprintf(
+                    /* translators: %d is the number of future unmodified occurrences deleted */
+                    _n(
+                        '%d future unmodified occurrence deleted.',
+                        '%d future unmodified occurrences deleted.',
+                        $deleted,
+                        'simply-events-calendar'
+                    ),
+                    $deleted
+                ),
+                sprintf(
+                    /* translators: %d is the number of past, edited, or trashed occurrences kept as standalone events */
+                    _n(
+                        '%d occurrence (past, edited, or trashed) kept as a standalone event.',
+                        '%d occurrences (past, edited, or trashed) kept as standalone events.',
+                        $detached,
+                        'simply-events-calendar'
+                    ),
+                    $detached
+                )
             ),
             'warning'
         );
@@ -512,7 +531,7 @@ class Simple_Events_Recurrence
 
         add_meta_box(
             'sec_recur_edit_scope',
-            __('Series Edit Scope', PLUGIN_TEXT_DOMAIN),
+            __('Series Edit Scope', 'simply-events-calendar'),
             array($this, 'render_edit_scope_metabox'),
             'simple-events',
             'side',
@@ -528,9 +547,9 @@ class Simple_Events_Recurrence
         wp_nonce_field(self::NONCE_ACTION_SCOPE, self::NONCE_FIELD_SCOPE);
 
         $options = array(
-            'only'   => __('Only this occurrence', PLUGIN_TEXT_DOMAIN),
-            'future' => __('This and future occurrences', PLUGIN_TEXT_DOMAIN),
-            'series' => __('Entire series', PLUGIN_TEXT_DOMAIN),
+            'only'   => __('Only this occurrence', 'simply-events-calendar'),
+            'future' => __('This and future occurrences', 'simply-events-calendar'),
+            'series' => __('Entire series', 'simply-events-calendar'),
         );
 
         $parent_edit_url = get_edit_post_link($parent_id);
@@ -538,15 +557,15 @@ class Simple_Events_Recurrence
         echo '<p>';
         printf(
             /* translators: %d is the occurrence number within the series */
-            esc_html__('This event is occurrence #%d in a recurring series.', PLUGIN_TEXT_DOMAIN),
+            esc_html__('This event is occurrence #%d in a recurring series.', 'simply-events-calendar'),
             (int) $index
         );
         if ($parent_edit_url) {
-            echo ' <a href="' . esc_url($parent_edit_url) . '">' . esc_html__('Edit parent', PLUGIN_TEXT_DOMAIN) . '</a>';
+            echo ' <a href="' . esc_url($parent_edit_url) . '">' . esc_html__('Edit parent', 'simply-events-calendar') . '</a>';
         }
         echo '</p>';
 
-        echo '<p><label for="sec_edit_scope"><strong>' . esc_html__('Apply changes to:', PLUGIN_TEXT_DOMAIN) . '</strong></label></p>';
+        echo '<p><label for="sec_edit_scope"><strong>' . esc_html__('Apply changes to:', 'simply-events-calendar') . '</strong></label></p>';
         echo '<select name="sec_edit_scope" id="sec_edit_scope" class="widefat">';
         foreach ($options as $value => $label) {
             printf(
@@ -558,7 +577,7 @@ class Simple_Events_Recurrence
         echo '</select>';
 
         echo '<p class="description">';
-        esc_html_e('Only this occurrence: changes stay here. This and future: changes propagate to later siblings (date excluded). Entire series: propagates to the parent and every sibling, and a date change shifts the whole series.', PLUGIN_TEXT_DOMAIN);
+        esc_html_e('Only this occurrence: changes stay here. This and future: changes propagate to later siblings (date excluded). Entire series: propagates to the parent and every sibling, and a date change shifts the whole series.', 'simply-events-calendar');
         echo '</p>';
     }
 
@@ -1046,7 +1065,7 @@ class Simple_Events_Recurrence
         if (in_array($key, array('post_title', 'post_content', 'post_excerpt'), true)) {
             global $wpdb;
             // Direct posts-table write: wp_update_post would re-fire save_post
-            // (and ACF's field-save handler) on every propagation target,
+            // (and the meta box's save handler) on every propagation target,
             // overwriting their meta with $_POST values from the OTHER post
             // being edited. Cache is invalidated explicitly below.
             // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
@@ -1148,7 +1167,8 @@ class Simple_Events_Recurrence
                 delete_post_meta($parent_id, self::META_RULE_HORIZON);
             }
 
-            // Persist rule snapshot so cron / background workers don't need ACF.
+            // Persist rule snapshot so cron / background workers can read the
+            // rule without loading the admin-only meta box.
             update_post_meta($parent_id, self::META_RULE_FREQ, $rule['freq']);
             update_post_meta($parent_id, self::META_RULE_INTERVAL, $rule['interval']);
             update_post_meta($parent_id, self::META_RULE_END_TYPE, $rule['end_type']);
@@ -1191,7 +1211,12 @@ class Simple_Events_Recurrence
                 $parent_id,
                 sprintf(
                     /* translators: %d is the number of occurrences created in the foreground pass */
-                    __('Created %d occurrence(s) so far; the remaining occurrences will be generated in the background within a few minutes.', PLUGIN_TEXT_DOMAIN),
+                    _n(
+                        'Created %d occurrence so far; the remaining occurrences will be generated in the background within a few minutes.',
+                        'Created %d occurrences so far; the remaining occurrences will be generated in the background within a few minutes.',
+                        $created_this_pass,
+                        'simply-events-calendar'
+                    ),
                     $created_this_pass
                 ),
                 'info'
@@ -1697,14 +1722,14 @@ class Simple_Events_Recurrence
             }
         }
 
-        foreach (array('event_start_time', 'event_end_time', 'event_location') as $acf_key) {
-            if (!in_array($acf_key, $copyable, true)) {
+        foreach (array('event_start_time', 'event_end_time', 'event_location') as $meta_key) {
+            if (!in_array($meta_key, $copyable, true)) {
                 continue;
             }
-            $value = isset($effective[$acf_key])
-                ? $effective[$acf_key]
-                : get_post_meta($parent_id, $acf_key, true);
-            update_post_meta($child_id, $acf_key, $value);
+            $value = isset($effective[$meta_key])
+                ? $effective[$meta_key]
+                : get_post_meta($parent_id, $meta_key, true);
+            update_post_meta($child_id, $meta_key, $value);
         }
 
         update_post_meta($child_id, 'event_date', $ymd);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Elementor display widgets for Simple Events Calendar.
+ * Elementor display widgets for Simply Events Calendar.
  *
  * Standalone listing widgets (not gated): an Events Grid (grid or image-left
  * list) and a Single Event (chosen via a searchable picker). Both reuse the
@@ -33,7 +33,7 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
     private static $category_options_cache = null;
 
     public function get_name() { return 'sec-events-grid'; }
-    public function get_title() { return __('Events Grid', 'simple_events'); }
+    public function get_title() { return __('Events Grid', 'simply-events-calendar'); }
     public function get_icon() { return 'eicon-gallery-grid'; }
     public function get_categories() { return array('simple-events'); }
     public function get_keywords() { return array('event', 'events', 'calendar', 'grid', 'list'); }
@@ -42,16 +42,16 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
 
     protected function register_controls() {
         $this->start_controls_section('sec_grid_content', array(
-            'label' => __('Events', 'simple_events'),
+            'label' => __('Events', 'simply-events-calendar'),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ));
 
         $this->add_control('layout', array(
-            'label'        => __('Layout', 'simple_events'),
+            'label'        => __('Layout', 'simply-events-calendar'),
             'type'         => \Elementor\Controls_Manager::SELECT,
             'options'      => array(
-                'grid' => __('Grid', 'simple_events'),
-                'list' => __('List (image left)', 'simple_events'),
+                'grid' => __('Grid', 'simply-events-calendar'),
+                'list' => __('List (image left)', 'simply-events-calendar'),
             ),
             'default'      => 'grid',
             // Re-render server-side on change so the PHP-set layout class on the
@@ -65,7 +65,7 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
         // default event grid). A responsive control would imply per-breakpoint
         // values the CSS deliberately overrides.
         $this->add_control('columns', array(
-            'label'     => __('Columns', 'simple_events'),
+            'label'     => __('Columns', 'simply-events-calendar'),
             'type'      => \Elementor\Controls_Manager::NUMBER,
             'min'       => 1,
             'max'       => 6,
@@ -77,7 +77,7 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
         ));
 
         $this->add_control('posts_per_page', array(
-            'label'   => __('Number of events', 'simple_events'),
+            'label'   => __('Number of events', 'simply-events-calendar'),
             'type'    => \Elementor\Controls_Manager::NUMBER,
             'min'     => 1,
             'max'     => 50,
@@ -85,33 +85,33 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
         ));
 
         $this->add_control('category', array(
-            'label'   => __('Category', 'simple_events'),
+            'label'   => __('Category', 'simply-events-calendar'),
             'type'    => \Elementor\Controls_Manager::SELECT,
             'options' => self::category_options(),
             'default' => '',
         ));
 
         $this->add_control('order', array(
-            'label'   => __('Order', 'simple_events'),
+            'label'   => __('Order', 'simply-events-calendar'),
             'type'    => \Elementor\Controls_Manager::SELECT,
             'options' => array(
-                'ASC'  => __('Soonest first', 'simple_events'),
-                'DESC' => __('Latest first', 'simple_events'),
+                'ASC'  => __('Soonest first', 'simply-events-calendar'),
+                'DESC' => __('Latest first', 'simply-events-calendar'),
             ),
             'default' => 'ASC',
         ));
 
         $this->add_control('show_past', array(
-            'label'   => __('Show past events', 'simple_events'),
+            'label'   => __('Show past events', 'simply-events-calendar'),
             'type'    => \Elementor\Controls_Manager::SWITCHER,
             'default' => '',
         ));
 
         foreach (array(
-            'show_time'     => __('Show time', 'simple_events'),
-            'show_excerpt'  => __('Show excerpt', 'simple_events'),
-            'show_location' => __('Show location', 'simple_events'),
-            'show_footer'   => __('Show footer / read-more', 'simple_events'),
+            'show_time'     => __('Show time', 'simply-events-calendar'),
+            'show_excerpt'  => __('Show excerpt', 'simply-events-calendar'),
+            'show_location' => __('Show location', 'simply-events-calendar'),
+            'show_footer'   => __('Show footer / read-more', 'simply-events-calendar'),
         ) as $key => $label) {
             $this->add_control($key, array(
                 'label'   => $label,
@@ -121,8 +121,8 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
         }
 
         $this->add_control('load_more', array(
-            'label'       => __('Load more on scroll', 'simple_events'),
-            'description' => __('Loads additional events automatically as the visitor scrolls (infinite scroll), starting from "Number of events". Off shows a fixed number.', 'simple_events'),
+            'label'       => __('Load more on scroll', 'simply-events-calendar'),
+            'description' => __('Loads additional events automatically as the visitor scrolls (infinite scroll), starting from "Number of events". Off shows a fixed number.', 'simply-events-calendar'),
             'type'        => \Elementor\Controls_Manager::SWITCHER,
             'default'     => '',
             'separator'   => 'before',
@@ -141,7 +141,7 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
             return self::$category_options_cache;
         }
 
-        $options = array('' => __('All categories', 'simple_events'));
+        $options = array('' => __('All categories', 'simply-events-calendar'));
         $terms = get_terms(array(
             'taxonomy'   => 'simple-events-cat',
             'hide_empty' => false,
@@ -195,7 +195,7 @@ class Simple_Events_Widget_Grid extends \Elementor\Widget_Base {
 class Simple_Events_Widget_Single extends \Elementor\Widget_Base {
 
     public function get_name() { return 'sec-single-event'; }
-    public function get_title() { return __('Single Event', 'simple_events'); }
+    public function get_title() { return __('Single Event', 'simply-events-calendar'); }
     public function get_icon() { return 'eicon-single-post'; }
     public function get_categories() { return array('simple-events'); }
     public function get_keywords() { return array('event', 'single', 'calendar'); }
@@ -203,13 +203,13 @@ class Simple_Events_Widget_Single extends \Elementor\Widget_Base {
 
     protected function register_controls() {
         $this->start_controls_section('sec_single_content', array(
-            'label' => __('Event', 'simple_events'),
+            'label' => __('Event', 'simply-events-calendar'),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ));
 
         $this->add_control('event_id', array(
-            'label'       => __('Event', 'simple_events'),
-            'description' => __('Search by title and select the event to display.', 'simple_events'),
+            'label'       => __('Event', 'simply-events-calendar'),
+            'description' => __('Search by title and select the event to display.', 'simply-events-calendar'),
             'type'        => \Elementor\Controls_Manager::SELECT2,
             'label_block' => true,
             'options'     => Simple_Events_Elementor::event_options(),
@@ -217,11 +217,11 @@ class Simple_Events_Widget_Single extends \Elementor\Widget_Base {
         ));
 
         $this->add_control('layout', array(
-            'label'        => __('Layout', 'simple_events'),
+            'label'        => __('Layout', 'simply-events-calendar'),
             'type'         => \Elementor\Controls_Manager::SELECT,
             'options'      => array(
-                'card' => __('Card', 'simple_events'),
-                'list' => __('List (image left)', 'simple_events'),
+                'card' => __('Card', 'simply-events-calendar'),
+                'list' => __('List (image left)', 'simply-events-calendar'),
             ),
             'default'      => 'card',
             // Re-render server-side on change so the PHP-set layout class updates
@@ -230,10 +230,10 @@ class Simple_Events_Widget_Single extends \Elementor\Widget_Base {
         ));
 
         foreach (array(
-            'show_time'     => __('Show time', 'simple_events'),
-            'show_excerpt'  => __('Show excerpt', 'simple_events'),
-            'show_location' => __('Show location', 'simple_events'),
-            'show_footer'   => __('Show footer / read-more', 'simple_events'),
+            'show_time'     => __('Show time', 'simply-events-calendar'),
+            'show_excerpt'  => __('Show excerpt', 'simply-events-calendar'),
+            'show_location' => __('Show location', 'simply-events-calendar'),
+            'show_footer'   => __('Show footer / read-more', 'simply-events-calendar'),
         ) as $key => $label) {
             $this->add_control($key, array(
                 'label'   => $label,
@@ -252,7 +252,7 @@ class Simple_Events_Widget_Single extends \Elementor\Widget_Base {
         if (!$event_id) {
             if (Simple_Events_Elementor::is_edit_hint_allowed()) {
                 echo '<span class="sec-elementor-hint" style="display:block;padding:10px 12px;border:1px dashed #c3c4c7;border-radius:4px;color:#646970;font-size:12px;">'
-                    . esc_html__('Select an event to display.', 'simple_events')
+                    . esc_html__('Select an event to display.', 'simply-events-calendar')
                     . '</span>';
             }
             return;

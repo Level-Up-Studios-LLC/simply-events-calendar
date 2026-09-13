@@ -40,7 +40,7 @@ get_header();
 
             <a class="simple-events-single__back" href="<?php echo esc_url($sec_archive); ?>">
                 <svg class="simple-events-single__back-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
-                <?php esc_html_e('All Events', 'simple_events'); ?>
+                <?php esc_html_e('All Events', 'simply-events-calendar'); ?>
             </a>
 
             <h1 class="simple-events-single__title"><?php the_title(); ?></h1>
@@ -51,13 +51,13 @@ get_header();
 
                 <aside class="simple-events-single__details">
                     <div class="simple-events-single__card">
-                        <p class="simple-events-single__card-title"><?php esc_html_e('Event Details', 'simple_events'); ?></p>
+                        <p class="simple-events-single__card-title"><?php esc_html_e('Event Details', 'simply-events-calendar'); ?></p>
 
                         <?php if ('' !== $sec_date) : ?>
                             <div class="simple-events-single__row">
                                 <svg class="simple-events-single__row-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
                                 <div>
-                                    <span class="simple-events-single__row-label"><?php esc_html_e('Date', 'simple_events'); ?></span>
+                                    <span class="simple-events-single__row-label"><?php esc_html_e('Date', 'simply-events-calendar'); ?></span>
                                     <span class="simple-events-single__row-value"><?php echo esc_html($sec_date); ?></span>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ get_header();
                             <div class="simple-events-single__row">
                                 <svg class="simple-events-single__row-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
                                 <div>
-                                    <span class="simple-events-single__row-label"><?php esc_html_e('Time', 'simple_events'); ?></span>
+                                    <span class="simple-events-single__row-label"><?php esc_html_e('Time', 'simply-events-calendar'); ?></span>
                                     <span class="simple-events-single__row-value"><?php echo esc_html($sec_time); ?></span>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ get_header();
                             <div class="simple-events-single__row">
                                 <svg class="simple-events-single__row-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z" /><circle cx="12" cy="9" r="2.5" /></svg>
                                 <div>
-                                    <span class="simple-events-single__row-label"><?php esc_html_e('Location', 'simple_events'); ?></span>
+                                    <span class="simple-events-single__row-label"><?php esc_html_e('Location', 'simply-events-calendar'); ?></span>
                                     <span class="simple-events-single__row-value"><?php echo esc_html($sec_location); ?></span>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@ get_header();
                             <div class="simple-events-single__row">
                                 <svg class="simple-events-single__row-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" /></svg>
                                 <div>
-                                    <span class="simple-events-single__row-label"><?php esc_html_e('Categories', 'simple_events'); ?></span>
+                                    <span class="simple-events-single__row-label"><?php esc_html_e('Categories', 'simply-events-calendar'); ?></span>
                                     <span class="simple-events-single__pills">
                                         <?php
                                         foreach ($sec_terms as $sec_term) {
@@ -109,7 +109,7 @@ get_header();
 
                         <a class="simple-events-single__add-to-cal" href="<?php echo esc_url(Simple_Events_ICS::url($sec_id)); ?>">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18M12 14v4M10 16h4" /></svg>
-                            <?php esc_html_e('Add to Calendar', 'simple_events'); ?>
+                            <?php esc_html_e('Add to Calendar', 'simply-events-calendar'); ?>
                         </a>
                     </div>
                 </aside>

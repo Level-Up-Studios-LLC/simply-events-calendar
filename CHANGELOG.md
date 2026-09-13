@@ -5,6 +5,64 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v6.0.0] (2026-09-07)
+
+### Changed
+
+* **The plugin is now Simply Events Calendar.** One codebase now produces both
+  the free build and the licensed Pro build of the same plugin, so there is one
+  plugin to install and manage rather than two. Entering a license upgrades the
+  plugin in place.
+* **The plugin folder and main file are renamed** to `simply-events-calendar`.
+  WordPress identifies a plugin by that path, so this release requires a manual
+  changeover — see below. **No event data is affected.**
+* Global constants `PLUGIN_DIR`, `PLUGIN_URL`, `PLUGIN_ASSETS`, and
+  `PLUGIN_VERSION` are now `SIMPLE_EVENTS_*`. Anything reading them directly
+  needs updating; they were unprefixed globals that could collide with any other
+  plugin.
+
+### Fixed
+
+* **105 admin and front-end strings were untranslatable and now are not.** They
+  passed the text domain as a PHP constant, and WordPress extracts translatable
+  strings by reading literals out of the source, so those strings never reached
+  the translation template in any locale. All 385 call sites now use a literal
+  domain matching the plugin slug.
+* Placeholder strings carry translator comments, "(s)" plural hedges are now
+  real plural forms, and ambiguous single-word labels carry context — so
+  translators can produce correct output rather than guesses.
+
+### Added
+
+* Licensing, updates, and optional usage analytics through Freemius. The opt-in
+  is skippable; choosing "Skip" transmits nothing. See the External services
+  section of readme.txt for exactly what is sent and when.
+
+### Migration / compatibility
+
+**Your data is safe.** Events are posts, their fields are post meta, categories
+are terms, and settings are a single option. None of those names change in this
+release, and deactivating a plugin never deletes them.
+
+Because the plugin folder changed, WordPress treats this as a different plugin,
+so the changeover is manual:
+
+1. Go to **Events → Settings → Data** and confirm "Delete data on uninstall" is
+   set to **No**. (No is the default.)
+2. Back up your database anyway.
+3. **Deactivate** the old plugin. Do not delete it yet — running both plugins at
+   once fatals on duplicate class and post-type declarations.
+4. Install and activate Simply Events Calendar.
+5. Confirm your events, dates, categories, recurring series, and settings are
+   all present.
+6. Visit **Settings → Permalinks** once to flush rewrite rules.
+7. Delete the old plugin.
+
+For a zero-risk step 7, delete the old plugin's folder over SFTP or your host's
+file manager instead of through the WordPress admin. Removing files directly
+never fires the uninstall hook, which makes the delete-on-uninstall setting
+irrelevant either way.
+
 ## [v5.3.0] (2026-06-11)
 
 ### Added (developer)
@@ -66,21 +124,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Migration / compatibility
 
 * **Automatic legacy-slug migration.** Events created on older versions used the post type `events` and taxonomy `events-cat`; v5.x uses `simple-events` / `simple-events-cat`. On upgrade, a one-time, idempotent migration (`includes/class-migrations.php`, version-flagged via the `simple_events_db_version` option) renames them so existing events and their category assignments keep working. The post-type rename is scoped to posts carrying our `event_date` meta, so an unrelated `events` CPT from another plugin is left alone. **Importing** an old export is also handled — a `wp_import_post_data_raw` filter remaps each item's post type and category taxonomy as the WordPress Importer reads it (otherwise the importer rejects them with "Invalid post type events"). **Back up your database and test on staging before upgrading a production site.**
-* **Tolerant time parsing.** Event times imported from older ACF-based installs may be stored as `H:i:s` (e.g. `14:30:00`) rather than the native `g:i a`. `simple_events_parse_time_of_day()` now reads `g:i a`, `H:i:s`, and `H:i`, so legacy times display correctly, populate the editor (no longer blanked — which previously risked erasing the time on re-save), and feed the `.ics`/schema output. New saves continue to normalize to `g:i a`. Event dates (`Ymd`) and locations need no migration.
+* **Tolerant time parsing.** Event times on installs upgraded from versions <= 4.4.0 may be stored as `H:i:s` (e.g. `14:30:00`) rather than the native `g:i a`. `simple_events_parse_time_of_day()` now reads `g:i a`, `H:i:s`, and `H:i`, so legacy times display correctly, populate the editor (no longer blanked — which previously risked erasing the time on re-save), and feed the `.ics`/schema output. New saves continue to normalize to `g:i a`. Event dates (`Ymd`) and locations need no migration.
 
 ## [v5.0.0] (2026-05-29)
 
 ### Removed
 
-* **Advanced Custom Fields dependency.** The plugin is now fully self-contained. The `Requires Plugins: advanced-custom-fields` header, ACF dependency checks/auto-deactivation, the ACF field group registration (`includes/acf-settings-page.php`), and the ACF local-JSON wiring (`includes/acf-json.php`) have all been removed.
+* **Third-party custom-fields plugin dependency.** The plugin is now fully self-contained. The `Requires Plugins` header, the dependency checks/auto-deactivation, the external field-group registration, and its local-JSON wiring have all been removed.
 
 ### Migration / compatibility
 
-* **No data migration required.** Event values were always stored as plain post meta (`event_date` as `Ymd`, `event_start_time`/`event_end_time` as `g:i a`, `event_location`, and the `event_repeat_*` rule keys). Existing events created with ACF continue to work unchanged, and ACF can be safely deactivated/removed.
+* **No data migration required.** Event values were always stored as plain post meta (`event_date` as `Ymd`, `event_start_time`/`event_end_time` as `g:i a`, `event_location`, and the `event_repeat_*` rule keys). Existing events created with earlier versions continue to work unchanged, and the previously required field plugin can be safely deactivated/removed.
 
 ### Added
 
-* **Native "Event Details" meta box** (`includes/class-meta-box.php`) replacing the ACF editing UI. Reads/writes the identical meta keys and storage formats; recurrence inputs reproduce the previous conditional show/hide via `assets/js/simple-events-admin.js`. Saves at `save_post_simple-events` priority 10 so the recurrence engine (priority 30) still reads the persisted rule.
+* **Native "Event Details" meta box** (`includes/class-meta-box.php`) replacing the previous third-party editing UI. Reads/writes the identical meta keys and storage formats; recurrence inputs reproduce the previous conditional show/hide via `assets/js/simple-events-admin.js`. Saves at `save_post_simple-events` priority 10 so the recurrence engine (priority 30) still reads the persisted rule.
 * **Settings page** under Events → Settings (`includes/class-settings.php`, option `simple_events_settings`): front-end date format (with live preview), 12/24-hour time, display defaults, empty-state copy, cache lifetime + "Clear cache now", "load more" batch size, recurrence limits (wired to the existing filters), and a schema.org JSON-LD toggle.
 * **Shared element renderer** (`includes/class-renderer.php`) and **element shortcodes**: `[sec_event_title]`, `[sec_event_image]`, `[sec_event_date]`, `[sec_event_time]`, `[sec_event_location]`, `[sec_event_excerpt]`, `[sec_event_content]`, `[sec_event_categories]`, `[sec_event_button]`.
 * **Default front-end templates** (`includes/class-templates.php` + `templates/`): single, archive, and category. Theme-overridable, and they defer to block (FSE) themes and Elementor Pro Theme Builder; disable via the `simple_events_use_default_template` filter. Archive navigation reuses the existing "load more" infinite scroll, now context-aware (category / past-events).
@@ -90,7 +148,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* All front-end/admin reads switched from ACF `get_field()` to native `get_post_meta()` / the new helpers. The front-end date format is now controlled by the settings page rather than ACF's return format.
+* All front-end/admin reads switched to native `get_post_meta()` / the new helpers. The front-end date format is now controlled by the settings page rather than the field plugin's return format.
 * `[sec_events]` defaults now derive from the settings page; explicit attributes still override per instance.
 * Uninstall now also deletes the `simple_events_settings` option.
 
@@ -98,7 +156,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* **Recurring events**: events can now repeat every N days, weeks, months, or years from the event edit screen. Recurrence settings live in the existing **Event Details** ACF field group (`event_repeats`, `event_repeat_frequency`, `event_repeat_interval`, `event_repeat_end_type`, `event_repeat_count`, `event_repeat_until`) and use ACF conditional logic to show/hide. `event_repeat_until` is **required at the ACF level** when "On a specific date" is selected, so a blank end date can't silently leave a stale series behind.
+* **Recurring events**: events can now repeat every N days, weeks, months, or years from the event edit screen. Recurrence settings live in the existing **Event Details** field group (`event_repeats`, `event_repeat_frequency`, `event_repeat_interval`, `event_repeat_end_type`, `event_repeat_count`, `event_repeat_until`) and use conditional logic to show/hide. `event_repeat_until` is **required at the field level** when "On a specific date" is selected, so a blank end date can't silently leave a stale series behind.
 * End conditions: **after a number of occurrences**, **on a specific date**, or **never** (with a rolling horizon refilled daily via WP-Cron, capped at 60 months out per series).
 * New `Simple_Events_Recurrence` class manages generation, edit-scope propagation, cascade hooks, and the horizon cron. Wired into `Simple_Events_Calendar::load_components()` and exposed at `simple_events_calendar()->recurrence`.
 * Per-occurrence editing: when editing a child event, a sidebar **Series Edit Scope** metabox offers *only this occurrence*, *this and future occurrences*, or *entire series*. Edits are tracked per-field via `_sec_field_overrides` so a series-wide change of (e.g.) start time doesn't blow away a previously-customized title.
@@ -111,7 +169,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Each occurrence is a real `simple-events` post with its own `event_date`, so the shortcode, archive, AJAX load-more, and admin filters require no changes. The parent post is occurrence #0; children carry `_sec_series_parent`, `_sec_series_occurrence_index`, and `_sec_field_overrides`. The rule itself is stored as `_sec_recur_*` post meta on the parent.
 
-When `Simple_Events_Recurrence::regenerate_series()` updates an existing live child, it syncs **every** copyable parent field (`post_title` / `post_content` / `post_excerpt` / `_thumbnail_id` / `event_start_time` / `event_end_time` / `event_location`) that the child hasn't locally overridden — not just `event_date` — so editing the parent (e.g., changing the title) propagates to already-generated children. Generated children also explicitly strip any inherited recurrence ACF meta (`event_repeats`, frequency, etc.) so each occurrence is a leaf, not a phantom series-parent.
+When `Simple_Events_Recurrence::regenerate_series()` updates an existing live child, it syncs **every** copyable parent field (`post_title` / `post_content` / `post_excerpt` / `_thumbnail_id` / `event_start_time` / `event_end_time` / `event_location`) that the child hasn't locally overridden — not just `event_date` — so editing the parent (e.g., changing the title) propagates to already-generated children. Generated children also explicitly strip any inherited recurrence meta (`event_repeats`, frequency, etc.) so each occurrence is a leaf, not a phantom series-parent.
 
 ### Behavioral notes
 
@@ -141,7 +199,7 @@ When `Simple_Events_Recurrence::regenerate_series()` updates an existing live ch
 
 * Fixed asset cache-busting: `$version` was hardcoded to `3.0.0` while `PLUGIN_VERSION` was `4.3.0`, so browsers served stale CSS/JS after upgrades
 * Fixed `modify_archive_query` meta_query merge: existing `relation` keys and nested clauses from other plugins are now preserved by nesting under a fresh `AND` wrapper instead of flattening with `array_merge`
-* Guarded `init()` against double-execution (it hooks both `plugins_loaded` and `acf/init`) to prevent duplicate hook registrations
+* Guarded `init()` against double-execution (it hooked both `plugins_loaded` and a second init action) to prevent duplicate hook registrations
 * Moved `load_plugin_textdomain` to the `init` hook to silence the WordPress 6.7+ `_doing_it_wrong` notice
 * AJAX-loaded event cards now render the footer "Learn More" link to match the shortcode output
 
@@ -192,7 +250,7 @@ When `Simple_Events_Recurrence::regenerate_series()` updates an existing live ch
 
 ### Fixed
 
-* Fixed plugin description to clearly specify ACF® requirement
+* Fixed plugin description to clearly specify the custom-fields plugin requirement
 * Improved WordPress version compatibility requirements
 * Enhanced color definitions and margin adjustments for better layout consistency
 * Fixed media query structure for improved readability and maintainability
@@ -216,9 +274,9 @@ When `Simple_Events_Recurrence::regenerate_series()` updates an existing live ch
 
 ### Improved
 
-* Enhanced ACF dependency error message for better user experience
-* Error message now shows "Simple Events Calendar requires Advanced Custom Fields (ACF) plugin to be installed and activated"
-* Added direct download link button "Download ACF Free Plugin" to WordPress plugin installer
+* Enhanced dependency error message for better user experience
+* Error message now names the required plugin and states that it must be installed and activated
+* Added a direct download-link button for the required plugin to the WordPress plugin installer
 * Cleaner, more actionable error messages for missing dependencies
 
 ## [v4.0.3] (2024-09-22)
@@ -269,7 +327,7 @@ When `Simple_Events_Recurrence::regenerate_series()` updates an existing live ch
 * 4:3 aspect ratio for featured images with responsive design
 * Event status filtering in admin (All Events, Upcoming, Today's Events, Past Events)
 * Location field with visual indicators and proper styling
-* Comprehensive ACF dependency checking with detailed error messages
+* Comprehensive dependency checking with detailed error messages
 * Scroll hints and loading animations for better user experience
 * Friendly "no more events" message with encouraging text and emojis
 * Enhanced event card design with hover effects and modern styling
@@ -283,7 +341,7 @@ When `Simple_Events_Recurrence::regenerate_series()` updates an existing live ch
 * Event cards now use flexbox layout for consistent heights across grid
 * Date format standardized to 'Ymd' for reliable database comparisons
 * Archive pages now automatically filter out past events (frontend only)
-* ACF field registration moved to programmatic creation via PHP
+* Field registration moved to programmatic creation via PHP
 * Improved responsive design with device-specific adjustments
 * Better accessibility with focus states and reduced motion support
 
@@ -292,7 +350,7 @@ When `Simple_Events_Recurrence::regenerate_series()` updates an existing live ch
 * Infinite scroll error handling - now shows proper "no more events" message instead of server errors
 * Past events filtering - properly hides past events on frontend while keeping them accessible in admin
 * Date comparison issues by using WordPress timezone (`current_time()`) instead of server time
-* ACF Pro detection reliability using `acf_get_setting()` function
+* Field-plugin detection reliability
 * Event ordering consistency - all queries now use ASC order by event date
 * Template fallback handling when event card template is missing
 
@@ -301,7 +359,7 @@ When `Simple_Events_Recurrence::regenerate_series()` updates an existing live ch
 * All debugging code and console logging from production files
 * Dependency on JSON field group files (now uses PHP registration)
 * Unnecessary caching that could interfere with real-time event filtering
-* Legacy ACF bundling code and restrictive activation logic
+* Legacy bundled-dependency code and restrictive activation logic
 
 ## [v2.1.2] (2024-05-15)
 

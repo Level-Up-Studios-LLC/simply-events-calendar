@@ -1,0 +1,1443 @@
+# Copyright (C) 2026 Level Up Studios, LLC
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simply Events Calendar 6.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simply-events-calendar\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-07T17:39:15-05:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: simply-events-calendar\n"
+
+#. Plugin Name of the plugin
+#: simply-events-calendar.php
+msgid "Simply Events Calendar"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: simply-events-calendar.php
+msgid "https://www.levelupstudios.com/simply-events-calendar/"
+msgstr ""
+
+#. Description of the plugin
+#: simply-events-calendar.php
+msgid "A simple, responsive events calendar for WordPress. Easily create one-time or recurring events and display them anywhere with shortcodes, Elementor widgets, and one-click Add to Calendar."
+msgstr ""
+
+#. Author of the plugin
+#: simply-events-calendar.php
+msgid "Level Up Studios, LLC"
+msgstr ""
+
+#. Author URI of the plugin
+#: simply-events-calendar.php
+msgid "https://www.levelupstudios.com/"
+msgstr ""
+
+#: includes/class-admin-columns.php:50
+#: includes/elementor/dynamic-tags.php:124
+#: includes/elementor/widgets.php:169
+msgid "Event Title"
+msgstr ""
+
+#: includes/class-admin-columns.php:51
+#: includes/class-admin-columns.php:604
+msgctxt "admin list table column heading"
+msgid "Image"
+msgstr ""
+
+#: includes/class-admin-columns.php:52
+#: includes/class-admin-columns.php:586
+#: includes/class-admin-columns.php:609
+#: includes/class-meta-box.php:194
+#: includes/elementor/dynamic-tags.php:86
+#: includes/elementor/widgets.php:239
+msgid "Event Date"
+msgstr ""
+
+#: includes/class-admin-columns.php:53
+#: includes/class-admin-columns.php:614
+msgctxt "admin list table column heading"
+msgid "Time"
+msgstr ""
+
+#: includes/class-admin-columns.php:54
+#: includes/class-admin-columns.php:619
+msgctxt "admin list table column heading"
+msgid "Location"
+msgstr ""
+
+#: includes/class-admin-columns.php:55
+msgctxt "admin list table column heading"
+msgid "Categories"
+msgstr ""
+
+#: includes/class-admin-columns.php:56
+msgid "Series"
+msgstr ""
+
+#: includes/class-admin-columns.php:57
+msgid "Published"
+msgstr ""
+
+#. translators: %d is the occurrence number within the series
+#: includes/class-admin-columns.php:122
+#, php-format
+msgid "Occurrence #%d"
+msgstr ""
+
+#: includes/class-admin-columns.php:126
+msgid "parent"
+msgstr ""
+
+#: includes/class-admin-columns.php:144
+msgid "Daily"
+msgstr ""
+
+#: includes/class-admin-columns.php:145
+msgid "Weekly"
+msgstr ""
+
+#: includes/class-admin-columns.php:146
+msgid "Monthly"
+msgstr ""
+
+#: includes/class-admin-columns.php:147
+msgid "Yearly"
+msgstr ""
+
+#. translators: 1: frequency label (Daily/Weekly/etc), 2: number of child occurrences
+#: includes/class-admin-columns.php:154
+#, php-format
+msgid "%1$s series (+%2$d)"
+msgstr ""
+
+#: includes/class-admin-columns.php:224
+msgid "Past"
+msgstr ""
+
+#: includes/class-admin-columns.php:226
+msgid "Today"
+msgstr ""
+
+#: includes/class-admin-columns.php:228
+msgid "Upcoming"
+msgstr ""
+
+#: includes/class-admin-columns.php:363
+msgid "All Categories"
+msgstr ""
+
+#: includes/class-admin-columns.php:388
+#: includes/class-post-type.php:73
+#: templates/single-simple-events.php:43
+msgid "All Events"
+msgstr ""
+
+#: includes/class-admin-columns.php:389
+msgid "Upcoming Events"
+msgstr ""
+
+#: includes/class-admin-columns.php:390
+msgid "Today's Events"
+msgstr ""
+
+#: includes/class-admin-columns.php:391
+msgid "Past Events"
+msgstr ""
+
+#: includes/class-ajax.php:43
+msgid "Security check failed."
+msgstr ""
+
+#: includes/class-ajax.php:51
+msgid "Invalid request data."
+msgstr ""
+
+#: includes/class-ajax.php:289
+#: includes/class-main.php:442
+#: includes/class-shortcode.php:393
+msgid "Loading more events..."
+msgstr ""
+
+#: includes/class-ajax.php:290
+#: includes/class-shortcode.php:394
+msgid "Error loading events. Please try again."
+msgstr ""
+
+#: includes/class-ajax.php:291
+#: includes/class-main.php:444
+#: includes/class-shortcode.php:395
+msgid "No more events to load."
+msgstr ""
+
+#: includes/class-docs.php:42
+#: includes/class-docs.php:94
+msgid "Simple Events Documentation"
+msgstr ""
+
+#: includes/class-docs.php:43
+msgid "Documentation"
+msgstr ""
+
+#: includes/class-docs.php:67
+msgid "Attribute"
+msgstr ""
+
+#: includes/class-docs.php:68
+msgid "Description"
+msgstr ""
+
+#: includes/class-docs.php:98
+msgid "Reference for the shortcodes and Elementor widgets this plugin provides. Use shortcodes in the block/classic editor or widgets; use the Elementor widgets when building with Elementor."
+msgstr ""
+
+#: includes/class-docs.php:100
+msgid "Shortcodes"
+msgstr ""
+
+#: includes/class-docs.php:102
+msgid "Events grid — [sec_events]"
+msgstr ""
+
+#: includes/class-docs.php:106
+msgid "Displays a responsive grid of events. Past events are hidden by default and more events load as the visitor scrolls. All attributes are optional and default to your settings on Events → Settings."
+msgstr ""
+
+#: includes/class-docs.php:108
+msgid "How many events to show initially (1–50)."
+msgstr ""
+
+#: includes/class-docs.php:109
+msgid "Limit to one category by its slug. Empty shows all."
+msgstr ""
+
+#: includes/class-docs.php:110
+msgid "\"yes\" to include past events; \"no\" (default) shows upcoming only."
+msgstr ""
+
+#: includes/class-docs.php:111
+msgid "\"ASC\" (soonest first) or \"DESC\" (latest first)."
+msgstr ""
+
+#: includes/class-docs.php:112
+msgid "\"yes\"/\"no\" — show the event time on each card."
+msgstr ""
+
+#: includes/class-docs.php:113
+msgid "\"yes\"/\"no\" — show the excerpt on each card."
+msgstr ""
+
+#: includes/class-docs.php:114
+msgid "\"yes\"/\"no\" — show the location on each card."
+msgstr ""
+
+#: includes/class-docs.php:115
+#: includes/class-docs.php:131
+msgid "\"yes\"/\"no\" — show the \"Learn More\" footer link."
+msgstr ""
+
+#: includes/class-docs.php:120
+msgid "Single event — [sec_event]"
+msgstr ""
+
+#: includes/class-docs.php:124
+msgid "Displays one specific event by its ID, as a card or an image-left list row. The \"id\" attribute is required — find the ID in the URL when editing the event (post=123)."
+msgstr ""
+
+#: includes/class-docs.php:126
+msgid "Required. The event's post ID."
+msgstr ""
+
+#: includes/class-docs.php:127
+msgid "\"card\" (default) or \"list\" (image left, details right)."
+msgstr ""
+
+#: includes/class-docs.php:128
+msgid "\"yes\"/\"no\" — show the event time."
+msgstr ""
+
+#: includes/class-docs.php:129
+msgid "\"yes\"/\"no\" — show the excerpt."
+msgstr ""
+
+#: includes/class-docs.php:130
+msgid "\"yes\"/\"no\" — show the location."
+msgstr ""
+
+#: includes/class-docs.php:136
+msgid "Single element shortcodes"
+msgstr ""
+
+#: includes/class-docs.php:137
+msgid "Render one piece of an event — handy for custom layouts. Inside an event (single page or loop) they use the current event automatically; elsewhere, pass an \"id\" attribute to target a specific event. All of them also accept \"class\", \"before\", and \"after\"."
+msgstr ""
+
+#: includes/class-docs.php:141
+msgid "Available element shortcodes and their main attributes:"
+msgstr ""
+
+#: includes/class-docs.php:143
+msgid "Event title. Attributes: tag (h1–h6/span), link (yes/no)."
+msgstr ""
+
+#: includes/class-docs.php:144
+msgid "Featured image. Attributes: size, link (yes/no)."
+msgstr ""
+
+#: includes/class-docs.php:145
+msgid "Event date. Attribute: format (PHP date format override)."
+msgstr ""
+
+#: includes/class-docs.php:146
+msgid "Start (and end) time. Attribute: separator."
+msgstr ""
+
+#: includes/class-docs.php:147
+msgid "Location. Attribute: icon (yes/no)."
+msgstr ""
+
+#: includes/class-docs.php:148
+msgid "Excerpt. Attribute: words (word limit)."
+msgstr ""
+
+#: includes/class-docs.php:149
+msgid "Full event content."
+msgstr ""
+
+#: includes/class-docs.php:150
+msgid "Category links. Attributes: link (yes/no), separator."
+msgstr ""
+
+#: includes/class-docs.php:151
+msgid "A link/button to the event. Attribute: text."
+msgstr ""
+
+#: includes/class-docs.php:156
+msgid "Elementor widgets"
+msgstr ""
+
+#: includes/class-docs.php:157
+msgid "When Elementor is active, the widgets below appear in the editor under the \"Simple Events\" category (just below \"Basic\")."
+msgstr ""
+
+#: includes/class-docs.php:159
+msgid "Display widgets — use anywhere"
+msgstr ""
+
+#: includes/class-docs.php:160
+msgid "Drag these onto any page, post, or template. They include their own event query, so they do not need an event context."
+msgstr ""
+
+#: includes/class-docs.php:164
+msgid "Widget"
+msgstr ""
+
+#: includes/class-docs.php:165
+msgid "Purpose"
+msgstr ""
+
+#: includes/class-docs.php:170
+#: includes/elementor/display-widgets.php:36
+msgid "Events Grid"
+msgstr ""
+
+#: includes/class-docs.php:171
+msgid "A grid (with a configurable column count) or an image-left list of events, with controls for category, order, count, the show/hide toggles, and an optional \"Load more on scroll\" (infinite scroll)."
+msgstr ""
+
+#: includes/class-docs.php:174
+#: includes/elementor/display-widgets.php:198
+msgid "Single Event"
+msgstr ""
+
+#: includes/class-docs.php:175
+msgid "Displays one event you pick from a searchable list, as a card or a list row."
+msgstr ""
+
+#: includes/class-docs.php:180
+msgid "Event element widgets — use inside an event context"
+msgstr ""
+
+#: includes/class-docs.php:181
+msgid "These render a single piece of \"the current event\": Event Title, Event Image, Event Date, Event Time, Event Location, Event Excerpt, Event Content, Event Categories, and Event Button."
+msgstr ""
+
+#: includes/class-docs.php:182
+msgid "Because they depend on a current event, they only output on the front end when used in an event context, namely:"
+msgstr ""
+
+#: includes/class-docs.php:184
+msgid "A single-event template (Elementor Theme Builder)."
+msgstr ""
+
+#: includes/class-docs.php:185
+msgid "An event archive / category template."
+msgstr ""
+
+#: includes/class-docs.php:186
+msgid "Inside a Loop Grid whose query is set to events."
+msgstr ""
+
+#: includes/class-docs.php:188
+msgid "If you place one on an ordinary page, the Elementor editor previews it with a sample event so you can style it, but it renders nothing on the live page. To show a specific event on an ordinary page, use the Single Event widget or the [sec_event] shortcode instead."
+msgstr ""
+
+#: includes/class-docs.php:190
+msgid "Dynamic Tags"
+msgstr ""
+
+#: includes/class-docs.php:191
+msgid "In an event template or Loop Grid, you can also bind a native Elementor widget (Heading, Text, Image, etc.) to an event field via its dynamic-tags picker, under the \"Simple Events\" group: Event Date, Event Time, Event Location, Event Title, Event Excerpt, Event Categories, and Event Image URL."
+msgstr ""
+
+#: includes/class-docs.php:193
+msgid "Loop Grid — sort by event date"
+msgstr ""
+
+#: includes/class-docs.php:194
+msgid "Elementor's Loop Grid orders by post date by default, not by the event date. To sort a Loop Grid of events by their event date, set the widget's Query ID (Loop Grid → Query → Query ID) to one of these built-in IDs:"
+msgstr ""
+
+#: includes/class-docs.php:198
+msgid "Query ID"
+msgstr ""
+
+#: includes/class-docs.php:199
+msgid "Result"
+msgstr ""
+
+#: includes/class-docs.php:205
+msgid "Orders by event date and follows the global \"Show past events\" setting (Events → Settings) — past events are hidden unless that setting is turned on."
+msgstr ""
+
+#: includes/class-docs.php:209
+msgid "Orders by event date and always includes past events (ignores the global setting)."
+msgstr ""
+
+#: includes/class-docs.php:213
+msgid "Set the Loop Grid's source to the Events post type, and use its own Order control for ascending (soonest first) or descending. No code snippet needed — the plugin wires these query IDs for you."
+msgstr ""
+
+#: includes/class-docs.php:217
+msgid "Go to Settings"
+msgstr ""
+
+#: includes/class-main.php:443
+msgid "Try Again"
+msgstr ""
+
+#: includes/class-main.php:488
+#: includes/class-post-type.php:68
+#: includes/elementor/display-widgets.php:45
+msgid "Events"
+msgstr ""
+
+#: includes/class-main.php:489
+#: includes/class-settings.php:56
+msgid "Settings"
+msgstr ""
+
+#: includes/class-meta-box.php:61
+#: templates/single-simple-events.php:54
+msgid "Event Details"
+msgstr ""
+
+#: includes/class-meta-box.php:106
+msgid "Repeats every"
+msgstr ""
+
+#: includes/class-meta-box.php:108
+#: includes/class-meta-box.php:243
+msgid "day(s)"
+msgstr ""
+
+#: includes/class-meta-box.php:109
+#: includes/class-meta-box.php:244
+msgid "week(s)"
+msgstr ""
+
+#: includes/class-meta-box.php:110
+#: includes/class-meta-box.php:245
+msgid "month(s)"
+msgstr ""
+
+#: includes/class-meta-box.php:111
+#: includes/class-meta-box.php:246
+msgid "year(s)"
+msgstr ""
+
+#. translators: %d is the number of occurrences (singular form, count = 1)
+#: includes/class-meta-box.php:117
+#, php-format
+msgid "%d occurrence"
+msgstr ""
+
+#. translators: %d is the number of occurrences (plural form, count != 1)
+#: includes/class-meta-box.php:119
+#, php-format
+msgid "%d occurrences"
+msgstr ""
+
+#: includes/class-meta-box.php:120
+msgid "repeats indefinitely"
+msgstr ""
+
+#. translators: %s is the recurrence end date value from the date picker (e.g. 2026-12-31)
+#: includes/class-meta-box.php:122
+#, php-format
+msgid "until %s"
+msgstr ""
+
+#. translators: %s is a comma-separated list of weekday abbreviations, e.g. "Mon, Wed, Fri"
+#: includes/class-meta-box.php:125
+#, php-format
+msgid "on %s"
+msgstr ""
+
+#: includes/class-meta-box.php:189
+msgid "When & where"
+msgstr ""
+
+#: includes/class-meta-box.php:194
+msgid "required"
+msgstr ""
+
+#: includes/class-meta-box.php:203
+msgid "Start Time"
+msgstr ""
+
+#: includes/class-meta-box.php:208
+msgid "End Time"
+msgstr ""
+
+#: includes/class-meta-box.php:208
+#: includes/class-meta-box.php:216
+msgid "optional"
+msgstr ""
+
+#: includes/class-meta-box.php:216
+msgctxt "event meta box field label"
+msgid "Location"
+msgstr ""
+
+#: includes/class-meta-box.php:218
+msgid "e.g., Conference Room A, 123 Main St, or Online"
+msgstr ""
+
+#: includes/class-meta-box.php:223
+msgid "This event is part of a recurring series. Recurrence settings are managed on the series parent."
+msgstr ""
+
+#: includes/class-meta-box.php:228
+msgid "Recurring"
+msgstr ""
+
+#: includes/class-meta-box.php:229
+msgid "This is a recurring event"
+msgstr ""
+
+#: includes/class-meta-box.php:236
+msgid "Repeats"
+msgstr ""
+
+#: includes/class-meta-box.php:238
+msgid "Every"
+msgstr ""
+
+#: includes/class-meta-box.php:257
+msgid "On these days"
+msgstr ""
+
+#: includes/class-meta-box.php:278
+msgid "Weekdays"
+msgstr ""
+
+#: includes/class-meta-box.php:279
+msgid "Weekend"
+msgstr ""
+
+#: includes/class-meta-box.php:280
+msgid "Every day"
+msgstr ""
+
+#: includes/class-meta-box.php:285
+msgid "Ends"
+msgstr ""
+
+#: includes/class-meta-box.php:289
+msgid "Never"
+msgstr ""
+
+#: includes/class-meta-box.php:290
+msgid "After a number of occurrences"
+msgstr ""
+
+#: includes/class-meta-box.php:291
+msgid "On a date"
+msgstr ""
+
+#: includes/class-meta-box.php:301
+msgid "Number of occurrences"
+msgstr ""
+
+#: includes/class-meta-box.php:306
+msgid "Repeat until"
+msgstr ""
+
+#: includes/class-post-type.php:66
+msgctxt "Post Type General Name"
+msgid "Events"
+msgstr ""
+
+#: includes/class-post-type.php:67
+msgctxt "Post Type Singular Name"
+msgid "Event"
+msgstr ""
+
+#: includes/class-post-type.php:69
+#: includes/class-post-type.php:96
+#: includes/elementor/display-widgets.php:206
+#: includes/elementor/display-widgets.php:211
+#: includes/elementor/widgets.php:55
+msgid "Event"
+msgstr ""
+
+#: includes/class-post-type.php:70
+msgid "Event Archives"
+msgstr ""
+
+#: includes/class-post-type.php:71
+msgid "Event Attributes"
+msgstr ""
+
+#: includes/class-post-type.php:72
+msgid "Parent Event:"
+msgstr ""
+
+#: includes/class-post-type.php:74
+#: includes/class-shortcode.php:282
+msgid "Add New Event"
+msgstr ""
+
+#: includes/class-post-type.php:75
+msgid "Add New"
+msgstr ""
+
+#: includes/class-post-type.php:76
+msgid "New Event"
+msgstr ""
+
+#: includes/class-post-type.php:77
+msgid "Edit Event"
+msgstr ""
+
+#: includes/class-post-type.php:78
+msgid "Update Event"
+msgstr ""
+
+#: includes/class-post-type.php:79
+#: includes/class-renderer.php:254
+#: includes/elementor/widgets.php:360
+msgid "View Event"
+msgstr ""
+
+#: includes/class-post-type.php:80
+msgid "View Events"
+msgstr ""
+
+#: includes/class-post-type.php:81
+msgid "Search Events"
+msgstr ""
+
+#: includes/class-post-type.php:82
+msgid "Not found"
+msgstr ""
+
+#: includes/class-post-type.php:83
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/class-post-type.php:84
+msgid "Featured Image"
+msgstr ""
+
+#: includes/class-post-type.php:85
+msgid "Set featured image"
+msgstr ""
+
+#: includes/class-post-type.php:86
+msgid "Remove featured image"
+msgstr ""
+
+#: includes/class-post-type.php:87
+msgid "Use as featured image"
+msgstr ""
+
+#: includes/class-post-type.php:88
+msgid "Insert into event"
+msgstr ""
+
+#: includes/class-post-type.php:89
+msgid "Uploaded to this event"
+msgstr ""
+
+#: includes/class-post-type.php:90
+msgid "Events list"
+msgstr ""
+
+#: includes/class-post-type.php:91
+msgid "Events list navigation"
+msgstr ""
+
+#: includes/class-post-type.php:92
+msgid "Filter events list"
+msgstr ""
+
+#: includes/class-post-type.php:97
+msgid "Events for the Simply Events Calendar"
+msgstr ""
+
+#: includes/class-post-type.php:145
+msgctxt "Taxonomy General Name"
+msgid "Event Categories"
+msgstr ""
+
+#: includes/class-post-type.php:146
+msgctxt "Taxonomy Singular Name"
+msgid "Event Category"
+msgstr ""
+
+#: includes/class-post-type.php:147
+#: includes/elementor/dynamic-tags.php:146
+#: includes/elementor/widgets.php:330
+msgid "Event Categories"
+msgstr ""
+
+#: includes/class-post-type.php:148
+msgid "All Event Categories"
+msgstr ""
+
+#: includes/class-post-type.php:149
+msgid "Parent Event Category"
+msgstr ""
+
+#: includes/class-post-type.php:150
+msgid "Parent Event Category:"
+msgstr ""
+
+#: includes/class-post-type.php:151
+msgid "New Event Category Name"
+msgstr ""
+
+#: includes/class-post-type.php:152
+msgid "Add New Event Category"
+msgstr ""
+
+#: includes/class-post-type.php:153
+msgid "Edit Event Category"
+msgstr ""
+
+#: includes/class-post-type.php:154
+msgid "Update Event Category"
+msgstr ""
+
+#: includes/class-post-type.php:155
+msgid "View Event Category"
+msgstr ""
+
+#: includes/class-post-type.php:156
+msgid "Separate event categories with commas"
+msgstr ""
+
+#: includes/class-post-type.php:157
+msgid "Add or remove event categories"
+msgstr ""
+
+#: includes/class-post-type.php:158
+msgid "Choose from the most used"
+msgstr ""
+
+#: includes/class-post-type.php:159
+msgid "Popular Event Categories"
+msgstr ""
+
+#: includes/class-post-type.php:160
+msgid "Search Event Categories"
+msgstr ""
+
+#: includes/class-post-type.php:161
+msgid "Not Found"
+msgstr ""
+
+#: includes/class-post-type.php:162
+msgid "No event categories"
+msgstr ""
+
+#: includes/class-post-type.php:163
+msgid "Event categories list"
+msgstr ""
+
+#: includes/class-post-type.php:164
+msgid "Event categories list navigation"
+msgstr ""
+
+#: includes/class-pro-upsell.php:82
+msgid "Configurable event URLs"
+msgstr ""
+
+#: includes/class-pro-upsell.php:83
+msgid "Rename the /events/ permalink base to anything you like — or remove it entirely for top-level event URLs."
+msgstr ""
+
+#: includes/class-pro-upsell.php:86
+msgid "Calendar & month view"
+msgstr ""
+
+#: includes/class-pro-upsell.php:87
+msgid "Show your events in a full month-grid calendar your visitors can browse, in addition to the list layout."
+msgstr ""
+
+#: includes/class-pro-upsell.php:90
+msgid "Ticketing & RSVPs"
+msgstr ""
+
+#: includes/class-pro-upsell.php:91
+msgid "Let visitors RSVP or buy tickets to your events, with attendee tracking and check-in."
+msgstr ""
+
+#: includes/class-pro-upsell.php:94
+msgid "Priority support"
+msgstr ""
+
+#: includes/class-pro-upsell.php:95
+msgid "Direct help from the team that builds the plugin, with priority response times."
+msgstr ""
+
+#: includes/class-pro-upsell.php:112
+#: includes/class-pro-upsell.php:113
+#: includes/class-pro-upsell.php:194
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: includes/class-pro-upsell.php:187
+#: includes/class-pro-upsell.php:216
+#: includes/class-pro-upsell.php:251
+msgid "PRO"
+msgstr ""
+
+#: includes/class-pro-upsell.php:189
+msgid "Do more with Simply Events Calendar Pro."
+msgstr ""
+
+#: includes/class-pro-upsell.php:190
+msgid "Configurable URLs, a month-view calendar, ticketing, and priority support."
+msgstr ""
+
+#: includes/class-pro-upsell.php:195
+msgid "Dismiss this notice"
+msgstr ""
+
+#: includes/class-pro-upsell.php:195
+msgid "Dismiss"
+msgstr ""
+
+#: includes/class-pro-upsell.php:209
+msgid "Available in Pro"
+msgstr ""
+
+#: includes/class-pro-upsell.php:210
+msgid "These features are unlocked in Simply Events Calendar Pro."
+msgstr ""
+
+#: includes/class-pro-upsell.php:221
+msgid "Disabled — upgrade to enable"
+msgstr ""
+
+#: includes/class-pro-upsell.php:229
+msgid "See everything in Pro"
+msgstr ""
+
+#: includes/class-pro-upsell.php:243
+msgid "Upgrade to Simply Events Calendar Pro"
+msgstr ""
+
+#: includes/class-pro-upsell.php:244
+msgid "Everything in the free plugin, plus powerful tools to run events at scale."
+msgstr ""
+
+#: includes/class-pro-upsell.php:259
+msgid "Get Simply Events Calendar Pro"
+msgstr ""
+
+#. translators: 1: sentence about deleted occurrences, 2: sentence about kept occurrences
+#: includes/class-recurrence.php:491
+#, php-format
+msgid "Recurrence disabled. %1$s %2$s"
+msgstr ""
+
+#. translators: %d is the number of future unmodified occurrences deleted
+#: includes/class-recurrence.php:494
+#, php-format
+msgid "%d future unmodified occurrence deleted."
+msgid_plural "%d future unmodified occurrences deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d is the number of past, edited, or trashed occurrences kept as standalone events
+#: includes/class-recurrence.php:504
+#, php-format
+msgid "%d occurrence (past, edited, or trashed) kept as a standalone event."
+msgid_plural "%d occurrences (past, edited, or trashed) kept as standalone events."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-recurrence.php:534
+msgid "Series Edit Scope"
+msgstr ""
+
+#: includes/class-recurrence.php:550
+msgid "Only this occurrence"
+msgstr ""
+
+#: includes/class-recurrence.php:551
+msgid "This and future occurrences"
+msgstr ""
+
+#: includes/class-recurrence.php:552
+msgid "Entire series"
+msgstr ""
+
+#. translators: %d is the occurrence number within the series
+#: includes/class-recurrence.php:560
+#, php-format
+msgid "This event is occurrence #%d in a recurring series."
+msgstr ""
+
+#: includes/class-recurrence.php:564
+msgid "Edit parent"
+msgstr ""
+
+#: includes/class-recurrence.php:568
+msgid "Apply changes to:"
+msgstr ""
+
+#: includes/class-recurrence.php:580
+msgid "Only this occurrence: changes stay here. This and future: changes propagate to later siblings (date excluded). Entire series: propagates to the parent and every sibling, and a date change shifts the whole series."
+msgstr ""
+
+#. translators: %d is the number of occurrences created in the foreground pass
+#: includes/class-recurrence.php:1214
+#, php-format
+msgid "Created %d occurrence so far; the remaining occurrences will be generated in the background within a few minutes."
+msgid_plural "Created %d occurrences so far; the remaining occurrences will be generated in the background within a few minutes."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-settings.php:55
+#: includes/class-settings.php:221
+msgid "Events Settings"
+msgstr ""
+
+#: includes/class-settings.php:174
+msgid "You do not have permission to do that."
+msgstr ""
+
+#: includes/class-settings.php:227
+msgid "Event cache cleared."
+msgstr ""
+
+#: includes/class-settings.php:234
+msgid "Display formatting"
+msgstr ""
+
+#: includes/class-settings.php:237
+#: includes/class-settings.php:250
+msgid "Date format"
+msgstr ""
+
+#: includes/class-settings.php:241
+msgid "Weekday, Month Day, Year"
+msgstr ""
+
+#: includes/class-settings.php:242
+msgid "Month Day, Year"
+msgstr ""
+
+#: includes/class-settings.php:243
+msgid "MM/DD/YYYY"
+msgstr ""
+
+#: includes/class-settings.php:244
+msgid "Abbreviated Month Day, Year"
+msgstr ""
+
+#: includes/class-settings.php:260
+msgid "Custom:"
+msgstr ""
+
+#: includes/class-settings.php:262
+msgid "Custom date format"
+msgstr ""
+
+#: includes/class-settings.php:264
+msgid "Choose a preset, or pick \"Custom\" to enter a PHP date format."
+msgstr ""
+
+#: includes/class-settings.php:265
+msgid "Format reference"
+msgstr ""
+
+#: includes/class-settings.php:271
+msgid "Time format"
+msgstr ""
+
+#: includes/class-settings.php:273
+msgid "12-hour (2:30 pm)"
+msgstr ""
+
+#: includes/class-settings.php:274
+msgid "24-hour (14:30)"
+msgstr ""
+
+#: includes/class-settings.php:279
+msgid "Display defaults"
+msgstr ""
+
+#: includes/class-settings.php:280
+msgid "Defaults for the [sec_events] shortcode and the event archives; shortcode attributes override them per instance. On archive pages the page size uses the \"Load more\" batch size below (so infinite-scroll offsets line up), not \"Events per page\"."
+msgstr ""
+
+#: includes/class-settings.php:283
+msgid "Events per page"
+msgstr ""
+
+#: includes/class-settings.php:287
+msgid "Default sort order"
+msgstr ""
+
+#: includes/class-settings.php:289
+msgid "Ascending (soonest first)"
+msgstr ""
+
+#: includes/class-settings.php:290
+msgid "Descending (latest first)"
+msgstr ""
+
+#: includes/class-settings.php:295
+msgid "Show past events by default"
+msgstr ""
+
+#: includes/class-settings.php:296
+msgid "Show event time"
+msgstr ""
+
+#: includes/class-settings.php:297
+#: includes/elementor/display-widgets.php:112
+#: includes/elementor/display-widgets.php:234
+msgid "Show excerpt"
+msgstr ""
+
+#: includes/class-settings.php:298
+#: includes/elementor/display-widgets.php:113
+#: includes/elementor/display-widgets.php:235
+msgid "Show location"
+msgstr ""
+
+#: includes/class-settings.php:299
+msgid "Show card footer / read-more"
+msgstr ""
+
+#: includes/class-settings.php:305
+msgid "Enabled"
+msgstr ""
+
+#: includes/class-settings.php:309
+msgid "\"Load more\" batch size"
+msgstr ""
+
+#: includes/class-settings.php:312
+msgid "How many events to load per \"load more\" / infinite-scroll request."
+msgstr ""
+
+#: includes/class-settings.php:317
+msgid "SEO"
+msgstr ""
+
+#: includes/class-settings.php:320
+msgid "schema.org JSON-LD"
+msgstr ""
+
+#: includes/class-settings.php:321
+msgid "Output Event structured data on cards and single event pages"
+msgstr ""
+
+#: includes/class-settings.php:325
+msgid "Recurrence limits"
+msgstr ""
+
+#: includes/class-settings.php:328
+msgid "Max occurrences per series"
+msgstr ""
+
+#: includes/class-settings.php:332
+msgid "Max horizon (months) for \"never\" series"
+msgstr ""
+
+#: includes/class-settings.php:337
+msgid "Cache"
+msgstr ""
+
+#: includes/class-settings.php:340
+msgid "Cache lifetime (minutes)"
+msgstr ""
+
+#: includes/class-settings.php:345
+msgid "Data"
+msgstr ""
+
+#: includes/class-settings.php:348
+msgid "When the plugin is deleted"
+msgstr ""
+
+#: includes/class-settings.php:350
+msgid "Keep all events and settings (recommended)"
+msgstr ""
+
+#: includes/class-settings.php:351
+msgid "Permanently delete all events, categories, and settings"
+msgstr ""
+
+#: includes/class-settings.php:352
+msgid "Deletion only happens when you delete the plugin from the Plugins screen — never on deactivation. Leave this set to \"Keep all events and settings\" if you may reinstall later."
+msgstr ""
+
+#: includes/class-settings.php:376
+msgid "Maintenance"
+msgstr ""
+
+#: includes/class-settings.php:380
+msgid "Clear cache now"
+msgstr ""
+
+#: includes/class-settings.php:381
+msgid "Clears all cached event listings immediately."
+msgstr ""
+
+#: includes/class-shortcode.php:265
+#: includes/functions.php:891
+#: templates/archive-simple-events.php:49
+#: templates/taxonomy-simple-events-cat.php:58
+msgid "No Events Found"
+msgstr ""
+
+#. translators: %s: category slug
+#: includes/class-shortcode.php:273
+#: includes/functions.php:883
+#, php-format
+msgid "No events found in the \"%s\" category."
+msgstr ""
+
+#: includes/class-shortcode.php:275
+#: includes/functions.php:885
+#: templates/archive-simple-events.php:50
+#: templates/taxonomy-simple-events-cat.php:59
+msgid "No upcoming events scheduled. Check back soon!"
+msgstr ""
+
+#: includes/class-shortcode.php:277
+#: includes/functions.php:887
+msgid "No events have been created yet."
+msgstr ""
+
+#: includes/class-shortcode.php:339
+msgid "[sec_event] requires an \"id\" attribute, e.g. [sec_event id=\"123\"]."
+msgstr ""
+
+#. translators: %d: event ID
+#: includes/class-shortcode.php:357
+#, php-format
+msgid "No published event found for ID %d. Check the \"id\" attribute — the event may be unpublished or deleted."
+msgstr ""
+
+#: includes/elementor/class-elementor.php:136
+#: includes/elementor/class-elementor.php:232
+msgid "Simple Events"
+msgstr ""
+
+#: includes/elementor/class-elementor.php:306
+msgid "— Select an event —"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:50
+#: includes/elementor/display-widgets.php:220
+msgid "Layout"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:53
+msgid "Grid"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:54
+#: includes/elementor/display-widgets.php:224
+msgid "List (image left)"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:68
+msgid "Columns"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:80
+msgid "Number of events"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:88
+msgid "Category"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:95
+msgid "Order"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:98
+msgid "Soonest first"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:99
+msgid "Latest first"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:105
+msgid "Show past events"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:111
+#: includes/elementor/display-widgets.php:233
+msgid "Show time"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:114
+#: includes/elementor/display-widgets.php:236
+msgid "Show footer / read-more"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:124
+msgid "Load more on scroll"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:125
+msgid "Loads additional events automatically as the visitor scrolls (infinite scroll), starting from \"Number of events\". Off shows a fixed number."
+msgstr ""
+
+#: includes/elementor/display-widgets.php:144
+msgid "All categories"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:212
+msgid "Search by title and select the event to display."
+msgstr ""
+
+#: includes/elementor/display-widgets.php:223
+msgid "Card"
+msgstr ""
+
+#: includes/elementor/display-widgets.php:255
+msgid "Select an event to display."
+msgstr ""
+
+#: includes/elementor/dynamic-tags.php:97
+#: includes/elementor/widgets.php:263
+msgid "Event Time"
+msgstr ""
+
+#: includes/elementor/dynamic-tags.php:113
+#: includes/elementor/widgets.php:273
+msgid "Event Location"
+msgstr ""
+
+#: includes/elementor/dynamic-tags.php:135
+#: includes/elementor/widgets.php:296
+msgid "Event Excerpt"
+msgstr ""
+
+#: includes/elementor/dynamic-tags.php:161
+msgid "Event Image URL"
+msgstr ""
+
+#: includes/elementor/widgets.php:79
+msgid "Style"
+msgstr ""
+
+#: includes/elementor/widgets.php:87
+msgid "Alignment"
+msgstr ""
+
+#: includes/elementor/widgets.php:90
+msgid "Left"
+msgstr ""
+
+#: includes/elementor/widgets.php:91
+msgid "Center"
+msgstr ""
+
+#: includes/elementor/widgets.php:92
+msgid "Right"
+msgstr ""
+
+#: includes/elementor/widgets.php:101
+msgid "Text Color"
+msgstr ""
+
+#: includes/elementor/widgets.php:147
+msgid "No events to preview yet. Create an event, or place this element inside a single-event template, archive, or Loop Grid."
+msgstr ""
+
+#: includes/elementor/widgets.php:174
+#: includes/elementor/widgets.php:218
+msgid "Link to event"
+msgstr ""
+
+#: includes/elementor/widgets.php:179
+msgid "HTML tag"
+msgstr ""
+
+#: includes/elementor/widgets.php:201
+msgid "Event Image"
+msgstr ""
+
+#: includes/elementor/widgets.php:206
+msgid "Image size"
+msgstr ""
+
+#: includes/elementor/widgets.php:209
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/elementor/widgets.php:210
+msgid "Medium"
+msgstr ""
+
+#: includes/elementor/widgets.php:211
+msgid "Medium Large"
+msgstr ""
+
+#: includes/elementor/widgets.php:212
+msgid "Large"
+msgstr ""
+
+#: includes/elementor/widgets.php:213
+msgid "Full"
+msgstr ""
+
+#: includes/elementor/widgets.php:244
+msgid "Date format override"
+msgstr ""
+
+#: includes/elementor/widgets.php:245
+msgid "PHP date format. Leave blank to use the plugin setting."
+msgstr ""
+
+#: includes/elementor/widgets.php:278
+msgid "Show icon"
+msgstr ""
+
+#: includes/elementor/widgets.php:301
+msgid "Word limit"
+msgstr ""
+
+#: includes/elementor/widgets.php:320
+msgid "Event Content"
+msgstr ""
+
+#: includes/elementor/widgets.php:335
+msgid "Link to category"
+msgstr ""
+
+#: includes/elementor/widgets.php:353
+msgid "Event Button"
+msgstr ""
+
+#: includes/elementor/widgets.php:358
+msgid "Button text"
+msgstr ""
+
+#: includes/functions.php:72
+#: template-parts/content-event-card.php:173
+msgid "Learn More"
+msgstr ""
+
+#: includes/pro/features/class-configurable-urls.php:101
+msgid "Permalinks"
+msgstr ""
+
+#: includes/pro/features/class-configurable-urls.php:104
+#: includes/pro/features/class-configurable-urls.php:107
+msgid "Event URL base"
+msgstr ""
+
+#: includes/pro/features/class-configurable-urls.php:110
+msgid "The base used in single event URLs — e.g. \"events\" gives /events/your-event, \"happenings\" gives /happenings/your-event. Use lowercase letters, numbers, and hyphens."
+msgstr ""
+
+#: includes/pro/features/class-configurable-urls.php:112
+msgid "Avoid a value that matches an existing page slug, or that page and your events will conflict. Saving a change refreshes permalinks automatically; old links to the previous base will stop working."
+msgstr ""
+
+#. translators: %s is the event title
+#: template-parts/content-event-card.php:103
+#, php-format
+msgid "View event: %s"
+msgstr ""
+
+#. translators: %s is the event title
+#: template-parts/content-event-card.php:106
+#, php-format
+msgid "Image for event: %s"
+msgstr ""
+
+#. translators: %s is the event date, already formatted per the site's date-format setting
+#: template-parts/content-event-card.php:129
+#, php-format
+msgid "Event date: %s"
+msgstr ""
+
+#. translators: %s is the event's start (and, if set, end) time, already formatted per the site's time-format setting
+#: template-parts/content-event-card.php:136
+#, php-format
+msgid "Event time: %s"
+msgstr ""
+
+#: template-parts/content-event-card.php:156
+msgid "Event location:"
+msgstr ""
+
+#. translators: %s is the event title
+#: template-parts/content-event-card.php:172
+#, php-format
+msgid "Read more about %s"
+msgstr ""
+
+#: templates/single-simple-events.php:60
+msgid "Date"
+msgstr ""
+
+#: templates/single-simple-events.php:70
+msgid "Time"
+msgstr ""
+
+#: templates/single-simple-events.php:80
+msgid "Location"
+msgstr ""
+
+#: templates/single-simple-events.php:90
+msgid "Categories"
+msgstr ""
+
+#: templates/single-simple-events.php:112
+msgid "Add to Calendar"
+msgstr ""

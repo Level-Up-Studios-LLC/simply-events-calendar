@@ -1,0 +1,1860 @@
+# Simple Events Calendar - Spanish Translation
+# Copyright (C) 2024 Level Up Studios, LLC
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Events Calendar 4.3.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simply-events-calendar\n"
+"POT-Creation-Date: 2026-09-07T17:39:15-05:00\n"
+"PO-Revision-Date: 2024-09-22 00:00:00+00:00\n"
+"Last-Translator: Level Up Studios, LLC\n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: simple_events\n"
+"X-Generator: Simple Events Calendar\n"
+
+#. Plugin Name of the plugin
+#: simply-events-calendar.php
+#, fuzzy
+msgid "Simply Events Calendar"
+msgstr "Simply Events Calendar"
+
+#. Plugin URI of the plugin
+#: simply-events-calendar.php
+#, fuzzy
+msgid "https://www.levelupstudios.com/simply-events-calendar/"
+msgstr "https://www.levelupstudios.com/simply-events-calendar/"
+
+#. Description of the plugin
+#: simply-events-calendar.php
+#, fuzzy
+msgid ""
+"A simple, responsive events calendar for WordPress. Easily create one-time "
+"or recurring events and display them anywhere with shortcodes, Elementor "
+"widgets, and one-click Add to Calendar."
+msgstr ""
+"Un calendario de eventos simple y responsivo para WordPress. Crea fácilmente"
+" eventos únicos o recurrentes y muéstralos en cualquier lugar con "
+"shortcodes, widgets de Elementor y Añadir al calendario con un clic."
+
+#. Author of the plugin
+#: simply-events-calendar.php
+#, fuzzy
+msgid "Level Up Studios, LLC"
+msgstr "Level Up Studios, LLC"
+
+#. Author URI of the plugin
+#: simply-events-calendar.php
+#, fuzzy
+msgid "https://www.levelupstudios.com/"
+msgstr "https://www.levelupstudios.com/"
+
+#: includes/class-admin-columns.php:50 includes/elementor/dynamic-tags.php:124
+#: includes/elementor/widgets.php:169
+#, fuzzy
+msgid "Event Title"
+msgstr "Título del evento"
+
+#: includes/class-admin-columns.php:51 includes/class-admin-columns.php:604
+#, fuzzy
+msgctxt "admin list table column heading"
+msgid "Image"
+msgstr "Imagen"
+
+#: includes/class-admin-columns.php:52 includes/class-admin-columns.php:586
+#: includes/class-admin-columns.php:609 includes/class-meta-box.php:194
+#: includes/elementor/dynamic-tags.php:86 includes/elementor/widgets.php:239
+msgid "Event Date"
+msgstr "Fecha del Evento"
+
+#: includes/class-admin-columns.php:53 includes/class-admin-columns.php:614
+#, fuzzy
+msgctxt "admin list table column heading"
+msgid "Time"
+msgstr "Hora"
+
+#: includes/class-admin-columns.php:54 includes/class-admin-columns.php:619
+#, fuzzy
+msgctxt "admin list table column heading"
+msgid "Location"
+msgstr "Ubicación"
+
+#: includes/class-admin-columns.php:55
+#, fuzzy
+msgctxt "admin list table column heading"
+msgid "Categories"
+msgstr "Categorías"
+
+#: includes/class-admin-columns.php:56
+#, fuzzy
+msgid "Series"
+msgstr "Serie"
+
+#: includes/class-admin-columns.php:57
+#, fuzzy
+msgid "Published"
+msgstr "Publicado"
+
+#. translators: %d is the occurrence number within the series
+#: includes/class-admin-columns.php:122
+#, php-format, fuzzy
+msgid "Occurrence #%d"
+msgstr "Repetición n.º %d"
+
+#: includes/class-admin-columns.php:126
+#, fuzzy
+msgid "parent"
+msgstr "padre"
+
+#: includes/class-admin-columns.php:144
+#, fuzzy
+msgid "Daily"
+msgstr "Diario"
+
+#: includes/class-admin-columns.php:145
+#, fuzzy
+msgid "Weekly"
+msgstr "Semanal"
+
+#: includes/class-admin-columns.php:146
+#, fuzzy
+msgid "Monthly"
+msgstr "Mensual"
+
+#: includes/class-admin-columns.php:147
+#, fuzzy
+msgid "Yearly"
+msgstr "Anual"
+
+#. translators: 1: frequency label (Daily/Weekly/etc), 2: number of child
+#. occurrences
+#: includes/class-admin-columns.php:154
+#, php-format, fuzzy
+msgid "%1$s series (+%2$d)"
+msgstr "Serie %1$s (+%2$d)"
+
+#: includes/class-admin-columns.php:224
+msgid "Past"
+msgstr "Pasado"
+
+#: includes/class-admin-columns.php:226
+msgid "Today"
+msgstr "Hoy"
+
+#: includes/class-admin-columns.php:228
+msgid "Upcoming"
+msgstr "Próximos"
+
+#: includes/class-admin-columns.php:363
+msgid "All Categories"
+msgstr "Todas las Categorías"
+
+#: includes/class-admin-columns.php:388 includes/class-post-type.php:73
+#: templates/single-simple-events.php:43
+msgid "All Events"
+msgstr "Todos los Eventos"
+
+#: includes/class-admin-columns.php:389
+msgid "Upcoming Events"
+msgstr "Próximos Eventos"
+
+#: includes/class-admin-columns.php:390
+msgid "Today's Events"
+msgstr "Eventos de Hoy"
+
+#: includes/class-admin-columns.php:391
+msgid "Past Events"
+msgstr "Eventos Pasados"
+
+#: includes/class-ajax.php:43
+#, fuzzy
+msgid "Security check failed."
+msgstr "Error en la verificación de seguridad."
+
+#: includes/class-ajax.php:51
+#, fuzzy
+msgid "Invalid request data."
+msgstr "Datos de solicitud no válidos."
+
+#: includes/class-ajax.php:289 includes/class-main.php:442
+#: includes/class-shortcode.php:393
+msgid "Loading more events..."
+msgstr "Cargando más eventos..."
+
+#: includes/class-ajax.php:290 includes/class-shortcode.php:394
+msgid "Error loading events. Please try again."
+msgstr "Error al cargar eventos. Por favor, inténtalo de nuevo."
+
+#: includes/class-ajax.php:291 includes/class-main.php:444
+#: includes/class-shortcode.php:395
+msgid "No more events to load."
+msgstr "No hay más eventos para cargar."
+
+#: includes/class-docs.php:42 includes/class-docs.php:94
+#, fuzzy
+msgid "Simple Events Documentation"
+msgstr "Documentación de Simple Events"
+
+#: includes/class-docs.php:43
+#, fuzzy
+msgid "Documentation"
+msgstr "Documentación"
+
+#: includes/class-docs.php:67
+#, fuzzy
+msgid "Attribute"
+msgstr "Atributo"
+
+#: includes/class-docs.php:68
+#, fuzzy
+msgid "Description"
+msgstr "Descripción"
+
+#: includes/class-docs.php:98
+#, fuzzy
+msgid ""
+"Reference for the shortcodes and Elementor widgets this plugin provides. Use"
+" shortcodes in the block/classic editor or widgets; use the Elementor "
+"widgets when building with Elementor."
+msgstr ""
+"Referencia de los shortcodes y widgets de Elementor que ofrece este plugin. "
+"Usa los shortcodes en el editor de bloques/clásico; usa los widgets de "
+"Elementor al crear con Elementor."
+
+#: includes/class-docs.php:100
+#, fuzzy
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: includes/class-docs.php:102
+#, fuzzy
+msgid "Events grid — [sec_events]"
+msgstr "Cuadrícula de eventos — [sec_events]"
+
+#: includes/class-docs.php:106
+#, fuzzy
+msgid ""
+"Displays a responsive grid of events. Past events are hidden by default and "
+"more events load as the visitor scrolls. All attributes are optional and "
+"default to your settings on Events → Settings."
+msgstr ""
+"Muestra una cuadrícula responsiva de eventos. Los eventos pasados se ocultan"
+" de forma predeterminada y se cargan más eventos a medida que el visitante "
+"se desplaza. Todos los atributos son opcionales y usan de forma "
+"predeterminada los valores de Eventos → Ajustes."
+
+#: includes/class-docs.php:108
+#, fuzzy
+msgid "How many events to show initially (1–50)."
+msgstr "Cuántos eventos mostrar inicialmente (1–50)."
+
+#: includes/class-docs.php:109
+#, fuzzy
+msgid "Limit to one category by its slug. Empty shows all."
+msgstr "Limitar a una categoría por su slug. Vacío muestra todas."
+
+#: includes/class-docs.php:110
+#, fuzzy
+msgid "\"yes\" to include past events; \"no\" (default) shows upcoming only."
+msgstr ""
+"\"yes\" para incluir eventos pasados; \"no\" (predeterminado) muestra solo "
+"los próximos."
+
+#: includes/class-docs.php:111
+#, fuzzy
+msgid "\"ASC\" (soonest first) or \"DESC\" (latest first)."
+msgstr "\"ASC\" (más próximo primero) o \"DESC\" (más reciente primero)."
+
+#: includes/class-docs.php:112
+#, fuzzy
+msgid "\"yes\"/\"no\" — show the event time on each card."
+msgstr "\"yes\"/\"no\" — muestra la hora del evento en cada tarjeta."
+
+#: includes/class-docs.php:113
+#, fuzzy
+msgid "\"yes\"/\"no\" — show the excerpt on each card."
+msgstr "\"yes\"/\"no\" — muestra el extracto en cada tarjeta."
+
+#: includes/class-docs.php:114
+#, fuzzy
+msgid "\"yes\"/\"no\" — show the location on each card."
+msgstr "\"yes\"/\"no\" — muestra la ubicación en cada tarjeta."
+
+#: includes/class-docs.php:115 includes/class-docs.php:131
+#, fuzzy
+msgid "\"yes\"/\"no\" — show the \"Learn More\" footer link."
+msgstr "\"yes\"/\"no\" — muestra el enlace de pie \"Más información\"."
+
+#: includes/class-docs.php:120
+#, fuzzy
+msgid "Single event — [sec_event]"
+msgstr "Evento individual — [sec_event]"
+
+#: includes/class-docs.php:124
+#, fuzzy
+msgid ""
+"Displays one specific event by its ID, as a card or an image-left list row. "
+"The \"id\" attribute is required — find the ID in the URL when editing the "
+"event (post=123)."
+msgstr ""
+"Muestra un evento específico por su ID, como tarjeta o como fila de lista "
+"con imagen a la izquierda. El atributo \"id\" es obligatorio — encuentra el "
+"ID en la URL al editar el evento (post=123)."
+
+#: includes/class-docs.php:126
+#, fuzzy
+msgid "Required. The event's post ID."
+msgstr "Obligatorio. El ID de entrada del evento."
+
+#: includes/class-docs.php:127
+#, fuzzy
+msgid "\"card\" (default) or \"list\" (image left, details right)."
+msgstr ""
+"\"card\" (predeterminado) o \"list\" (imagen a la izquierda, detalles a la "
+"derecha)."
+
+#: includes/class-docs.php:128
+#, fuzzy
+msgid "\"yes\"/\"no\" — show the event time."
+msgstr "\"yes\"/\"no\" — muestra la hora del evento."
+
+#: includes/class-docs.php:129
+#, fuzzy
+msgid "\"yes\"/\"no\" — show the excerpt."
+msgstr "\"yes\"/\"no\" — muestra el extracto."
+
+#: includes/class-docs.php:130
+#, fuzzy
+msgid "\"yes\"/\"no\" — show the location."
+msgstr "\"yes\"/\"no\" — muestra la ubicación."
+
+#: includes/class-docs.php:136
+#, fuzzy
+msgid "Single element shortcodes"
+msgstr "Shortcodes de elementos individuales"
+
+#: includes/class-docs.php:137
+#, fuzzy
+msgid ""
+"Render one piece of an event — handy for custom layouts. Inside an event "
+"(single page or loop) they use the current event automatically; elsewhere, "
+"pass an \"id\" attribute to target a specific event. All of them also accept"
+" \"class\", \"before\", and \"after\"."
+msgstr ""
+"Renderiza una sola parte de un evento — útil para diseños personalizados. "
+"Dentro de un evento (página individual o loop) usan automáticamente el "
+"evento actual; en otro lugar, pasa un atributo \"id\" para apuntar a un "
+"evento específico. Todos ellos también aceptan \"class\", \"before\" y "
+"\"after\"."
+
+#: includes/class-docs.php:141
+#, fuzzy
+msgid "Available element shortcodes and their main attributes:"
+msgstr "Shortcodes de elementos disponibles y sus atributos principales:"
+
+#: includes/class-docs.php:143
+#, fuzzy
+msgid "Event title. Attributes: tag (h1–h6/span), link (yes/no)."
+msgstr "Título del evento. Atributos: tag (h1–h6/span), link (yes/no)."
+
+#: includes/class-docs.php:144
+#, fuzzy
+msgid "Featured image. Attributes: size, link (yes/no)."
+msgstr "Imagen destacada. Atributos: size, link (yes/no)."
+
+#: includes/class-docs.php:145
+#, fuzzy
+msgid "Event date. Attribute: format (PHP date format override)."
+msgstr ""
+"Fecha del evento. Atributo: format (formato de fecha PHP personalizado)."
+
+#: includes/class-docs.php:146
+#, fuzzy
+msgid "Start (and end) time. Attribute: separator."
+msgstr "Hora de inicio (y fin). Atributo: separator."
+
+#: includes/class-docs.php:147
+#, fuzzy
+msgid "Location. Attribute: icon (yes/no)."
+msgstr "Ubicación. Atributo: icon (yes/no)."
+
+#: includes/class-docs.php:148
+#, fuzzy
+msgid "Excerpt. Attribute: words (word limit)."
+msgstr "Extracto. Atributo: words (límite de palabras)."
+
+#: includes/class-docs.php:149
+#, fuzzy
+msgid "Full event content."
+msgstr "Contenido completo del evento."
+
+#: includes/class-docs.php:150
+#, fuzzy
+msgid "Category links. Attributes: link (yes/no), separator."
+msgstr "Enlaces de categorías. Atributos: link (yes/no), separator."
+
+#: includes/class-docs.php:151
+#, fuzzy
+msgid "A link/button to the event. Attribute: text."
+msgstr "Un enlace/botón al evento. Atributo: text."
+
+#: includes/class-docs.php:156
+#, fuzzy
+msgid "Elementor widgets"
+msgstr "Widgets de Elementor"
+
+#: includes/class-docs.php:157
+#, fuzzy
+msgid ""
+"When Elementor is active, the widgets below appear in the editor under the "
+"\"Simple Events\" category (just below \"Basic\")."
+msgstr ""
+"Cuando Elementor está activo, los widgets siguientes aparecen en el editor "
+"bajo la categoría \"Simple Events\" (justo debajo de \"Basic\")."
+
+#: includes/class-docs.php:159
+#, fuzzy
+msgid "Display widgets — use anywhere"
+msgstr "Widgets de visualización — úsalos donde quieras"
+
+#: includes/class-docs.php:160
+#, fuzzy
+msgid ""
+"Drag these onto any page, post, or template. They include their own event "
+"query, so they do not need an event context."
+msgstr ""
+"Arrastra estos a cualquier página, entrada o plantilla. Incluyen su propia "
+"consulta de eventos, por lo que no necesitan un contexto de evento."
+
+#: includes/class-docs.php:164
+#, fuzzy
+msgid "Widget"
+msgstr "Widget"
+
+#: includes/class-docs.php:165
+#, fuzzy
+msgid "Purpose"
+msgstr "Propósito"
+
+#: includes/class-docs.php:170 includes/elementor/display-widgets.php:36
+#, fuzzy
+msgid "Events Grid"
+msgstr "Cuadrícula de eventos"
+
+#: includes/class-docs.php:171
+#, fuzzy
+msgid ""
+"A grid (with a configurable column count) or an image-left list of events, "
+"with controls for category, order, count, the show/hide toggles, and an "
+"optional \"Load more on scroll\" (infinite scroll)."
+msgstr ""
+"Una cuadrícula (con un número de columnas configurable) o una lista de "
+"eventos con imagen a la izquierda, con controles de categoría, orden, "
+"cantidad, los interruptores de mostrar/ocultar y un \"Cargar más al "
+"desplazar\" opcional (desplazamiento infinito)."
+
+#: includes/class-docs.php:174 includes/elementor/display-widgets.php:198
+#, fuzzy
+msgid "Single Event"
+msgstr "Evento individual"
+
+#: includes/class-docs.php:175
+#, fuzzy
+msgid ""
+"Displays one event you pick from a searchable list, as a card or a list row."
+msgstr ""
+"Muestra un evento que eliges de una lista con búsqueda, como tarjeta o como "
+"fila de lista."
+
+#: includes/class-docs.php:180
+#, fuzzy
+msgid "Event element widgets — use inside an event context"
+msgstr ""
+"Widgets de elementos de evento — úsalos dentro de un contexto de evento"
+
+#: includes/class-docs.php:181
+#, fuzzy
+msgid ""
+"These render a single piece of \"the current event\": Event Title, Event "
+"Image, Event Date, Event Time, Event Location, Event Excerpt, Event Content,"
+" Event Categories, and Event Button."
+msgstr ""
+"Estos renderizan una sola parte de \"el evento actual\": Título del evento, "
+"Imagen del evento, Fecha del evento, Hora del evento, Ubicación del evento, "
+"Extracto del evento, Contenido del evento, Categorías del evento y Botón del"
+" evento."
+
+#: includes/class-docs.php:182
+#, fuzzy
+msgid ""
+"Because they depend on a current event, they only output on the front end "
+"when used in an event context, namely:"
+msgstr ""
+"Como dependen de un evento actual, solo generan salida en el front end "
+"cuando se usan en un contexto de evento, es decir:"
+
+#: includes/class-docs.php:184
+#, fuzzy
+msgid "A single-event template (Elementor Theme Builder)."
+msgstr "Una plantilla de evento individual (Elementor Theme Builder)."
+
+#: includes/class-docs.php:185
+#, fuzzy
+msgid "An event archive / category template."
+msgstr "Una plantilla de archivo/categoría de eventos."
+
+#: includes/class-docs.php:186
+#, fuzzy
+msgid "Inside a Loop Grid whose query is set to events."
+msgstr "Dentro de un Loop Grid cuya consulta está configurada para eventos."
+
+#: includes/class-docs.php:188
+#, fuzzy
+msgid ""
+"If you place one on an ordinary page, the Elementor editor previews it with "
+"a sample event so you can style it, but it renders nothing on the live page."
+" To show a specific event on an ordinary page, use the Single Event widget "
+"or the [sec_event] shortcode instead."
+msgstr ""
+"Si colocas uno en una página normal, el editor de Elementor lo previsualiza "
+"con un evento de muestra para que puedas darle estilo, pero no renderiza "
+"nada en la página publicada. Para mostrar un evento específico en una página"
+" normal, usa en su lugar el widget Evento individual o el shortcode "
+"[sec_event]."
+
+#: includes/class-docs.php:190
+#, fuzzy
+msgid "Dynamic Tags"
+msgstr "Etiquetas dinámicas"
+
+#: includes/class-docs.php:191
+#, fuzzy
+msgid ""
+"In an event template or Loop Grid, you can also bind a native Elementor "
+"widget (Heading, Text, Image, etc.) to an event field via its dynamic-tags "
+"picker, under the \"Simple Events\" group: Event Date, Event Time, Event "
+"Location, Event Title, Event Excerpt, Event Categories, and Event Image URL."
+msgstr ""
+"En una plantilla de evento o Loop Grid, también puedes vincular un widget "
+"nativo de Elementor (Encabezado, Texto, Imagen, etc.) a un campo del evento "
+"mediante su selector de etiquetas dinámicas, bajo el grupo \"Simple "
+"Events\": Fecha del evento, Hora del evento, Ubicación del evento, Título "
+"del evento, Extracto del evento, Categorías del evento y URL de la imagen "
+"del evento."
+
+#: includes/class-docs.php:193
+#, fuzzy
+msgid "Loop Grid — sort by event date"
+msgstr "Loop Grid — ordenar por fecha del evento"
+
+#: includes/class-docs.php:194
+#, fuzzy
+msgid ""
+"Elementor's Loop Grid orders by post date by default, not by the event date."
+" To sort a Loop Grid of events by their event date, set the widget's Query "
+"ID (Loop Grid → Query → Query ID) to one of these built-in IDs:"
+msgstr ""
+"El Loop Grid de Elementor ordena por fecha de entrada de forma "
+"predeterminada, no por la fecha del evento. Para ordenar un Loop Grid de "
+"eventos por su fecha de evento, define el Query ID del widget (Loop Grid → "
+"Query → Query ID) con uno de estos IDs integrados:"
+
+#: includes/class-docs.php:198
+#, fuzzy
+msgid "Query ID"
+msgstr "Query ID"
+
+#: includes/class-docs.php:199
+#, fuzzy
+msgid "Result"
+msgstr "Resultado"
+
+#: includes/class-docs.php:205
+#, fuzzy
+msgid ""
+"Orders by event date and follows the global \"Show past events\" setting "
+"(Events → Settings) — past events are hidden unless that setting is turned "
+"on."
+msgstr ""
+"Ordena por fecha del evento y respeta el ajuste global \"Mostrar eventos "
+"pasados\" (Eventos → Ajustes) — los eventos pasados se ocultan a menos que "
+"ese ajuste esté activado."
+
+#: includes/class-docs.php:209
+#, fuzzy
+msgid ""
+"Orders by event date and always includes past events (ignores the global "
+"setting)."
+msgstr ""
+"Ordena por fecha del evento e incluye siempre los eventos pasados (ignora el"
+" ajuste global)."
+
+#: includes/class-docs.php:213
+#, fuzzy
+msgid ""
+"Set the Loop Grid's source to the Events post type, and use its own Order "
+"control for ascending (soonest first) or descending. No code snippet needed "
+"— the plugin wires these query IDs for you."
+msgstr ""
+"Configura el origen del Loop Grid al tipo de entrada Eventos y usa su propio"
+" control de orden para ascendente (más próximo primero) o descendente. No se"
+" necesita ningún fragmento de código — el plugin conecta estos Query ID por "
+"ti."
+
+#: includes/class-docs.php:217
+#, fuzzy
+msgid "Go to Settings"
+msgstr "Ir a Ajustes"
+
+#: includes/class-main.php:443
+#, fuzzy
+msgid "Try Again"
+msgstr "Intentar de nuevo"
+
+#: includes/class-main.php:488 includes/class-post-type.php:68
+#: includes/elementor/display-widgets.php:45
+msgid "Events"
+msgstr "Eventos"
+
+#: includes/class-main.php:489 includes/class-settings.php:56
+#, fuzzy
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/class-meta-box.php:61 templates/single-simple-events.php:54
+#, fuzzy
+msgid "Event Details"
+msgstr "Detalles del evento"
+
+#: includes/class-meta-box.php:106
+#, fuzzy
+msgid "Repeats every"
+msgstr "Se repite cada"
+
+#: includes/class-meta-box.php:108 includes/class-meta-box.php:243
+#, fuzzy
+msgid "day(s)"
+msgstr "día(s)"
+
+#: includes/class-meta-box.php:109 includes/class-meta-box.php:244
+#, fuzzy
+msgid "week(s)"
+msgstr "semana(s)"
+
+#: includes/class-meta-box.php:110 includes/class-meta-box.php:245
+#, fuzzy
+msgid "month(s)"
+msgstr "mes(es)"
+
+#: includes/class-meta-box.php:111 includes/class-meta-box.php:246
+#, fuzzy
+msgid "year(s)"
+msgstr "año(s)"
+
+#. translators: %d is the number of occurrences (singular form, count = 1)
+#: includes/class-meta-box.php:117
+#, php-format, fuzzy
+msgid "%d occurrence"
+msgstr "%d repetición"
+
+#. translators: %d is the number of occurrences (plural form, count != 1)
+#: includes/class-meta-box.php:119
+#, php-format, fuzzy
+msgid "%d occurrences"
+msgstr "%d repeticiones"
+
+#: includes/class-meta-box.php:120
+#, fuzzy
+msgid "repeats indefinitely"
+msgstr "se repite indefinidamente"
+
+#. translators: %s is the recurrence end date value from the date picker (e.g.
+#. 2026-12-31)
+#: includes/class-meta-box.php:122
+#, php-format, fuzzy
+msgid "until %s"
+msgstr "hasta %s"
+
+#. translators: %s is a comma-separated list of weekday abbreviations, e.g.
+#. "Mon, Wed, Fri"
+#: includes/class-meta-box.php:125
+#, php-format, fuzzy
+msgid "on %s"
+msgstr "el %s"
+
+#: includes/class-meta-box.php:189
+#, fuzzy
+msgid "When & where"
+msgstr "Cuándo y dónde"
+
+#: includes/class-meta-box.php:194
+#, fuzzy
+msgid "required"
+msgstr "obligatorio"
+
+#: includes/class-meta-box.php:203
+#, fuzzy
+msgid "Start Time"
+msgstr "Hora de inicio"
+
+#: includes/class-meta-box.php:208
+#, fuzzy
+msgid "End Time"
+msgstr "Hora de fin"
+
+#: includes/class-meta-box.php:208 includes/class-meta-box.php:216
+#, fuzzy
+msgid "optional"
+msgstr "opcional"
+
+#: includes/class-meta-box.php:216
+#, fuzzy
+msgctxt "event meta box field label"
+msgid "Location"
+msgstr "Ubicación"
+
+#: includes/class-meta-box.php:218
+#, fuzzy
+msgid "e.g., Conference Room A, 123 Main St, or Online"
+msgstr "p. ej., Sala de conferencias A, Calle Principal 123, o En línea"
+
+#: includes/class-meta-box.php:223
+#, fuzzy
+msgid ""
+"This event is part of a recurring series. Recurrence settings are managed on"
+" the series parent."
+msgstr ""
+"Este evento forma parte de una serie recurrente. Los ajustes de recurrencia "
+"se gestionan en el evento principal de la serie."
+
+#: includes/class-meta-box.php:228
+#, fuzzy
+msgid "Recurring"
+msgstr "Recurrente"
+
+#: includes/class-meta-box.php:229
+#, fuzzy
+msgid "This is a recurring event"
+msgstr "Este es un evento recurrente"
+
+#: includes/class-meta-box.php:236
+#, fuzzy
+msgid "Repeats"
+msgstr "Repeticiones"
+
+#: includes/class-meta-box.php:238
+#, fuzzy
+msgid "Every"
+msgstr "Cada"
+
+#: includes/class-meta-box.php:257
+#, fuzzy
+msgid "On these days"
+msgstr "En estos días"
+
+#: includes/class-meta-box.php:278
+#, fuzzy
+msgid "Weekdays"
+msgstr "Días laborables"
+
+#: includes/class-meta-box.php:279
+#, fuzzy
+msgid "Weekend"
+msgstr "Fin de semana"
+
+#: includes/class-meta-box.php:280
+#, fuzzy
+msgid "Every day"
+msgstr "Todos los días"
+
+#: includes/class-meta-box.php:285
+#, fuzzy
+msgid "Ends"
+msgstr "Finaliza"
+
+#: includes/class-meta-box.php:289
+#, fuzzy
+msgid "Never"
+msgstr "Nunca"
+
+#: includes/class-meta-box.php:290
+#, fuzzy
+msgid "After a number of occurrences"
+msgstr "Después de un número de repeticiones"
+
+#: includes/class-meta-box.php:291
+#, fuzzy
+msgid "On a date"
+msgstr "En una fecha"
+
+#: includes/class-meta-box.php:301
+#, fuzzy
+msgid "Number of occurrences"
+msgstr "Número de repeticiones"
+
+#: includes/class-meta-box.php:306
+#, fuzzy
+msgid "Repeat until"
+msgstr "Repetir hasta"
+
+#: includes/class-post-type.php:66
+msgctxt "Post Type General Name"
+msgid "Events"
+msgstr "Eventos"
+
+#: includes/class-post-type.php:67
+msgctxt "Post Type Singular Name"
+msgid "Event"
+msgstr "Evento"
+
+#: includes/class-post-type.php:69 includes/class-post-type.php:96
+#: includes/elementor/display-widgets.php:206
+#: includes/elementor/display-widgets.php:211
+#: includes/elementor/widgets.php:55
+msgid "Event"
+msgstr "Evento"
+
+#: includes/class-post-type.php:70
+msgid "Event Archives"
+msgstr "Archivo de Eventos"
+
+#: includes/class-post-type.php:71
+msgid "Event Attributes"
+msgstr "Atributos del Evento"
+
+#: includes/class-post-type.php:72
+msgid "Parent Event:"
+msgstr "Evento Padre:"
+
+#: includes/class-post-type.php:74 includes/class-shortcode.php:282
+msgid "Add New Event"
+msgstr "Agregar Nuevo Evento"
+
+#: includes/class-post-type.php:75
+msgid "Add New"
+msgstr "Agregar Nuevo"
+
+#: includes/class-post-type.php:76
+msgid "New Event"
+msgstr "Nuevo Evento"
+
+#: includes/class-post-type.php:77
+msgid "Edit Event"
+msgstr "Editar Evento"
+
+#: includes/class-post-type.php:78
+msgid "Update Event"
+msgstr "Actualizar Evento"
+
+#: includes/class-post-type.php:79 includes/class-renderer.php:254
+#: includes/elementor/widgets.php:360
+msgid "View Event"
+msgstr "Ver Evento"
+
+#: includes/class-post-type.php:80
+msgid "View Events"
+msgstr "Ver Eventos"
+
+#: includes/class-post-type.php:81
+msgid "Search Events"
+msgstr "Buscar Eventos"
+
+#: includes/class-post-type.php:82
+msgid "Not found"
+msgstr "No encontrado"
+
+#: includes/class-post-type.php:83
+msgid "Not found in Trash"
+msgstr "No encontrado en la Papelera"
+
+#: includes/class-post-type.php:84
+msgid "Featured Image"
+msgstr "Imagen Destacada"
+
+#: includes/class-post-type.php:85
+msgid "Set featured image"
+msgstr "Establecer imagen destacada"
+
+#: includes/class-post-type.php:86
+msgid "Remove featured image"
+msgstr "Eliminar imagen destacada"
+
+#: includes/class-post-type.php:87
+msgid "Use as featured image"
+msgstr "Usar como imagen destacada"
+
+#: includes/class-post-type.php:88
+msgid "Insert into event"
+msgstr "Insertar en evento"
+
+#: includes/class-post-type.php:89
+msgid "Uploaded to this event"
+msgstr "Subido a este evento"
+
+#: includes/class-post-type.php:90
+msgid "Events list"
+msgstr "Lista de eventos"
+
+#: includes/class-post-type.php:91
+msgid "Events list navigation"
+msgstr "Navegación de lista de eventos"
+
+#: includes/class-post-type.php:92
+msgid "Filter events list"
+msgstr "Filtrar lista de eventos"
+
+#: includes/class-post-type.php:97
+#, fuzzy
+msgid "Events for the Simply Events Calendar"
+msgstr "Eventos para Simply Events Calendar"
+
+#: includes/class-post-type.php:145
+msgctxt "Taxonomy General Name"
+msgid "Event Categories"
+msgstr "Categorías de Eventos"
+
+#: includes/class-post-type.php:146
+msgctxt "Taxonomy Singular Name"
+msgid "Event Category"
+msgstr "Categoría de Evento"
+
+#: includes/class-post-type.php:147 includes/elementor/dynamic-tags.php:146
+#: includes/elementor/widgets.php:330
+msgid "Event Categories"
+msgstr "Categorías de Eventos"
+
+#: includes/class-post-type.php:148
+msgid "All Event Categories"
+msgstr "Todas las Categorías de Eventos"
+
+#: includes/class-post-type.php:149
+msgid "Parent Event Category"
+msgstr "Categoría de Evento Padre"
+
+#: includes/class-post-type.php:150
+msgid "Parent Event Category:"
+msgstr "Categoría de Evento Padre:"
+
+#: includes/class-post-type.php:151
+msgid "New Event Category Name"
+msgstr "Nombre de Nueva Categoría de Evento"
+
+#: includes/class-post-type.php:152
+msgid "Add New Event Category"
+msgstr "Agregar Nueva Categoría de Evento"
+
+#: includes/class-post-type.php:153
+msgid "Edit Event Category"
+msgstr "Editar Categoría de Evento"
+
+#: includes/class-post-type.php:154
+msgid "Update Event Category"
+msgstr "Actualizar Categoría de Evento"
+
+#: includes/class-post-type.php:155
+msgid "View Event Category"
+msgstr "Ver Categoría de Evento"
+
+#: includes/class-post-type.php:156
+msgid "Separate event categories with commas"
+msgstr "Separar categorías de eventos con comas"
+
+#: includes/class-post-type.php:157
+msgid "Add or remove event categories"
+msgstr "Agregar o eliminar categorías de eventos"
+
+#: includes/class-post-type.php:158
+msgid "Choose from the most used"
+msgstr "Elegir de las más utilizadas"
+
+#: includes/class-post-type.php:159
+msgid "Popular Event Categories"
+msgstr "Categorías de Eventos Populares"
+
+#: includes/class-post-type.php:160
+msgid "Search Event Categories"
+msgstr "Buscar Categorías de Eventos"
+
+#: includes/class-post-type.php:161
+msgid "Not Found"
+msgstr "No Encontrado"
+
+#: includes/class-post-type.php:162
+msgid "No event categories"
+msgstr "Sin categorías de eventos"
+
+#: includes/class-post-type.php:163
+msgid "Event categories list"
+msgstr "Lista de categorías de eventos"
+
+#: includes/class-post-type.php:164
+msgid "Event categories list navigation"
+msgstr "Navegación de lista de categorías de eventos"
+
+#: includes/class-pro-upsell.php:82
+#, fuzzy
+msgid "Configurable event URLs"
+msgstr "URLs de eventos configurables"
+
+#: includes/class-pro-upsell.php:83
+msgid ""
+"Rename the /events/ permalink base to anything you like — or remove it "
+"entirely for top-level event URLs."
+msgstr ""
+"Cambia el nombre de la base de enlace permanente /events/ por lo que quieras"
+" — o elimínala por completo para URLs de eventos de nivel superior."
+
+#: includes/class-pro-upsell.php:86
+#, fuzzy
+msgid "Calendar & month view"
+msgstr "Calendario y vista mensual"
+
+#: includes/class-pro-upsell.php:87
+#, fuzzy
+msgid ""
+"Show your events in a full month-grid calendar your visitors can browse, in "
+"addition to the list layout."
+msgstr ""
+"Muestra tus eventos en un calendario completo de cuadrícula mensual que tus "
+"visitantes pueden explorar, además del diseño de lista."
+
+#: includes/class-pro-upsell.php:90
+#, fuzzy
+msgid "Ticketing & RSVPs"
+msgstr "Entradas y confirmaciones de asistencia"
+
+#: includes/class-pro-upsell.php:91
+#, fuzzy
+msgid ""
+"Let visitors RSVP or buy tickets to your events, with attendee tracking and "
+"check-in."
+msgstr ""
+"Permite que los visitantes confirmen su asistencia o compren entradas para "
+"tus eventos, con seguimiento de asistentes y registro de entrada."
+
+#: includes/class-pro-upsell.php:94
+#, fuzzy
+msgid "Priority support"
+msgstr "Soporte prioritario"
+
+#: includes/class-pro-upsell.php:95
+#, fuzzy
+msgid ""
+"Direct help from the team that builds the plugin, with priority response "
+"times."
+msgstr ""
+"Ayuda directa del equipo que desarrolla el plugin, con tiempos de respuesta "
+"prioritarios."
+
+#: includes/class-pro-upsell.php:112 includes/class-pro-upsell.php:113
+#: includes/class-pro-upsell.php:194
+#, fuzzy
+msgid "Upgrade to Pro"
+msgstr "Actualizar a Pro"
+
+#: includes/class-pro-upsell.php:187 includes/class-pro-upsell.php:216
+#: includes/class-pro-upsell.php:251
+#, fuzzy
+msgid "PRO"
+msgstr "PRO"
+
+#: includes/class-pro-upsell.php:189
+#, fuzzy
+msgid "Do more with Simply Events Calendar Pro."
+msgstr "Haz más con Simply Events Calendar Pro."
+
+#: includes/class-pro-upsell.php:190
+#, fuzzy
+msgid ""
+"Configurable URLs, a month-view calendar, ticketing, and priority support."
+msgstr ""
+"URLs configurables, un calendario de vista mensual, venta de entradas y "
+"soporte prioritario."
+
+#: includes/class-pro-upsell.php:195
+#, fuzzy
+msgid "Dismiss this notice"
+msgstr "Descartar este aviso"
+
+#: includes/class-pro-upsell.php:195
+#, fuzzy
+msgid "Dismiss"
+msgstr "Descartar"
+
+#: includes/class-pro-upsell.php:209
+#, fuzzy
+msgid "Available in Pro"
+msgstr "Disponible en Pro"
+
+#: includes/class-pro-upsell.php:210
+#, fuzzy
+msgid "These features are unlocked in Simply Events Calendar Pro."
+msgstr "Estas funciones se desbloquean en Simply Events Calendar Pro."
+
+#: includes/class-pro-upsell.php:221
+#, fuzzy
+msgid "Disabled — upgrade to enable"
+msgstr "Deshabilitado — actualiza para habilitarlo"
+
+#: includes/class-pro-upsell.php:229
+#, fuzzy
+msgid "See everything in Pro"
+msgstr "Ver todo en Pro"
+
+#: includes/class-pro-upsell.php:243
+#, fuzzy
+msgid "Upgrade to Simply Events Calendar Pro"
+msgstr "Actualizar a Simply Events Calendar Pro"
+
+#: includes/class-pro-upsell.php:244
+#, fuzzy
+msgid ""
+"Everything in the free plugin, plus powerful tools to run events at scale."
+msgstr ""
+"Todo lo del plugin gratuito, además de potentes herramientas para gestionar "
+"eventos a gran escala."
+
+#: includes/class-pro-upsell.php:259
+#, fuzzy
+msgid "Get Simply Events Calendar Pro"
+msgstr "Obtener Simply Events Calendar Pro"
+
+#. translators: 1: sentence about deleted occurrences, 2: sentence about kept
+#. occurrences
+#: includes/class-recurrence.php:491
+#, php-format, fuzzy
+msgid "Recurrence disabled. %1$s %2$s"
+msgstr "Recurrencia deshabilitada. %1$s %2$s"
+
+#. translators: %d is the number of future unmodified occurrences deleted
+#: includes/class-recurrence.php:494
+#, php-format
+msgid "%d future unmodified occurrence deleted."
+msgid_plural "%d future unmodified occurrences deleted."
+msgstr[0] "Se eliminó %d repetición futura sin modificar."
+msgstr[1] "Se eliminaron %d repeticiones futuras sin modificar."
+
+#. translators: %d is the number of past, edited, or trashed occurrences kept
+#. as standalone events
+#: includes/class-recurrence.php:504
+#, php-format, fuzzy
+msgid "%d occurrence (past, edited, or trashed) kept as a standalone event."
+msgid_plural ""
+"%d occurrences (past, edited, or trashed) kept as standalone events."
+msgstr[0] ""
+"%d repetición (pasada, editada o en la papelera) se conservó como evento "
+"independiente."
+msgstr[1] ""
+"%d repeticiones (pasadas, editadas o en la papelera) se conservaron como "
+"eventos independientes."
+
+#: includes/class-recurrence.php:534
+#, fuzzy
+msgid "Series Edit Scope"
+msgstr "Alcance de edición de la serie"
+
+#: includes/class-recurrence.php:550
+#, fuzzy
+msgid "Only this occurrence"
+msgstr "Solo esta repetición"
+
+#: includes/class-recurrence.php:551
+#, fuzzy
+msgid "This and future occurrences"
+msgstr "Esta y las repeticiones futuras"
+
+#: includes/class-recurrence.php:552
+#, fuzzy
+msgid "Entire series"
+msgstr "Toda la serie"
+
+#. translators: %d is the occurrence number within the series
+#: includes/class-recurrence.php:560
+#, php-format, fuzzy
+msgid "This event is occurrence #%d in a recurring series."
+msgstr "Este evento es la repetición n.º %d de una serie recurrente."
+
+#: includes/class-recurrence.php:564
+#, fuzzy
+msgid "Edit parent"
+msgstr "Editar principal"
+
+#: includes/class-recurrence.php:568
+#, fuzzy
+msgid "Apply changes to:"
+msgstr "Aplicar cambios a:"
+
+#: includes/class-recurrence.php:580
+#, fuzzy
+msgid ""
+"Only this occurrence: changes stay here. This and future: changes propagate "
+"to later siblings (date excluded). Entire series: propagates to the parent "
+"and every sibling, and a date change shifts the whole series."
+msgstr ""
+"Solo esta repetición: los cambios se quedan aquí. Esta y las futuras: los "
+"cambios se propagan a las repeticiones posteriores (excluyendo la fecha). "
+"Toda la serie: se propaga al evento principal y a todas las repeticiones, y "
+"un cambio de fecha desplaza toda la serie."
+
+#. translators: %d is the number of occurrences created in the foreground pass
+#: includes/class-recurrence.php:1214
+#, php-format, fuzzy
+msgid ""
+"Created %d occurrence so far; the remaining occurrences will be generated in"
+" the background within a few minutes."
+msgid_plural ""
+"Created %d occurrences so far; the remaining occurrences will be generated "
+"in the background within a few minutes."
+msgstr[0] ""
+"Se ha creado %d repetición hasta ahora; las repeticiones restantes se "
+"generarán en segundo plano en unos minutos."
+msgstr[1] ""
+"Se han creado %d repeticiones hasta ahora; las repeticiones restantes se "
+"generarán en segundo plano en unos minutos."
+
+#: includes/class-settings.php:55 includes/class-settings.php:221
+#, fuzzy
+msgid "Events Settings"
+msgstr "Ajustes de eventos"
+
+#: includes/class-settings.php:174
+#, fuzzy
+msgid "You do not have permission to do that."
+msgstr "No tienes permiso para hacer eso."
+
+#: includes/class-settings.php:227
+#, fuzzy
+msgid "Event cache cleared."
+msgstr "Caché de eventos borrada."
+
+#: includes/class-settings.php:234
+#, fuzzy
+msgid "Display formatting"
+msgstr "Formato de visualización"
+
+#: includes/class-settings.php:237 includes/class-settings.php:250
+#, fuzzy
+msgid "Date format"
+msgstr "Formato de fecha"
+
+#: includes/class-settings.php:241
+#, fuzzy
+msgid "Weekday, Month Day, Year"
+msgstr "Día de la semana, Mes Día, Año"
+
+#: includes/class-settings.php:242
+#, fuzzy
+msgid "Month Day, Year"
+msgstr "Mes Día, Año"
+
+#: includes/class-settings.php:243
+#, fuzzy
+msgid "MM/DD/YYYY"
+msgstr "MM/DD/YYYY"
+
+#: includes/class-settings.php:244
+#, fuzzy
+msgid "Abbreviated Month Day, Year"
+msgstr "Mes abreviado Día, Año"
+
+#: includes/class-settings.php:260
+#, fuzzy
+msgid "Custom:"
+msgstr "Personalizado:"
+
+#: includes/class-settings.php:262
+#, fuzzy
+msgid "Custom date format"
+msgstr "Formato de fecha personalizado"
+
+#: includes/class-settings.php:264
+#, fuzzy
+msgid "Choose a preset, or pick \"Custom\" to enter a PHP date format."
+msgstr ""
+"Elige un preajuste, o selecciona \"Personalizado\" para introducir un "
+"formato de fecha PHP."
+
+#: includes/class-settings.php:265
+#, fuzzy
+msgid "Format reference"
+msgstr "Referencia de formato"
+
+#: includes/class-settings.php:271
+#, fuzzy
+msgid "Time format"
+msgstr "Formato de hora"
+
+#: includes/class-settings.php:273
+#, fuzzy
+msgid "12-hour (2:30 pm)"
+msgstr "12 horas (2:30 pm)"
+
+#: includes/class-settings.php:274
+#, fuzzy
+msgid "24-hour (14:30)"
+msgstr "24 horas (14:30)"
+
+#: includes/class-settings.php:279
+#, fuzzy
+msgid "Display defaults"
+msgstr "Valores predeterminados de visualización"
+
+#: includes/class-settings.php:280
+#, fuzzy
+msgid ""
+"Defaults for the [sec_events] shortcode and the event archives; shortcode "
+"attributes override them per instance. On archive pages the page size uses "
+"the \"Load more\" batch size below (so infinite-scroll offsets line up), not"
+" \"Events per page\"."
+msgstr ""
+"Valores predeterminados para el shortcode [sec_events] y los archivos de "
+"eventos; los atributos del shortcode los sobrescriben en cada instancia. En "
+"las páginas de archivo, el tamaño de página usa el tamaño de lote \"Cargar "
+"más\" de abajo (para que los desplazamientos de scroll infinito coincidan), "
+"no \"Eventos por página\"."
+
+#: includes/class-settings.php:283
+#, fuzzy
+msgid "Events per page"
+msgstr "Eventos por página"
+
+#: includes/class-settings.php:287
+#, fuzzy
+msgid "Default sort order"
+msgstr "Orden predeterminado"
+
+#: includes/class-settings.php:289
+#, fuzzy
+msgid "Ascending (soonest first)"
+msgstr "Ascendente (más próximo primero)"
+
+#: includes/class-settings.php:290
+#, fuzzy
+msgid "Descending (latest first)"
+msgstr "Descendente (más reciente primero)"
+
+#: includes/class-settings.php:295
+#, fuzzy
+msgid "Show past events by default"
+msgstr "Mostrar eventos pasados de forma predeterminada"
+
+#: includes/class-settings.php:296
+#, fuzzy
+msgid "Show event time"
+msgstr "Mostrar hora del evento"
+
+#: includes/class-settings.php:297 includes/elementor/display-widgets.php:112
+#: includes/elementor/display-widgets.php:234
+#, fuzzy
+msgid "Show excerpt"
+msgstr "Mostrar extracto"
+
+#: includes/class-settings.php:298 includes/elementor/display-widgets.php:113
+#: includes/elementor/display-widgets.php:235
+#, fuzzy
+msgid "Show location"
+msgstr "Mostrar ubicación"
+
+#: includes/class-settings.php:299
+#, fuzzy
+msgid "Show card footer / read-more"
+msgstr "Mostrar pie de tarjeta / leer más"
+
+#: includes/class-settings.php:305
+#, fuzzy
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: includes/class-settings.php:309
+#, fuzzy
+msgid "\"Load more\" batch size"
+msgstr "Tamaño de lote de \"Cargar más\""
+
+#: includes/class-settings.php:312
+#, fuzzy
+msgid "How many events to load per \"load more\" / infinite-scroll request."
+msgstr ""
+"Cuántos eventos cargar por cada solicitud de \"cargar más\" / desplazamiento"
+" infinito."
+
+#: includes/class-settings.php:317
+#, fuzzy
+msgid "SEO"
+msgstr "SEO"
+
+#: includes/class-settings.php:320
+#, fuzzy
+msgid "schema.org JSON-LD"
+msgstr "JSON-LD de schema.org"
+
+#: includes/class-settings.php:321
+#, fuzzy
+msgid "Output Event structured data on cards and single event pages"
+msgstr ""
+"Generar datos estructurados de Evento en tarjetas y páginas de evento "
+"individual"
+
+#: includes/class-settings.php:325
+#, fuzzy
+msgid "Recurrence limits"
+msgstr "Límites de recurrencia"
+
+#: includes/class-settings.php:328
+#, fuzzy
+msgid "Max occurrences per series"
+msgstr "Máximo de repeticiones por serie"
+
+#: includes/class-settings.php:332
+#, fuzzy
+msgid "Max horizon (months) for \"never\" series"
+msgstr "Horizonte máximo (meses) para series \"nunca\""
+
+#: includes/class-settings.php:337
+#, fuzzy
+msgid "Cache"
+msgstr "Caché"
+
+#: includes/class-settings.php:340
+#, fuzzy
+msgid "Cache lifetime (minutes)"
+msgstr "Duración de la caché (minutos)"
+
+#: includes/class-settings.php:345
+#, fuzzy
+msgid "Data"
+msgstr "Datos"
+
+#: includes/class-settings.php:348
+msgid "When the plugin is deleted"
+msgstr "Cuando se elimina el plugin"
+
+#: includes/class-settings.php:350
+#, fuzzy
+msgid "Keep all events and settings (recommended)"
+msgstr "Conservar todos los eventos y ajustes (recomendado)"
+
+#: includes/class-settings.php:351
+msgid "Permanently delete all events, categories, and settings"
+msgstr "Eliminar permanentemente todos los eventos, categorías y ajustes"
+
+#: includes/class-settings.php:352
+msgid ""
+"Deletion only happens when you delete the plugin from the Plugins screen — "
+"never on deactivation. Leave this set to \"Keep all events and settings\" if"
+" you may reinstall later."
+msgstr ""
+"La eliminación solo ocurre cuando eliminas el plugin desde la pantalla de "
+"Plugins — nunca al desactivarlo. Deja esto configurado en \"Conservar todos "
+"los eventos y ajustes\" si es posible que lo reinstales más adelante."
+
+#: includes/class-settings.php:376
+#, fuzzy
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+#: includes/class-settings.php:380
+#, fuzzy
+msgid "Clear cache now"
+msgstr "Borrar caché ahora"
+
+#: includes/class-settings.php:381
+#, fuzzy
+msgid "Clears all cached event listings immediately."
+msgstr "Borra de inmediato todos los listados de eventos en caché."
+
+#: includes/class-shortcode.php:265 includes/functions.php:891
+#: templates/archive-simple-events.php:49
+#: templates/taxonomy-simple-events-cat.php:58
+#, fuzzy
+msgid "No Events Found"
+msgstr "No se encontraron eventos"
+
+#. translators: %s: category slug
+#: includes/class-shortcode.php:273 includes/functions.php:883
+#, php-format
+msgid "No events found in the \"%s\" category."
+msgstr "No se encontraron eventos en la categoría \"%s\"."
+
+#: includes/class-shortcode.php:275 includes/functions.php:885
+#: templates/archive-simple-events.php:50
+#: templates/taxonomy-simple-events-cat.php:59
+msgid "No upcoming events scheduled. Check back soon!"
+msgstr "No hay eventos próximos programados. ¡Vuelve pronto!"
+
+#: includes/class-shortcode.php:277 includes/functions.php:887
+msgid "No events have been created yet."
+msgstr "Aún no se han creado eventos."
+
+#: includes/class-shortcode.php:339
+#, fuzzy
+msgid "[sec_event] requires an \"id\" attribute, e.g. [sec_event id=\"123\"]."
+msgstr "[sec_event] requiere un atributo \"id\", p. ej. [sec_event id=\"123\"]."
+
+#. translators: %d: event ID
+#: includes/class-shortcode.php:357
+#, php-format
+msgid ""
+"No published event found for ID %d. Check the \"id\" attribute — the event "
+"may be unpublished or deleted."
+msgstr ""
+"No se encontró ningún evento publicado con el ID %d. Comprueba el atributo "
+"\"id\" — el evento puede estar sin publicar o haber sido eliminado."
+
+#: includes/elementor/class-elementor.php:136
+#: includes/elementor/class-elementor.php:232
+#, fuzzy
+msgid "Simple Events"
+msgstr "Simple Events"
+
+#: includes/elementor/class-elementor.php:306
+#, fuzzy
+msgid "— Select an event —"
+msgstr "— Selecciona un evento —"
+
+#: includes/elementor/display-widgets.php:50
+#: includes/elementor/display-widgets.php:220
+#, fuzzy
+msgid "Layout"
+msgstr "Diseño"
+
+#: includes/elementor/display-widgets.php:53
+#, fuzzy
+msgid "Grid"
+msgstr "Cuadrícula"
+
+#: includes/elementor/display-widgets.php:54
+#: includes/elementor/display-widgets.php:224
+#, fuzzy
+msgid "List (image left)"
+msgstr "Lista (imagen a la izquierda)"
+
+#: includes/elementor/display-widgets.php:68
+#, fuzzy
+msgid "Columns"
+msgstr "Columnas"
+
+#: includes/elementor/display-widgets.php:80
+#, fuzzy
+msgid "Number of events"
+msgstr "Número de eventos"
+
+#: includes/elementor/display-widgets.php:88
+#, fuzzy
+msgid "Category"
+msgstr "Categoría"
+
+#: includes/elementor/display-widgets.php:95
+#, fuzzy
+msgid "Order"
+msgstr "Orden"
+
+#: includes/elementor/display-widgets.php:98
+#, fuzzy
+msgid "Soonest first"
+msgstr "Más próximo primero"
+
+#: includes/elementor/display-widgets.php:99
+#, fuzzy
+msgid "Latest first"
+msgstr "Más reciente primero"
+
+#: includes/elementor/display-widgets.php:105
+#, fuzzy
+msgid "Show past events"
+msgstr "Mostrar eventos pasados"
+
+#: includes/elementor/display-widgets.php:111
+#: includes/elementor/display-widgets.php:233
+#, fuzzy
+msgid "Show time"
+msgstr "Mostrar hora"
+
+#: includes/elementor/display-widgets.php:114
+#: includes/elementor/display-widgets.php:236
+#, fuzzy
+msgid "Show footer / read-more"
+msgstr "Mostrar pie / leer más"
+
+#: includes/elementor/display-widgets.php:124
+#, fuzzy
+msgid "Load more on scroll"
+msgstr "Cargar más al desplazar"
+
+#: includes/elementor/display-widgets.php:125
+#, fuzzy
+msgid ""
+"Loads additional events automatically as the visitor scrolls (infinite "
+"scroll), starting from \"Number of events\". Off shows a fixed number."
+msgstr ""
+"Carga eventos adicionales automáticamente a medida que el visitante se "
+"desplaza (desplazamiento infinito), a partir de \"Número de eventos\". "
+"Desactivado muestra un número fijo."
+
+#: includes/elementor/display-widgets.php:144
+#, fuzzy
+msgid "All categories"
+msgstr "Todas las categorías"
+
+#: includes/elementor/display-widgets.php:212
+#, fuzzy
+msgid "Search by title and select the event to display."
+msgstr "Busca por título y selecciona el evento a mostrar."
+
+#: includes/elementor/display-widgets.php:223
+#, fuzzy
+msgid "Card"
+msgstr "Tarjeta"
+
+#: includes/elementor/display-widgets.php:255
+#, fuzzy
+msgid "Select an event to display."
+msgstr "Selecciona un evento para mostrar."
+
+#: includes/elementor/dynamic-tags.php:97 includes/elementor/widgets.php:263
+#, fuzzy
+msgid "Event Time"
+msgstr "Hora del evento"
+
+#: includes/elementor/dynamic-tags.php:113 includes/elementor/widgets.php:273
+#, fuzzy
+msgid "Event Location"
+msgstr "Ubicación del evento"
+
+#: includes/elementor/dynamic-tags.php:135 includes/elementor/widgets.php:296
+#, fuzzy
+msgid "Event Excerpt"
+msgstr "Extracto del evento"
+
+#: includes/elementor/dynamic-tags.php:161
+#, fuzzy
+msgid "Event Image URL"
+msgstr "URL de la imagen del evento"
+
+#: includes/elementor/widgets.php:79
+#, fuzzy
+msgid "Style"
+msgstr "Estilo"
+
+#: includes/elementor/widgets.php:87
+#, fuzzy
+msgid "Alignment"
+msgstr "Alineación"
+
+#: includes/elementor/widgets.php:90
+#, fuzzy
+msgid "Left"
+msgstr "Izquierda"
+
+#: includes/elementor/widgets.php:91
+#, fuzzy
+msgid "Center"
+msgstr "Centro"
+
+#: includes/elementor/widgets.php:92
+#, fuzzy
+msgid "Right"
+msgstr "Derecha"
+
+#: includes/elementor/widgets.php:101
+#, fuzzy
+msgid "Text Color"
+msgstr "Color del texto"
+
+#: includes/elementor/widgets.php:147
+#, fuzzy
+msgid ""
+"No events to preview yet. Create an event, or place this element inside a "
+"single-event template, archive, or Loop Grid."
+msgstr ""
+"Todavía no hay eventos para previsualizar. Crea un evento, o coloca este "
+"elemento dentro de una plantilla de evento individual, un archivo o un Loop "
+"Grid."
+
+#: includes/elementor/widgets.php:174 includes/elementor/widgets.php:218
+#, fuzzy
+msgid "Link to event"
+msgstr "Enlazar al evento"
+
+#: includes/elementor/widgets.php:179
+#, fuzzy
+msgid "HTML tag"
+msgstr "Etiqueta HTML"
+
+#: includes/elementor/widgets.php:201
+#, fuzzy
+msgid "Event Image"
+msgstr "Imagen del evento"
+
+#: includes/elementor/widgets.php:206
+#, fuzzy
+msgid "Image size"
+msgstr "Tamaño de imagen"
+
+#: includes/elementor/widgets.php:209
+#, fuzzy
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: includes/elementor/widgets.php:210
+#, fuzzy
+msgid "Medium"
+msgstr "Mediano"
+
+#: includes/elementor/widgets.php:211
+#, fuzzy
+msgid "Medium Large"
+msgstr "Mediano grande"
+
+#: includes/elementor/widgets.php:212
+#, fuzzy
+msgid "Large"
+msgstr "Grande"
+
+#: includes/elementor/widgets.php:213
+#, fuzzy
+msgid "Full"
+msgstr "Completo"
+
+#: includes/elementor/widgets.php:244
+#, fuzzy
+msgid "Date format override"
+msgstr "Formato de fecha personalizado"
+
+#: includes/elementor/widgets.php:245
+#, fuzzy
+msgid "PHP date format. Leave blank to use the plugin setting."
+msgstr ""
+"Formato de fecha PHP. Déjalo en blanco para usar el ajuste del plugin."
+
+#: includes/elementor/widgets.php:278
+#, fuzzy
+msgid "Show icon"
+msgstr "Mostrar icono"
+
+#: includes/elementor/widgets.php:301
+#, fuzzy
+msgid "Word limit"
+msgstr "Límite de palabras"
+
+#: includes/elementor/widgets.php:320
+#, fuzzy
+msgid "Event Content"
+msgstr "Contenido del evento"
+
+#: includes/elementor/widgets.php:335
+#, fuzzy
+msgid "Link to category"
+msgstr "Enlazar a la categoría"
+
+#: includes/elementor/widgets.php:353
+#, fuzzy
+msgid "Event Button"
+msgstr "Botón del evento"
+
+#: includes/elementor/widgets.php:358
+#, fuzzy
+msgid "Button text"
+msgstr "Texto del botón"
+
+#: includes/functions.php:72 template-parts/content-event-card.php:173
+msgid "Learn More"
+msgstr "Leer Más"
+
+#: includes/pro/features/class-configurable-urls.php:101
+#, fuzzy
+msgid "Permalinks"
+msgstr "Enlaces permanentes"
+
+#: includes/pro/features/class-configurable-urls.php:104
+#: includes/pro/features/class-configurable-urls.php:107
+#, fuzzy
+msgid "Event URL base"
+msgstr "Base de la URL del evento"
+
+#: includes/pro/features/class-configurable-urls.php:110
+#, fuzzy
+msgid ""
+"The base used in single event URLs — e.g. \"events\" gives /events/your-"
+"event, \"happenings\" gives /happenings/your-event. Use lowercase letters, "
+"numbers, and hyphens."
+msgstr ""
+"La base usada en las URLs de eventos individuales — p. ej. \"events\" da "
+"/events/tu-evento, \"happenings\" da /happenings/tu-evento. Usa letras "
+"minúsculas, números y guiones."
+
+#: includes/pro/features/class-configurable-urls.php:112
+#, fuzzy
+msgid ""
+"Avoid a value that matches an existing page slug, or that page and your "
+"events will conflict. Saving a change refreshes permalinks automatically; "
+"old links to the previous base will stop working."
+msgstr ""
+"Evita un valor que coincida con el slug de una página existente, o esa "
+"página y tus eventos entrarán en conflicto. Guardar un cambio actualiza los "
+"enlaces permanentes automáticamente; los enlaces antiguos a la base anterior"
+" dejarán de funcionar."
+
+#. translators: %s is the event title
+#: template-parts/content-event-card.php:103
+#, php-format
+msgid "View event: %s"
+msgstr "Ver evento: %s"
+
+#. translators: %s is the event title
+#: template-parts/content-event-card.php:106
+#, php-format
+msgid "Image for event: %s"
+msgstr "Imagen para el evento: %s"
+
+#. translators: %s is the event date, already formatted per the site's date-
+#. format setting
+#: template-parts/content-event-card.php:129
+#, php-format
+msgid "Event date: %s"
+msgstr "Fecha del evento: %s"
+
+#. translators: %s is the event's start (and, if set, end) time, already
+#. formatted per the site's time-format setting
+#: template-parts/content-event-card.php:136
+#, php-format
+msgid "Event time: %s"
+msgstr "Hora del evento: %s"
+
+#: template-parts/content-event-card.php:156
+msgid "Event location:"
+msgstr "Ubicación del evento:"
+
+#. translators: %s is the event title
+#: template-parts/content-event-card.php:172
+#, php-format
+msgid "Read more about %s"
+msgstr "Leer más sobre %s"
+
+#: templates/single-simple-events.php:60
+#, fuzzy
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/single-simple-events.php:70
+msgid "Time"
+msgstr "Hora"
+
+#: templates/single-simple-events.php:80
+msgid "Location"
+msgstr "Ubicación"
+
+#: templates/single-simple-events.php:90
+msgid "Categories"
+msgstr "Categorías"
+
+#: templates/single-simple-events.php:112
+#, fuzzy
+msgid "Add to Calendar"
+msgstr "Añadir al calendario"
+
+#~ msgid "Showing current and upcoming events only."
+#~ msgstr "Mostrando solo eventos actuales y próximos."

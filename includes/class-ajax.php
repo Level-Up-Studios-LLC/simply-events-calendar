@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AJAX functionality class for Simple Events Calendar
+ * AJAX functionality class for Simply Events Calendar
  *
  * @package Simple_Events_Calendar
  * @since 3.0.0
@@ -40,7 +40,7 @@ class Simple_Events_Ajax {
     public function load_more_events() {
         if (!$this->verify_nonce()) {
             wp_send_json_error(
-                array('message' => __('Security check failed.', PLUGIN_TEXT_DOMAIN)),
+                array('message' => __('Security check failed.', 'simply-events-calendar')),
                 403
             );
         }
@@ -48,7 +48,7 @@ class Simple_Events_Ajax {
         $request_data = $this->sanitize_request_data();
         if (!$request_data) {
             wp_send_json_error(
-                array('message' => __('Invalid request data.', PLUGIN_TEXT_DOMAIN)),
+                array('message' => __('Invalid request data.', 'simply-events-calendar')),
                 400
             );
         }
@@ -226,7 +226,7 @@ class Simple_Events_Ajax {
      * @param array $post_data Event data
      */
     private function render_event_card($post_data) {
-        $template_path = PLUGIN_DIR . '/template-parts/content-event-card.php';
+        $template_path = SIMPLE_EVENTS_DIR . '/template-parts/content-event-card.php';
         if (file_exists($template_path)) {
             include $template_path;
         } else {
@@ -251,7 +251,7 @@ class Simple_Events_Ajax {
      */
     private function handle_error($message, $code = 500) {
         if (defined('DOING_AJAX') && DOING_AJAX) {
-            error_log('Simple Events Calendar AJAX Error: ' . $message);
+            error_log('Simply Events Calendar AJAX Error: ' . $message);
             wp_die($message, 'Loading Error', array('response' => $code));
         }
     }
@@ -286,9 +286,9 @@ class Simple_Events_Ajax {
             'nonce'   => self::get_nonce(),
             'initial_offset' => $increment,
             'load_increment' => $increment,
-            'loading_text' => __('Loading more events...', PLUGIN_TEXT_DOMAIN),
-            'error_text'   => __('Error loading events. Please try again.', PLUGIN_TEXT_DOMAIN),
-            'no_more_text' => __('No more events to load.', PLUGIN_TEXT_DOMAIN)
+            'loading_text' => __('Loading more events...', 'simply-events-calendar'),
+            'error_text'   => __('Error loading events. Please try again.', 'simply-events-calendar'),
+            'no_more_text' => __('No more events to load.', 'simply-events-calendar')
         );
     }
 }

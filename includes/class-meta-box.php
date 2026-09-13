@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Native event-details meta box for Simple Events Calendar
+ * Native event-details meta box for Simply Events Calendar
  *
- * Replaces the ACF-provided editing UI. Reads and writes the exact same post
- * meta keys and storage formats ACF used, so existing events are unaffected:
+ * Registers and persists every event field. The meta keys and storage formats
+ * are unchanged from earlier versions, so existing events are unaffected:
  *   - event_date          stored as Ymd      (e.g. 20260529)
  *   - event_start_time    stored as g:i a    (e.g. "2:30 pm")
  *   - event_end_time      stored as g:i a    (optional)
@@ -17,7 +17,7 @@
  *   - event_repeat_until      Ymd
  *
  * Saves at save_post priority 10 so the recurrence engine (priority 30) reads
- * the persisted rule meta — matching ACF's old timing.
+ * the persisted rule meta.
  *
  * @package Simple_Events_Calendar
  * @since 5.0.0
@@ -58,7 +58,7 @@ class Simple_Events_Meta_Box {
     public function register() {
         add_meta_box(
             'simple_events_details',
-            __('Event Details', 'simple_events'),
+            __('Event Details', 'simply-events-calendar'),
             array($this, 'render'),
             'simple-events',
             'normal',
@@ -83,17 +83,17 @@ class Simple_Events_Meta_Box {
 
         wp_enqueue_script(
             'simple-events-admin',
-            PLUGIN_ASSETS . '/js/simple-events-admin.js',
+            SIMPLE_EVENTS_ASSETS . '/js/simple-events-admin.js',
             array(),
-            PLUGIN_VERSION,
+            SIMPLE_EVENTS_VERSION,
             true
         );
 
         wp_enqueue_style(
             'simple-events-admin',
-            PLUGIN_ASSETS . '/css/simple-events-admin.css',
+            SIMPLE_EVENTS_ASSETS . '/css/simple-events-admin.css',
             array(),
-            PLUGIN_VERSION
+            SIMPLE_EVENTS_VERSION
         );
 
         $wp_locale = isset($GLOBALS['wp_locale']) ? $GLOBALS['wp_locale'] : null;
@@ -103,19 +103,26 @@ class Simple_Events_Meta_Box {
         }
 
         wp_localize_script('simple-events-admin', 'secMetaBox', array(
-            'every'    => __('Repeats every', 'simple_events'),
+            'every'    => __('Repeats every', 'simply-events-calendar'),
             'units'    => array(
-                'daily'   => __('day(s)', 'simple_events'),
-                'weekly'  => __('week(s)', 'simple_events'),
-                'monthly' => __('month(s)', 'simple_events'),
-                'yearly'  => __('year(s)', 'simple_events'),
+                'daily'   => __('day(s)', 'simply-events-calendar'),
+                'weekly'  => __('week(s)', 'simply-events-calendar'),
+                'monthly' => __('month(s)', 'simply-events-calendar'),
+                'yearly'  => __('year(s)', 'simply-events-calendar'),
             ),
-            'countOne' => __('%d occurrence', 'simple_events'),
-            'countMany'=> __('%d occurrences', 'simple_events'),
-            'never'    => __('repeats indefinitely', 'simple_events'),
-            'until'    => __('until %s', 'simple_events'),
+            // Plural pair for the JS-rendered recurrence summary. The count is
+            // only known client-side, so _n() cannot apply; the JS picks one.
+            // Two-form approximation - languages with more forms read wrong here.
+            /* translators: %d is the number of occurrences (singular form, count = 1) */
+            'countOne' => __('%d occurrence', 'simply-events-calendar'),
+            /* translators: %d is the number of occurrences (plural form, count != 1) */
+            'countMany'=> __('%d occurrences', 'simply-events-calendar'),
+            'never'    => __('repeats indefinitely', 'simply-events-calendar'),
+            /* translators: %s is the recurrence end date value from the date picker (e.g. 2026-12-31) */
+            'until'    => __('until %s', 'simply-events-calendar'),
             'sep'      => ' · ',
-            'onDays'   => __('on %s', 'simple_events'),
+            /* translators: %s is a comma-separated list of weekday abbreviations, e.g. "Mon, Wed, Fri" */
+            'onDays'   => __('on %s', 'simply-events-calendar'),
             'dayNames' => $day_names,
         ));
     }
@@ -179,12 +186,12 @@ class Simple_Events_Meta_Box {
         ?>
         <div class="simple-events-meta-box sec-mb">
             <div class="sec-mb__section">
-                <p class="sec-mb__section-label"><?php esc_html_e('When & where', 'simple_events'); ?></p>
+                <p class="sec-mb__section-label"><?php esc_html_e('When & where', 'simply-events-calendar'); ?></p>
 
                 <div class="sec-mb__field">
                     <label class="sec-mb__label" for="sec_event_date">
                         <svg class="sec-mb__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                        <?php esc_html_e('Event Date', 'simple_events'); ?> <span class="sec-mb__req"><?php esc_html_e('required', 'simple_events'); ?></span>
+                        <?php esc_html_e('Event Date', 'simply-events-calendar'); ?> <span class="sec-mb__req"><?php esc_html_e('required', 'simply-events-calendar'); ?></span>
                     </label>
                     <input type="date" id="sec_event_date" name="sec_event_date" value="<?php echo esc_attr($date_input); ?>" required />
                 </div>
@@ -193,12 +200,12 @@ class Simple_Events_Meta_Box {
                     <div class="sec-mb__field">
                         <label class="sec-mb__label" for="sec_event_start_time">
                             <svg class="sec-mb__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                            <?php esc_html_e('Start Time', 'simple_events'); ?>
+                            <?php esc_html_e('Start Time', 'simply-events-calendar'); ?>
                         </label>
                         <input type="time" id="sec_event_start_time" name="sec_event_start_time" value="<?php echo esc_attr($start_input); ?>" />
                     </div>
                     <div class="sec-mb__field">
-                        <label class="sec-mb__label" for="sec_event_end_time"><?php esc_html_e('End Time', 'simple_events'); ?> <span class="sec-mb__opt"><?php esc_html_e('optional', 'simple_events'); ?></span></label>
+                        <label class="sec-mb__label" for="sec_event_end_time"><?php esc_html_e('End Time', 'simply-events-calendar'); ?> <span class="sec-mb__opt"><?php esc_html_e('optional', 'simply-events-calendar'); ?></span></label>
                         <input type="time" id="sec_event_end_time" name="sec_event_end_time" value="<?php echo esc_attr($end_input); ?>" />
                     </div>
                 </div>
@@ -206,37 +213,37 @@ class Simple_Events_Meta_Box {
                 <div class="sec-mb__field">
                     <label class="sec-mb__label" for="sec_event_location">
                         <svg class="sec-mb__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                        <?php esc_html_e('Location', 'simple_events'); ?> <span class="sec-mb__opt"><?php esc_html_e('optional', 'simple_events'); ?></span>
+                        <?php echo esc_html_x('Location', 'event meta box field label', 'simply-events-calendar'); ?> <span class="sec-mb__opt"><?php esc_html_e('optional', 'simply-events-calendar'); ?></span>
                     </label>
-                    <input type="text" id="sec_event_location" name="sec_event_location" class="widefat" maxlength="255" value="<?php echo esc_attr($location); ?>" placeholder="<?php esc_attr_e('e.g., Conference Room A, 123 Main St, or Online', 'simple_events'); ?>" />
+                    <input type="text" id="sec_event_location" name="sec_event_location" class="widefat" maxlength="255" value="<?php echo esc_attr($location); ?>" placeholder="<?php esc_attr_e('e.g., Conference Room A, 123 Main St, or Online', 'simply-events-calendar'); ?>" />
                 </div>
             </div>
 
             <?php if ($is_child) : ?>
-                <p class="sec-mb__child-note description"><?php esc_html_e('This event is part of a recurring series. Recurrence settings are managed on the series parent.', 'simple_events'); ?></p>
+                <p class="sec-mb__child-note description"><?php esc_html_e('This event is part of a recurring series. Recurrence settings are managed on the series parent.', 'simply-events-calendar'); ?></p>
             <?php else : ?>
                 <div class="sec-mb__section">
                     <label class="sec-mb__check">
                         <input type="checkbox" id="sec_event_repeats" name="sec_event_repeats" value="1" <?php checked($repeats); ?> data-sec-toggle="recur" />
-                        <span class="sec-mb__pill"><?php esc_html_e('Recurring', 'simple_events'); ?></span>
-                        <?php esc_html_e('This is a recurring event', 'simple_events'); ?>
+                        <span class="sec-mb__pill"><?php esc_html_e('Recurring', 'simply-events-calendar'); ?></span>
+                        <?php esc_html_e('This is a recurring event', 'simply-events-calendar'); ?>
                     </label>
 
                     <div class="sec-mb__recur" data-sec-recur-group>
                         <p class="sec-mb__summary" data-sec-summary></p>
 
                         <div class="sec-mb__field">
-                            <label class="sec-mb__label" for="sec_event_repeat_frequency"><?php esc_html_e('Repeats', 'simple_events'); ?></label>
+                            <label class="sec-mb__label" for="sec_event_repeat_frequency"><?php esc_html_e('Repeats', 'simply-events-calendar'); ?></label>
                             <div class="sec-mb__row">
-                                <?php esc_html_e('Every', 'simple_events'); ?>
+                                <?php esc_html_e('Every', 'simply-events-calendar'); ?>
                                 <input type="number" id="sec_event_repeat_interval" name="sec_event_repeat_interval" min="1" step="1" value="<?php echo esc_attr($interval); ?>" style="width:5em;" data-sec-summary-input />
                                 <select id="sec_event_repeat_frequency" name="sec_event_repeat_frequency" data-sec-summary-input>
                                     <?php
                                     $freqs = array(
-                                        'daily'   => __('day(s)', 'simple_events'),
-                                        'weekly'  => __('week(s)', 'simple_events'),
-                                        'monthly' => __('month(s)', 'simple_events'),
-                                        'yearly'  => __('year(s)', 'simple_events'),
+                                        'daily'   => __('day(s)', 'simply-events-calendar'),
+                                        'weekly'  => __('week(s)', 'simply-events-calendar'),
+                                        'monthly' => __('month(s)', 'simply-events-calendar'),
+                                        'yearly'  => __('year(s)', 'simply-events-calendar'),
                                     );
                                     foreach ($freqs as $value => $label) {
                                         printf('<option value="%s" %s>%s</option>', esc_attr($value), selected($frequency, $value, false), esc_html($label));
@@ -247,7 +254,7 @@ class Simple_Events_Meta_Box {
                         </div>
 
                         <div class="sec-mb__field" data-sec-byday>
-                            <span class="sec-mb__label"><?php esc_html_e('On these days', 'simple_events'); ?></span>
+                            <span class="sec-mb__label"><?php esc_html_e('On these days', 'simply-events-calendar'); ?></span>
                             <div class="sec-mb__days">
                                 <?php
                                 $wp_locale = isset($GLOBALS['wp_locale']) ? $GLOBALS['wp_locale'] : null;
@@ -268,20 +275,20 @@ class Simple_Events_Meta_Box {
                                 ?>
                             </div>
                             <div class="sec-mb__presets">
-                                <button type="button" class="button button-small sec-mb__preset" data-sec-preset="weekdays"><?php esc_html_e('Weekdays', 'simple_events'); ?></button>
-                                <button type="button" class="button button-small sec-mb__preset" data-sec-preset="weekend"><?php esc_html_e('Weekend', 'simple_events'); ?></button>
-                                <button type="button" class="button button-small sec-mb__preset" data-sec-preset="all"><?php esc_html_e('Every day', 'simple_events'); ?></button>
+                                <button type="button" class="button button-small sec-mb__preset" data-sec-preset="weekdays"><?php esc_html_e('Weekdays', 'simply-events-calendar'); ?></button>
+                                <button type="button" class="button button-small sec-mb__preset" data-sec-preset="weekend"><?php esc_html_e('Weekend', 'simply-events-calendar'); ?></button>
+                                <button type="button" class="button button-small sec-mb__preset" data-sec-preset="all"><?php esc_html_e('Every day', 'simply-events-calendar'); ?></button>
                             </div>
                         </div>
 
                         <div class="sec-mb__field">
-                            <label class="sec-mb__label" for="sec_event_repeat_end_type"><?php esc_html_e('Ends', 'simple_events'); ?></label>
+                            <label class="sec-mb__label" for="sec_event_repeat_end_type"><?php esc_html_e('Ends', 'simply-events-calendar'); ?></label>
                             <select id="sec_event_repeat_end_type" name="sec_event_repeat_end_type" data-sec-toggle="end-type" data-sec-summary-input>
                                 <?php
                                 $end_types = array(
-                                    'never' => __('Never', 'simple_events'),
-                                    'count' => __('After a number of occurrences', 'simple_events'),
-                                    'until' => __('On a date', 'simple_events'),
+                                    'never' => __('Never', 'simply-events-calendar'),
+                                    'count' => __('After a number of occurrences', 'simply-events-calendar'),
+                                    'until' => __('On a date', 'simply-events-calendar'),
                                 );
                                 foreach ($end_types as $value => $label) {
                                     printf('<option value="%s" %s>%s</option>', esc_attr($value), selected($end_type, $value, false), esc_html($label));
@@ -291,12 +298,12 @@ class Simple_Events_Meta_Box {
                         </div>
 
                         <div class="sec-mb__field" data-sec-end="count">
-                            <label class="sec-mb__label" for="sec_event_repeat_count"><?php esc_html_e('Number of occurrences', 'simple_events'); ?></label>
+                            <label class="sec-mb__label" for="sec_event_repeat_count"><?php esc_html_e('Number of occurrences', 'simply-events-calendar'); ?></label>
                             <input type="number" id="sec_event_repeat_count" name="sec_event_repeat_count" min="1" step="1" value="<?php echo esc_attr($count); ?>" data-sec-summary-input />
                         </div>
 
                         <div class="sec-mb__field" data-sec-end="until">
-                            <label class="sec-mb__label" for="sec_event_repeat_until"><?php esc_html_e('Repeat until', 'simple_events'); ?></label>
+                            <label class="sec-mb__label" for="sec_event_repeat_until"><?php esc_html_e('Repeat until', 'simply-events-calendar'); ?></label>
                             <input type="date" id="sec_event_repeat_until" name="sec_event_repeat_until" value="<?php echo esc_attr($until_input); ?>" data-sec-summary-input />
                         </div>
                     </div>
@@ -476,9 +483,9 @@ class Simple_Events_Meta_Box {
         if ('' === (string) $time) {
             return '';
         }
-        // Tolerant of g:i a (native) and legacy H:i:s / H:i (ACF imports), so
-        // editing an imported event populates the time field instead of
-        // blanking it (which would erase the time on the next save).
+        // Tolerant of g:i a (current) and legacy H:i:s / H:i written by
+        // versions <= 4.4.0, so editing such an event populates the time field
+        // instead of blanking it (which would erase the time on the next save).
         $dt = function_exists('simple_events_parse_time_of_day')
             ? simple_events_parse_time_of_day((string) $time)
             : DateTimeImmutable::createFromFormat('g:i a', (string) $time);

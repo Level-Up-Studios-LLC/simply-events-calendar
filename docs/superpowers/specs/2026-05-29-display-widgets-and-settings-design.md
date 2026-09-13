@@ -1,13 +1,13 @@
 # Design: Display widgets, single-event display, and settings polish
 
 **Date:** 2026-05-29
-**Branch:** `feature/display-widgets-and-settings` (off `feature/remove-acf-dependency`)
+**Branch:** `feature/display-widgets-and-settings` (off the v5.0.0 self-contained-fields branch)
 **Plugin version target:** 5.1.0
 
 ## Summary
 
 A set of net-new display features plus admin/settings polish for the Simple Events
-Calendar plugin, building on the v5.0.0 ACF-removal work in PR #3:
+Calendar plugin, building on the v5.0.0 self-contained-fields work in PR #3:
 
 1. Replace the editable "Empty state" settings with a hardcoded, translatable static message.
 2. Date-format setting becomes a preset picker (4 presets) + a custom format field.

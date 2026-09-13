@@ -1,10 +1,10 @@
-# Simple Events Calendar
+# Simply Events Calendar
 
 A clean, responsive WordPress plugin for displaying events with infinite scroll, recurring-event support, and modern design. Built with simplicity, performance, and developer experience in mind.
 
 ## Description
 
-Simple Events Calendar provides an elegant way to create and display events on your WordPress website. The plugin features a responsive grid layout that adapts to all screen sizes, infinite scroll loading, and automatic filtering to show only current and upcoming events. As of **v4.4.0** it also supports recurring events that repeat every N days, weeks, months, or years — each occurrence is a real post, so it Just Works with the existing shortcode, archive, and admin UI. **v5.1.0** adds the `[sec_event]` single-event shortcode, Elementor Events Grid and Single Event display widgets (usable on any page), and weekly by-day recurrence (repeat on specific weekdays, weekdays only, or weekends). **v5.2.0** adds an in-admin "Upgrade to Pro" area (banner, feature preview, and menu link).
+Simply Events Calendar provides an elegant way to create and display events on your WordPress website. The plugin features a responsive grid layout that adapts to all screen sizes, infinite scroll loading, and automatic filtering to show only current and upcoming events. As of **v4.4.0** it also supports recurring events that repeat every N days, weeks, months, or years — each occurrence is a real post, so it Just Works with the existing shortcode, archive, and admin UI. **v5.1.0** adds the `[sec_event]` single-event shortcode, Elementor Events Grid and Single Event display widgets (usable on any page), and weekly by-day recurrence (repeat on specific weekdays, weekdays only, or weekends). **v5.2.0** adds an in-admin "Upgrade to Pro" area (banner, feature preview, and menu link).
 
 ## Features
 
@@ -79,10 +79,10 @@ Simple Events Calendar provides an elegant way to create and display events on y
 
 1. Download the plugin files
 2. Upload to `/wp-content/plugins/simple-events-calendar/`
-3. Activate the **Simple Events Calendar** plugin
+3. Activate the **Simply Events Calendar** plugin
 4. Start creating events! (Event date/time/location are entered in the "Event Details" box; adjust formatting under Events → Settings.)
 
-> **Upgrading from 4.x (ACF-based)?** No action needed. v5.0.0 removed the Advanced Custom Fields dependency; existing event data is preserved with no migration, and ACF can be deactivated.
+> **Upgrading from 4.x?** No action needed. v5.0.0 removed the third-party custom-fields dependency; existing event data is preserved with no migration, and that plugin can be deactivated.
 
 ## Usage
 
@@ -343,4 +343,4 @@ Created by [Level Up Studios, LLC](https://www.levelupstudios.com/)
 
 ---
 
-**Simple Events Calendar** - Making event management simple and beautiful. 🎉
+**Simply Events Calendar** - Making event management simple and beautiful. 🎉

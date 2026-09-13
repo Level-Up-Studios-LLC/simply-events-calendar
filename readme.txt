@@ -1,11 +1,10 @@
-=== Simple Events Calendar ===
+=== Simply Events Calendar ===
 Contributors: levelupstudios
-Donate link: https://www.levelupstudios.com/
-Tags: events, calendar, shortcode, responsive, elementor
+Tags: events, calendar, event calendar, recurring events, elementor
 Requires at least: 6.0
-Tested up to: 6.6
+Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 5.3.0
+Stable tag: 6.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,29 +12,29 @@ A simple, responsive events calendar for WordPress. Create one-time or recurring
 
 == Description ==
 
-Simple Events Calendar is a lightweight, user-friendly plugin that creates beautiful, responsive event displays on your WordPress site. Easily create one-time or recurring events and display them anywhere with shortcodes, Elementor widgets, and one-click Add to Calendar — all managed through a simple, built-in Event Details editor.
+Simply Events Calendar adds an "Events" post type to your WordPress site so you can create one-time or recurring events and display them anywhere — with a shortcode, an archive page, or Elementor widgets. Everything is managed through a built-in "Event Details" editor: no separate custom-fields plugin is required.
 
 = Key Features =
 
-* **Responsive Design**: Automatically adapts to different screen sizes (3 columns on desktop, 2 on tablet, 1 on mobile)
-* **No external dependencies**: Native event fields — ACF is no longer required
-* **Settings page**: Choose the front-end date/time format, display defaults, cache lifetime, and more
-* **Default templates**: Built-in single, archive, and category templates (theme-, Elementor-, and block-theme-overridable)
-* **Single Event shortcode**: `[sec_event id="123"]` — display one event anywhere in card or image-left list layout
-* **Modular element shortcodes**: `[sec_event_title]`, `[sec_event_image]`, `[sec_event_date]`, and more for custom layouts
-* **Elementor display widgets**: Events Grid (grid or list, configurable columns, optional infinite scroll) and Single Event widgets usable on any page; per-element widgets for event templates and archives
-* **Weekly by-day recurrence**: Recurring events can repeat on specific weekdays, weekdays only, or weekends only — with quick presets and a live plain-English summary
-* **Infinite Scroll Loading**: Events load smoothly as users scroll down
-* **Flexible Display Options**: Control what event information to show (time, excerpt, location, etc.)
-* **Event Status Filtering**: Filter events by upcoming, today's events, or past events in admin
-* **SEO**: schema.org Event structured data on cards and single event pages
-* **In-plugin Documentation**: Events → Documentation page listing all shortcodes and Elementor widgets
-* **Opt-in data management**: Choose whether to keep or delete event data when the plugin is uninstalled (default: keep)
-* **Accessibility Ready**: Built with accessibility best practices and reduced motion support
+* **Native event fields**: Date, time, location, and recurrence are edited in a built-in "Event Details" box — no companion plugin needed
+* **Simple shortcode**: `[sec_events]` displays an infinite-scrolling grid of upcoming events anywhere on your site
+* **Single Event shortcode**: `[sec_event id="123"]` — display one specific event anywhere in card or image-left list layout
+* **Modular element shortcodes**: `[sec_event_title]`, `[sec_event_image]`, `[sec_event_date]`, and more, for building custom layouts
+* **Recurring events**: repeat daily, weekly, monthly, or yearly, including specific weekdays (with Weekdays/Weekend/Every day presets), ending after a count, on a date, or never
+* **Per-occurrence editing**: change a single occurrence, "this and future" occurrences, or the entire series
+* **Elementor widgets**: an Events Grid widget (grid or image-left list, configurable columns, optional infinite scroll), a Single Event widget, per-element widgets for event templates and archives, and Dynamic Tags
+* **Default templates**: built-in single-event, archive, and category templates that your theme, block/FSE theme, or Elementor Pro Theme Builder can override
+* **Add to Calendar**: single event pages include a button that downloads a universal .ics file (Apple Calendar, Outlook, Google Calendar)
+* **Settings page**: choose the front-end date/time format, display defaults, cache lifetime, and more
+* **SEO**: schema.org Event structured data on event cards and single event pages
+* **Responsive design**: adapts automatically to desktop, tablet, and mobile
+* **Opt-in data management**: choose whether to keep or delete event data when the plugin is uninstalled (default: keep)
+* **Accessibility ready**: built with accessibility best practices and reduced-motion support
+* **Translation ready**: shipped with English, Spanish (es_ES), and French (fr_FR) translations
 
 = Shortcode Usage =
 
-Display events anywhere on your site with the simple shortcode:
+Display upcoming events anywhere on your site:
 
 `[sec_events]`
 
@@ -83,65 +82,109 @@ When Elementor is active, a "Simple Events" widget category (listed just below "
 
 To sort an Elementor **Loop Grid** of events by their event date (instead of the post date), set the Loop Grid's Query ID to "sec_events_by_date" (follows the global "Show past events" setting) or "sec_events_by_date_all" (always includes past). No code snippet required.
 
+= Recurring Events =
+
+Mark an event as repeating and choose a frequency (daily, weekly, monthly, or yearly), an interval, and — for weekly recurrence — specific weekdays with quick "Weekdays", "Weekend", or "Every day" presets. Each occurrence is created as its own event, so shortcodes, archives, and admin filters all work with recurring events automatically. You can edit just one occurrence, "this and future" occurrences, or the whole series from a Series Edit Scope panel on the event edit screen.
+
+= Theme Overrides =
+
+The bundled single-event, archive, and category templates are only used when nothing else claims the page: your active theme can override them by adding matching template files, block/FSE themes are respected automatically, and an Elementor Pro Theme Builder template assigned to events takes priority over both.
+
 = No Required Plugins =
 
-This plugin is fully self-contained. Previous versions required Advanced Custom Fields; version 5.0.0 removed that dependency. Existing events created with earlier versions continue to work unchanged — their data is preserved and no migration is needed. ACF can be safely deactivated.
+This plugin is fully self-contained. All event fields are stored as native WordPress post meta and edited through the built-in "Event Details" box — no separate custom-fields plugin is needed.
 
-= Developer Features =
+== External services ==
 
-* SCSS build system with Sass compiler
-* CSS linting with stylelint
-* File watching for development
-* Automated distribution creation
-* Semantic versioning support
+This plugin connects to Freemius, a third-party licensing and update service,
+to manage software licenses, deliver plugin updates, and — only if you opt in —
+collect anonymous usage data.
 
-= Multilingual Support =
+**When it connects, and what it sends:**
 
-The plugin includes translations for:
-* English (default)
-* Spanish (es_ES)
-* French (fr_FR)
+* **On activation:** the plugin shows an opt-in screen. If you choose "Skip",
+  no data is sent and the plugin works normally. Nothing is transmitted before
+  you make that choice.
+* **If you opt in:** your site URL, WordPress and PHP versions, the plugin
+  version, active theme and plugin names, and the email address of the
+  activating administrator are sent to Freemius. This is used for update
+  delivery and anonymous usage statistics.
+* **If you purchase a license:** your license key and site URL are sent to
+  Freemius to activate and validate that license, and again periodically to
+  confirm it remains valid.
+* **On deactivation:** if you opt to share a reason, that reason is sent.
 
-Additional languages can be added using standard WordPress translation methods.
+Service provider: Freemius, Inc. — https://freemius.com/
+Terms of service: https://freemius.com/terms/
+Privacy policy: https://freemius.com/privacy/
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/simple-events-calendar` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the Simple Events Calendar plugin through the 'Plugins' screen in WordPress.
+1. Upload the plugin files to the `/wp-content/plugins/simply-events-calendar` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the Simply Events Calendar plugin through the 'Plugins' screen in WordPress.
 3. Start creating events in your WordPress admin under "Events" — event date, time, and location are entered in the "Event Details" box.
 4. Optionally adjust formatting and defaults under Events → Settings.
 5. Use the `[sec_events]` shortcode to display events on any page or post.
 
 == Frequently Asked Questions ==
 
-= Do I need Advanced Custom Fields Pro? =
+= Does this plugin require any other plugin? =
 
-No. Advanced Custom Fields is not required and has not been required since v5.0.0. The plugin is fully self-contained — event date, time, location, and recurrence are all managed through a built-in "Event Details" meta box. Existing events created with earlier ACF-based versions are preserved with no migration needed; ACF can be safely deactivated or removed.
+No. It's fully self-contained — event date, time, location, and recurrence are all managed through a built-in "Event Details" meta box. Elementor is optional: if it's active, extra widgets appear automatically, but the plugin works fully without it.
 
-= Can I customize the event display? =
+= How do I display events on a page? =
 
-Yes, the plugin includes several shortcode parameters to control what information is displayed. You can also customize the styling through your theme's CSS.
+Add the `[sec_events]` shortcode to any page or post for an infinite-scrolling grid of upcoming events, or use the post type's own archive page. To show a single event anywhere, use `[sec_event id="123"]`.
 
-= How many events are displayed by default? =
+= Can I use this with Elementor? =
 
-The plugin displays 6 events initially and loads 6 more events each time the user scrolls to the bottom (infinite scroll).
+Yes. When Elementor is active, a "Simple Events" widget category provides an Events Grid widget, a Single Event widget, per-element widgets (title, image, date, time, location, and more) for use inside event templates, and Dynamic Tags for binding native Elementor widgets to event fields.
 
-= Can I show past events? =
+= Can events repeat on a schedule? =
 
-Past events are hidden on the frontend by default but remain accessible in the WordPress admin. The plugin automatically filters to show only current and upcoming events to site visitors.
+Yes. An event can repeat daily, weekly, monthly, or yearly, including on specific weekdays for weekly recurrence, and can end after a number of occurrences, on a date, or never. Each occurrence is its own event, and you can edit one occurrence, future occurrences, or the entire series independently.
 
-= Is the plugin responsive? =
+= Can I override the default templates with my theme? =
 
-Yes, the plugin is fully responsive and adapts to different screen sizes automatically.
+Yes. The bundled single-event, archive, and category templates are used only as a fallback. Copy them into your theme to customize the markup, and a block/FSE theme or an Elementor Pro Theme Builder template assigned to events will take priority automatically.
+
+= Can I customize what information is displayed? =
+
+Yes. Shortcode and widget parameters control whether time, excerpt, location, and the footer link are shown, and you can further style output with your theme's CSS.
+
+= What happens to my events if I uninstall the plugin? =
+
+Nothing, by default. Deactivating or deleting the plugin keeps all your events, categories, and settings intact unless you explicitly opt in to data deletion on the Events → Settings → Data page.
+
+= Is the plugin translation ready? =
+
+Yes. It ships with English, Spanish (es_ES), and French (fr_FR) translations, and additional languages can be added using standard WordPress translation tools.
 
 == Screenshots ==
 
-1. Event display with responsive grid layout
+1. Event display with a responsive shortcode grid
 2. WordPress admin events list with custom columns
-3. Event creation form with ACF fields
-4. Shortcode parameters and usage examples
+3. Event creation screen with the built-in Event Details meta box
+4. Elementor Events Grid widget settings
 
 == Changelog ==
+
+= 6.0.0 (2026-09-07) =
+
+**Changed**
+* The plugin is now Simply Events Calendar. One codebase now produces both the free build and the licensed Pro build of the same plugin, so there is one plugin to install and manage rather than two. Entering a license upgrades the plugin in place.
+* The plugin folder and main file are renamed to `simply-events-calendar`. WordPress identifies a plugin by that path, so this release requires a manual changeover — see the Upgrade Notice below. No event data is affected.
+* Global constants `PLUGIN_DIR`, `PLUGIN_URL`, `PLUGIN_ASSETS`, and `PLUGIN_VERSION` are now `SIMPLE_EVENTS_*`. Anything reading them directly needs updating; they were unprefixed globals that could collide with any other plugin.
+
+**Fixed**
+* 105 admin and front-end strings were untranslatable and now are not. They passed the text domain as a PHP constant, and WordPress extracts translatable strings by reading literals out of the source, so those strings never reached the translation template in any locale. All 385 call sites now use a literal domain matching the plugin slug.
+* Placeholder strings carry translator comments, "(s)" plural hedges are now real plural forms, and ambiguous single-word labels carry context — so translators can produce correct output rather than guesses.
+
+**Added**
+* Licensing, updates, and optional usage analytics through Freemius. The opt-in is skippable; choosing "Skip" transmits nothing. See the External services section below for exactly what is sent and when.
+
+**Migration / compatibility**
+* Your data is safe. Events are posts, their fields are post meta, categories are terms, and settings are a single option. None of those names change in this release, and deactivating a plugin never deletes them. Because the plugin folder changed, WordPress treats this as a different plugin, so the changeover is manual — see the Upgrade Notice below for the step-by-step procedure.
 
 = 5.2.0 (2026-06-11) =
 
@@ -178,24 +221,15 @@ Yes, the plugin is fully responsive and adapts to different screen sizes automat
 * Infinite scroll could fail to trigger when scrolling straight to the bottom and stopping — now re-checks position on the trailing edge
 * Several code-review fixes: Elementor event-ID fallback guarded against term-ID collisions on taxonomy archives; weekday picker checkboxes given full names for screen readers; Events Grid columns stack correctly to 2/1 on tablet/mobile
 
-**Compatibility**
-* Events from much older versions (stored under the `events` post type / `events-cat` taxonomy) are automatically migrated to `simple-events` / `simple-events-cat` on upgrade, so they keep working. Times stored in 24-hour `H:i:s` form are now read and edited correctly too. **Back up your database and test on a staging site before upgrading production.**
-
 = 5.0.0 (2026-05-29) =
 
-**Removed**
-* Advanced Custom Fields dependency — the plugin is now fully self-contained
-
 **Added**
-* Native "Event Details" meta box for editing date, time, location, and recurrence (replaces the ACF UI)
+* Native "Event Details" meta box for editing date, time, location, and recurrence
 * Settings page (Events → Settings): front-end date/time format, display defaults, empty-state copy, cache lifetime + clear button, load-more batch size, recurrence limits, schema.org toggle
 * Element shortcodes for custom layouts: [sec_event_title], [sec_event_image], [sec_event_date], [sec_event_time], [sec_event_location], [sec_event_excerpt], [sec_event_content], [sec_event_categories], [sec_event_button]
 * Default single, archive, and category templates (theme-, Elementor-, and block-theme-overridable)
 * Elementor "Simple Events" widgets and Dynamic Tags (when Elementor is active)
 * schema.org Event structured data on single event pages
-
-**Compatibility**
-* Existing events are preserved with no migration; ACF can be safely deactivated
 
 = 4.4.0 (2026-05-28) =
 
@@ -222,7 +256,7 @@ Yes, the plugin is fully responsive and adapts to different screen sizes automat
 **Fixed**
 * Fixed asset cache-busting (plugin version was hardcoded to an older value, causing browsers to serve stale CSS/JS after upgrades)
 * Fixed archive query meta_query merging so existing relation keys from other plugins are preserved
-* Prevented duplicate `init()` execution caused by hooking both `plugins_loaded` and `acf/init`
+* Prevented duplicate `init()` execution caused by hooking both `plugins_loaded` and a second init action
 * Moved translation loading to the `init` hook to silence the WordPress 6.7+ notice
 * AJAX-loaded event cards now render the "Learn More" footer link, matching shortcode output
 
@@ -262,7 +296,7 @@ Yes, the plugin is fully responsive and adapts to different screen sizes automat
 * Improved accessibility features and reduced motion support
 
 **Fixed**
-* Fixed plugin description to clearly specify ACF® requirement
+* Fixed plugin description to clearly specify the custom-fields plugin requirement
 * Improved WordPress version compatibility requirements
 * Enhanced color definitions and margin adjustments for better layout consistency
 * Fixed media query structure for improved readability and maintainability
@@ -282,8 +316,8 @@ Yes, the plugin is fully responsive and adapts to different screen sizes automat
 = 4.1.0 (2024-09-22) =
 
 **Improved**
-* Enhanced ACF dependency error message for better user experience
-* Added direct download link button "Download ACF Free Plugin" to WordPress plugin installer
+* Enhanced dependency error message for better user experience
+* Added a direct download-link button for the required plugin to the WordPress plugin installer
 * Cleaner, more actionable error messages for missing dependencies
 
 = 4.0.3 (2024-09-22) =
@@ -314,7 +348,7 @@ Yes, the plugin is fully responsive and adapts to different screen sizes automat
 * 4:3 aspect ratio for featured images with responsive design
 * Event status filtering in admin
 * Location field with visual indicators
-* Comprehensive ACF dependency checking
+* Comprehensive dependency checking
 * Scroll hints and loading animations
 * Enhanced event card design with hover effects
 
@@ -329,10 +363,17 @@ Yes, the plugin is fully responsive and adapts to different screen sizes automat
 * Infinite scroll error handling
 * Past events filtering
 * Date comparison issues using WordPress timezone
-* ACF Pro detection reliability
+* Field-plugin detection reliability
 * Event ordering consistency
 
 == Upgrade Notice ==
+
+= 6.0.0 =
+The plugin is renamed to Simply Events Calendar and its folder changes, so
+WordPress sees it as a new plugin: deactivate the old one (do not delete it
+yet), install this one, verify your events, then visit Settings → Permalinks.
+Your events, categories, and settings are preserved — none of the data they
+live in is renamed. Back up your database first.
 
 = 5.2.0 =
 Adds an in-admin "Upgrade to Pro" area (banner, feature preview, and menu link) for the upcoming Pro version. No changes to your events, settings, or the front end; the banner is dismissible per user.
@@ -341,7 +382,7 @@ Adds an in-admin "Upgrade to Pro" area (banner, feature preview, and menu link) 
 Adds display widgets, single-event/Add-to-Calendar features, and a one-time migration that renames very old `events`/`events-cat` data to `simple-events`/`simple-events-cat` so existing events keep working. Back up your database and test on staging before upgrading a production site.
 
 = 5.0.0 =
-Advanced Custom Fields is no longer required. Your existing events are preserved with no migration needed, and ACF can be deactivated after upgrading. Event date/time/location are now edited in the built-in "Event Details" box.
+The separate custom-fields plugin is no longer required. Your existing events are preserved with no migration needed, and that plugin can be deactivated after upgrading. Event date/time/location are now edited in the built-in "Event Details" box.
 
 = 4.2.4 =
 BREAKING CHANGE: Shortcode changed from [simple_events_calendar] to [sec_events]. Please update your shortcodes after upgrading.

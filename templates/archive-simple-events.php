@@ -46,8 +46,8 @@ $sec_settings = simple_events_get_settings();
     <?php else : ?>
         <div class="simple-events-calendar simple-events-no-events">
             <div class="simple-events-empty-state">
-                <h3><?php echo esc_html__('No Events Found', 'simple_events'); ?></h3>
-                <p><?php echo esc_html__('No upcoming events scheduled. Check back soon!', 'simple_events'); ?></p>
+                <h3><?php echo esc_html__('No Events Found', 'simply-events-calendar'); ?></h3>
+                <p><?php echo esc_html__('No upcoming events scheduled. Check back soon!', 'simply-events-calendar'); ?></p>
             </div>
         </div>
     <?php endif; ?>

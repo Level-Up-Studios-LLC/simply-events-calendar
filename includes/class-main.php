@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Main plugin class for Simple Events Calendar
+ * Main plugin class for Simply Events Calendar
  *
  * @package Simple_Events_Calendar
  * @since 3.0.0
@@ -13,12 +13,12 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Main Simple Events Calendar class
+ * Main Simply Events Calendar class
  */
 class Simple_Events_Calendar {
 
     /**
-     * Plugin version (set from PLUGIN_VERSION in constructor)
+     * Plugin version (set from SIMPLE_EVENTS_VERSION in constructor)
      *
      * @var string
      */
@@ -145,7 +145,7 @@ class Simple_Events_Calendar {
      * Constructor
      */
     private function __construct() {
-        $this->version = defined('PLUGIN_VERSION') ? PLUGIN_VERSION : '0.0.0';
+        $this->version = defined('SIMPLE_EVENTS_VERSION') ? SIMPLE_EVENTS_VERSION : '0.0.0';
         $this->init_hooks();
     }
 
@@ -194,22 +194,22 @@ class Simple_Events_Calendar {
      */
     private function load_components() {
         // Load utility functions first
-        require_once PLUGIN_DIR . '/includes/functions.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/functions.php';
 
         // Load class files
-        require_once PLUGIN_DIR . '/includes/class-migrations.php';
-        require_once PLUGIN_DIR . '/includes/class-post-type.php';
-        require_once PLUGIN_DIR . '/includes/class-renderer.php';
-        require_once PLUGIN_DIR . '/includes/class-shortcode.php';
-        require_once PLUGIN_DIR . '/includes/class-ajax.php';
-        require_once PLUGIN_DIR . '/includes/class-admin-columns.php';
-        require_once PLUGIN_DIR . '/includes/class-meta-box.php';
-        require_once PLUGIN_DIR . '/includes/class-settings.php';
-        require_once PLUGIN_DIR . '/includes/class-docs.php';
-        require_once PLUGIN_DIR . '/includes/class-pro-upsell.php';
-        require_once PLUGIN_DIR . '/includes/class-ics.php';
-        require_once PLUGIN_DIR . '/includes/class-templates.php';
-        require_once PLUGIN_DIR . '/includes/class-recurrence.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-migrations.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-post-type.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-renderer.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-shortcode.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-ajax.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-admin-columns.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-meta-box.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-settings.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-docs.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-pro-upsell.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-ics.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-templates.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/class-recurrence.php';
 
         // Initialize component classes
         $this->migrations = new Simple_Events_Migrations();
@@ -227,8 +227,18 @@ class Simple_Events_Calendar {
         $this->recurrence = new Simple_Events_Recurrence();
 
         // Elementor integration (no-op unless Elementor is active).
-        require_once PLUGIN_DIR . '/includes/elementor/class-elementor.php';
+        require_once SIMPLE_EVENTS_DIR . '/includes/elementor/class-elementor.php';
         Simple_Events_Elementor::init();
+
+        // Premium features. includes/pro/ is stripped from the free build, so
+        // this block is a no-op there even if the processor leaves it behind.
+        if (sec_fs()->is__premium_only()) {
+            $pro = SIMPLE_EVENTS_DIR . '/includes/pro/class-pro-loader.php';
+            if (file_exists($pro)) {
+                require_once $pro;
+                Simple_Events_Pro_Loader::init();
+            }
+        }
     }
 
     /**
@@ -236,7 +246,7 @@ class Simple_Events_Calendar {
      */
     public function load_textdomain() {
         load_plugin_textdomain(
-            PLUGIN_TEXT_DOMAIN,
+            'simply-events-calendar',
             false,
             dirname(plugin_basename(SIMPLE_EVENTS_PLUGIN_FILE)) . '/languages/'
         );
@@ -402,7 +412,7 @@ class Simple_Events_Calendar {
         if (!wp_style_is('simple-events-style', 'registered')) {
             wp_register_style(
                 'simple-events-style',
-                PLUGIN_ASSETS . '/css/simple-events.css',
+                SIMPLE_EVENTS_ASSETS . '/css/simple-events.css',
                 array(),
                 $this->version
             );
@@ -414,7 +424,7 @@ class Simple_Events_Calendar {
         if (!wp_script_is('simple-events-script', 'registered')) {
             wp_register_script(
                 'simple-events-script',
-                PLUGIN_ASSETS . '/js/simple-events.js',
+                SIMPLE_EVENTS_ASSETS . '/js/simple-events.js',
                 array('jquery'),
                 $this->version,
                 true
@@ -429,9 +439,9 @@ class Simple_Events_Calendar {
                     'nonce'          => wp_create_nonce(SIMPLE_EVENTS_NONCE_ACTION),
                     'initial_offset' => $increment,
                     'load_increment' => $increment,
-                    'loading_text'   => __('Loading more events...', 'simple_events'),
-                    'retry_text'     => __('Try Again', 'simple_events'),
-                    'no_more_text'   => __('No more events to load.', 'simple_events'),
+                    'loading_text'   => __('Loading more events...', 'simply-events-calendar'),
+                    'retry_text'     => __('Try Again', 'simply-events-calendar'),
+                    'no_more_text'   => __('No more events to load.', 'simply-events-calendar'),
                 )
             );
         }
@@ -475,8 +485,8 @@ class Simple_Events_Calendar {
      */
     public function action_links($links) {
         $plugin_links = array(
-            '<a href="' . esc_url(admin_url('edit.php?post_type=simple-events')) . '">' . esc_html__('Events', 'simple_events') . '</a>',
-            '<a href="' . esc_url(admin_url('edit.php?post_type=simple-events&page=' . Simple_Events_Settings::PAGE)) . '">' . esc_html__('Settings', 'simple_events') . '</a>',
+            '<a href="' . esc_url(admin_url('edit.php?post_type=simple-events')) . '">' . esc_html__('Events', 'simply-events-calendar') . '</a>',
+            '<a href="' . esc_url(admin_url('edit.php?post_type=simple-events&page=' . Simple_Events_Settings::PAGE)) . '">' . esc_html__('Settings', 'simply-events-calendar') . '</a>',
         );
 
         return array_merge($plugin_links, $links);

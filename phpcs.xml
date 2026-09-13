@@ -34,7 +34,7 @@
     <rule ref="WordPress.WP.I18n">
         <properties>
             <property name="text_domain" type="array">
-                <element value="simple_events"/>
+                <element value="simply-events-calendar"/>
             </property>
         </properties>
     </rule>
@@ -44,7 +44,6 @@
             <property name="prefixes" type="array">
                 <element value="simple_events"/>
                 <element value="Simple_Events"/>
-                <element value="PLUGIN_"/>
                 <element value="SIMPLE_EVENTS_"/>
             </property>
         </properties>

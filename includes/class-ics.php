@@ -1,7 +1,7 @@
 <?php
 
 /**
- * "Add to Calendar" iCalendar (.ics) generator for Simple Events Calendar.
+ * "Add to Calendar" iCalendar (.ics) generator for Simply Events Calendar.
  *
  * Streams a standards-compliant .ics file for a single event so visitors can
  * add it to Apple Calendar, Outlook, Google Calendar (import), etc. The button
@@ -153,7 +153,7 @@ class Simple_Events_ICS {
         $lines = array(
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:-//Simple Events Calendar//EN',
+            'PRODID:-//Simply Events Calendar//EN',
             'CALSCALE:GREGORIAN',
             'METHOD:PUBLISH',
             'BEGIN:VEVENT',

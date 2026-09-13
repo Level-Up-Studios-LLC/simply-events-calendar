@@ -1840,5 +1840,5 @@ git commit -m "chore: bump to 5.1.0 and document new widgets, shortcode, and set
 - [ ] `grep -rn "empty_state" includes templates template-parts` → no matches.
 - [ ] With Elementor **deactivated**: the plugin loads with no errors; shortcodes (`[sec_events]`, `[sec_event]`) work; settings/meta box work.
 - [ ] With Elementor **active**: all 9 element widgets + Events Grid + Single Event appear; element widgets gated; display widgets render grid/list.
-- [ ] Push the branch and open a PR against `main` (or `feature/remove-acf-dependency` if PR #3 is the integration target). Summarize the 8 changes and reference the resolved Copilot comments.
+- [ ] Push the branch and open a PR against `main` (or the v5.0.0 self-contained-fields branch if PR #3 is the integration target). Summarize the 8 changes and reference the resolved Copilot comments.
 ```

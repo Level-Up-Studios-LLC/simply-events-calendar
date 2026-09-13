@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Event Card Template for Simple Events Calendar
+ * Event Card Template for Simply Events Calendar
  *
  * Outputs an event card for a single event post with improved accessibility
  * and error handling.
@@ -99,9 +99,11 @@ $start_iso = (is_array($event_schema) && !empty($event_schema['startDate']))
         <div class="simple-events-calendar__post__thumbnail">
             <a href="<?php echo $permalink; ?>"
                 class="simple-events-calendar__post__link"
-                aria-label="<?php printf(__('View event: %s', PLUGIN_TEXT_DOMAIN), $title); ?>">
+                <?php /* translators: %s is the event title */ ?>
+                aria-label="<?php printf(__('View event: %s', 'simply-events-calendar'), $title); ?>">
                 <img src="<?php echo $thumbnail; ?>"
-                    alt="<?php echo esc_attr(sprintf(__('Image for event: %s', PLUGIN_TEXT_DOMAIN), $title)); ?>"
+                    <?php /* translators: %s is the event title */ ?>
+                    alt="<?php echo esc_attr(sprintf(__('Image for event: %s', 'simply-events-calendar'), $title)); ?>"
                     itemprop="image"
                     loading="lazy"
                     decoding="async" />
@@ -123,13 +125,15 @@ $start_iso = (is_array($event_schema) && !empty($event_schema['startDate']))
             <time class="simple-events-calendar__post__date"
                 datetime="<?php echo esc_attr($start_iso); ?>"
                 itemprop="startDate">
-                <span class="simple-events-calendar__date-text" aria-label="<?php printf(__('Event date: %s', PLUGIN_TEXT_DOMAIN), $date); ?>">
+                <?php /* translators: %s is the event date, already formatted per the site's date-format setting */ ?>
+                <span class="simple-events-calendar__date-text" aria-label="<?php printf(__('Event date: %s', 'simply-events-calendar'), $date); ?>">
                     <?php echo $date; ?>
                 </span>
             </time>
 
             <?php if ($time_display && $show_time) : ?>
-                <span class="simple-events-calendar__post__time" aria-label="<?php printf(__('Event time: %s', PLUGIN_TEXT_DOMAIN), trim($time_display, ' <span class="simple-events-calendar__post__time__separator">|</span>')); ?>">
+                <?php /* translators: %s is the event's start (and, if set, end) time, already formatted per the site's time-format setting */ ?>
+                <span class="simple-events-calendar__post__time" aria-label="<?php printf(__('Event time: %s', 'simply-events-calendar'), trim($time_display, ' <span class="simple-events-calendar__post__time__separator">|</span>')); ?>">
                     <?php echo $time_display; ?>
                 </span>
             <?php endif; ?>
@@ -149,7 +153,7 @@ $start_iso = (is_array($event_schema) && !empty($event_schema['startDate']))
         if ($location && $show_location) :
         ?>
             <div class="simple-events-calendar__post__location" itemprop="location" itemscope itemtype="https://schema.org/Place">
-                <span class="simple-events-calendar__location-label" aria-label="<?php _e('Event location:', PLUGIN_TEXT_DOMAIN); ?>">
+                <span class="simple-events-calendar__location-label" aria-label="<?php _e('Event location:', 'simply-events-calendar'); ?>">
                     <svg class="simple-events-calendar__location-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
@@ -164,8 +168,9 @@ $start_iso = (is_array($event_schema) && !empty($event_schema['startDate']))
             <footer class="simple-events-calendar__post__footer">
                 <a href="<?php echo $permalink; ?>"
                     class="simple-events-calendar__read-more"
-                    aria-label="<?php printf(__('Read more about %s', PLUGIN_TEXT_DOMAIN), $title); ?>">
-                    <?php _e('Learn More', PLUGIN_TEXT_DOMAIN); ?>
+                    <?php /* translators: %s is the event title */ ?>
+                    aria-label="<?php printf(__('Read more about %s', 'simply-events-calendar'), $title); ?>">
+                    <?php _e('Learn More', 'simply-events-calendar'); ?>
                     <svg class="simple-events-calendar__arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                     </svg>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Elementor Dynamic Tags for Simple Events Calendar fields.
+ * Elementor Dynamic Tags for Simply Events Calendar fields.
  *
  * Lets users bind native Elementor widgets (Heading, Text, Image, Button, …) to
  * event fields. Required only from Simple_Events_Elementor::register_tags(), so
@@ -83,7 +83,7 @@ abstract class Simple_Events_Tag_Base extends \Elementor\Core\DynamicTags\Tag {
  */
 class Simple_Events_Tag_Date extends Simple_Events_Tag_Base {
     public function get_name() { return 'sec-event-date'; }
-    public function get_title() { return __('Event Date', 'simple_events'); }
+    public function get_title() { return __('Event Date', 'simply-events-calendar'); }
     protected function sec_value($post_id) {
         return simple_events_get_event_date($post_id);
     }
@@ -94,7 +94,7 @@ class Simple_Events_Tag_Date extends Simple_Events_Tag_Base {
  */
 class Simple_Events_Tag_Time extends Simple_Events_Tag_Base {
     public function get_name() { return 'sec-event-time'; }
-    public function get_title() { return __('Event Time', 'simple_events'); }
+    public function get_title() { return __('Event Time', 'simply-events-calendar'); }
     protected function sec_value($post_id) {
         $start = simple_events_get_event_time($post_id, 'event_start_time');
         if ('' === $start) {
@@ -110,7 +110,7 @@ class Simple_Events_Tag_Time extends Simple_Events_Tag_Base {
  */
 class Simple_Events_Tag_Location extends Simple_Events_Tag_Base {
     public function get_name() { return 'sec-event-location'; }
-    public function get_title() { return __('Event Location', 'simple_events'); }
+    public function get_title() { return __('Event Location', 'simply-events-calendar'); }
     protected function sec_value($post_id) {
         return (string) get_post_meta($post_id, 'event_location', true);
     }
@@ -121,7 +121,7 @@ class Simple_Events_Tag_Location extends Simple_Events_Tag_Base {
  */
 class Simple_Events_Tag_Title extends Simple_Events_Tag_Base {
     public function get_name() { return 'sec-event-title'; }
-    public function get_title() { return __('Event Title', 'simple_events'); }
+    public function get_title() { return __('Event Title', 'simply-events-calendar'); }
     protected function sec_value($post_id) {
         return get_the_title($post_id);
     }
@@ -132,7 +132,7 @@ class Simple_Events_Tag_Title extends Simple_Events_Tag_Base {
  */
 class Simple_Events_Tag_Excerpt extends Simple_Events_Tag_Base {
     public function get_name() { return 'sec-event-excerpt'; }
-    public function get_title() { return __('Event Excerpt', 'simple_events'); }
+    public function get_title() { return __('Event Excerpt', 'simply-events-calendar'); }
     protected function sec_value($post_id) {
         return get_the_excerpt($post_id);
     }
@@ -143,7 +143,7 @@ class Simple_Events_Tag_Excerpt extends Simple_Events_Tag_Base {
  */
 class Simple_Events_Tag_Categories extends Simple_Events_Tag_Base {
     public function get_name() { return 'sec-event-categories'; }
-    public function get_title() { return __('Event Categories', 'simple_events'); }
+    public function get_title() { return __('Event Categories', 'simply-events-calendar'); }
     protected function sec_value($post_id) {
         $terms = get_the_terms($post_id, 'simple-events-cat');
         if (empty($terms) || is_wp_error($terms)) {
@@ -158,7 +158,7 @@ class Simple_Events_Tag_Categories extends Simple_Events_Tag_Base {
  */
 class Simple_Events_Tag_Image_Url extends \Elementor\Core\DynamicTags\Data_Tag {
     public function get_name() { return 'sec-event-image-url'; }
-    public function get_title() { return __('Event Image URL', 'simple_events'); }
+    public function get_title() { return __('Event Image URL', 'simply-events-calendar'); }
     public function get_group() { return 'simple-events'; }
     public function get_categories() {
         return array(\Elementor\Modules\DynamicTags\Module::URL_CATEGORY);
